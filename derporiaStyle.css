@@ -1,0 +1,53 @@
+/*James Dressel and James Robertson*/
+input
+{
+	font-family:"Trebuchet MS";
+	font-size:100%;
+}
+
+button
+{
+	font-family:"Trebuchet MS";
+	font-size:100%;
+}
+
+textarea
+{
+	font-family:"Trebuchet MS";
+	font-size:100%;
+	width: 100%; 
+	margin: 0; 
+	padding:0; 
+}
+
+textarea:focus
+{
+	border: 3px solid green;
+}
+	
+body
+{	
+	font-family:"Trebuchet MS";
+	background-color:#d0e4fe;
+}
+
+h1
+{
+		
+	font-family:"Trebuchet MS";
+	text-align:center;
+}
+
+p
+{
+	text-align:center;
+	font-family:"Trebuchet MS";
+	font-size:150%;
+}
+
+table.center 
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:14%
+}
