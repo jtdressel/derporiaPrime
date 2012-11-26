@@ -18,7 +18,38 @@ input
 button
 {
 	font-family:"Trebuchet MS";
+	text-align: center;
 	font-size:100%;
+	padding-top: 6px; 
+	padding-bottom: 6px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: solid 1px #999999;
+	color:white;
+	cursor: pointer;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
+}
+
+button.red 
+{ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF0000), to(#600000)); 
+	border: solid 1px #600000; 
+	color:white;
+	cursor: pointer;
+}
+button.yellow 
+{ 
+	border: solid 1px #FF6600;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFF00), to(#FF6600));
+	color:white;
+	cursor: pointer;
+}
+button.green 
+{ 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00FF33 ), to(#009933)); 
+	border: solid 1px #009933;  
+	color:white;
+	cursor: pointer;
 }
 
 textarea
@@ -67,5 +98,13 @@ table.center
 {
 	margin-left:auto;
 	margin-right:auto;
-	width:14%
+	width:14%;
+	border:1;
+}
+
+.disagree
+{
+	background-color:#800000 ;
+	text-align:center;
+	color:white;
 }
