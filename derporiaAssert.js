@@ -22,7 +22,7 @@ function validateForm(){
 		//Assertion present, no claim
 			document.getElementById("error").innerHTML="<i>*A claim must be entered</i>";
 		} else {
-			document.getElementById("error").innerHTML="<i>*An assertion must be entered</i> <br> <i>*A claim must be entered</i>";
+			document.getElementById("error").innerHTML="<i>*A claim must be entered</i> <br> <i>*An assertion must be entered</i>";
 		}
 	return false;
 	}
