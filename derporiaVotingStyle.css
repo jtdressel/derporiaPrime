@@ -1,5 +1,7 @@
 /*James Dressel and James Robertson*/
 
+
+
 input
 {
 	font-family:"Trebuchet MS";
@@ -30,21 +32,21 @@ button
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
 }
 
-button.red 
+.red 
 { 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF0000), to(#600000)); 
 	border: solid 1px #600000; 
 	color:white;
 	cursor: pointer;
 }
-button.yellow 
+.yellow 
 { 
 	border: solid 1px #FF6600;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFF00), to(#FF6600));
 	color:white;
 	cursor: pointer;
 }
-button.green 
+.green 
 { 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00FF33 ), to(#009933)); 
 	border: solid 1px #009933;  
@@ -98,8 +100,14 @@ table.center
 {
 	margin-left:auto;
 	margin-right:auto;
-	width:14%;
-	border:1;
+	padding-left:0px;
+	padding-right:0px;
+	width:100%;
+}
+
+p.center
+{
+	text-align:center;
 }
 
 .disagree
@@ -107,4 +115,13 @@ table.center
 	background-color:#800000 ;
 	text-align:center;
 	color:white;
+}
+
+.mega 
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:14%;
+	border:solid 3px #85b9fc;
+	border-collapse:collapse;
 }
