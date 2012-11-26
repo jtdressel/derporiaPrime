@@ -30,6 +30,24 @@ button
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
 }
 
+button.login
+{
+	font-family:"Trebuchet MS";
+	text-align: center;
+	font-size:80%;
+	padding-top: 4px; 
+	padding-bottom: 4px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: solid 1px #999999;
+	color:white;
+	cursor: pointer;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
+	position: fixed; 
+	top: 37px;
+	right: 16px;
+}
+
 textarea
 {
 	font-family:"Trebuchet MS";

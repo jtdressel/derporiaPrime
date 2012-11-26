@@ -16,6 +16,8 @@
 	
 	<div class="username">
 	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
+	<br />
+	<button type="button" class="login" name="loginButton" align="right">Log In</button>
 	</div>
 	
 	<hr>
