@@ -9,8 +9,8 @@ function isEmpty(field){
 
 function validateForm(){
 	/*Check that fields are not empty, and have been changed*/
-	var claim = !isEmpty(document.forms["assertionForm"]["claim"].value)&&(document.forms["assertionForm"]["claim"].value!="Enter your claim");
-	var assertion = !isEmpty(document.forms["assertionForm"]["assertions"].value)&&(document.forms["assertionForm"]["assertions"].value!="Enter your assertions");
+	var claim = !isEmpty(document.forms["assertionForm"]["claim"].value)&&(document.forms["assertionForm"]["claim"].value!="");
+	var assertion = !isEmpty(document.forms["assertionForm"]["assertions"].value)&&(document.forms["assertionForm"]["assertions"].value!="");
 	if(claim&&assertion){
 		document.forms["assertionForm"]["Submit"].disabled=true;
 		return true;
@@ -29,8 +29,8 @@ function validateForm(){
 }
 
 function resetForm(){
-	document.forms["assertionForm"]["claim"].value="Enter your claim";
-	document.forms["assertionForm"]["assertions"].value="Enter your assertions";
+	document.forms["assertionForm"]["claim"].value="";
+	document.forms["assertionForm"]["assertions"].value="";
 	document.forms["assertionForm"]["Submit"].disabled=false;
 }
 
