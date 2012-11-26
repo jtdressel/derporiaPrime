@@ -8,11 +8,11 @@ input
 
 .username
 {
-	font-family:"Times New Roman";
-	font-size:20%;
+	font-family:"Trebuchet MS";
+	font-size:80%;
 	position: fixed; 
-	top: -30px;
-	right: +5005px;
+	top: 5px;
+	right: 10px;
 }
 
 button
@@ -53,6 +53,14 @@ h1
 	text-align:center;
 	font-family:"Trebuchet MS";
 	font-size:150%;
+}
+
+#error
+{
+	text-align:center;
+	font-family:"Trebuchet MS";
+	color:red;
+	font-size:100%;
 }
 
 table.center 

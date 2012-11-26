@@ -17,12 +17,12 @@ function validateForm(){
 	} else {
 		if(claim){
 		//Claim present, no assertion
-			alert("An assertion must be entered.");
+			document.getElementById("error").innerHTML="<i>*An assertion must be entered</i>";
 		} else if (assertion) {
 		//Assertion present, no claim
-			alert("A claim must be entered.");
+			document.getElementById("error").innerHTML="<i>*A claim must be entered</i>";
 		} else {
-			alert("Both a claim and an assertion must be entered.");
+			document.getElementById("error").innerHTML="<i>*An assertion must be entered</i> <br> <i>*A claim must be entered</i>";
 		}
 	return false;
 	}
@@ -44,4 +44,24 @@ function defaultOnBlur(field, defaultText){
 	if(field.value == ""){
 		field.value = defaultText;
 	}
+}
+
+function checkEnter(e){
+	 if (e.keyCode == 13) {
+	 	alert("Enter Pressed!");
+        return true;
+    }
+	return false;
+}
+
+function checkSubmit(e){
+	if (e.keyCode == 13) 
+	 	if(validateForm())
+			document.forms["assertionForm"].submit();
+}
+//disable addding a new line character to text fields
+function noEnter(e)
+{
+    if (window.event.keyCode == 13 ) 
+		return false;
 }

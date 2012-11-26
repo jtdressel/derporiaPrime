@@ -6,16 +6,16 @@
 <title>Derporia: the never-ending land of claims</title>
 
 <!-- A project by James Dressel and James Robertson -->
-<link rel="stylesheet" type="text/css" href="http://mason.gmu.edu/~jrobertq/derporia/derporiaStyle.css">
+<link rel="stylesheet" type="text/css" href="derporiaStyle.css"><!--http://mason.gmu.edu/~jrobertq/derporia/derporiaStyle.css-->
 
-<script src="http://mason.gmu.edu/~jrobertq/derporia/derporiaAssert.js"> </script>
+<script src="derporiaAssert.js"> </script><!--http://mason.gmu.edu/~jrobertq/derporia/derporiaAssert.js-->
 </head>
 
 	<body>
 	<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1> 
 	
 	<div class="username">
-	Login: <input type="text" name="username" placeholder="Username">
+	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
 	</div>
 	
 	<hr>
@@ -34,9 +34,9 @@
 		<td>
 		<form name="assertionForm"  onsubmit="return validateForm()" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPremium.Results" method="post">
 
-			<textarea cols="30" rows="1" name="claim" autofocus="autofocus" placeholder="Claim"></textarea>
+			<textarea cols="30" rows="1" name="claim" autofocus="autofocus" placeholder="Claim" onkeypress="checkSubmit(event);return noEnter(event)"></textarea>
 		<br>
-			<textarea cols="30" rows="5" name="assertions" size="20"  placeholder="Assertions"></textarea>
+			<textarea cols="30" rows="5" name="assertions" size="20"  placeholder="Assertions" onkeypress="checkSubmit(event);return noEnter(event)"></textarea>
 		<br>
 		</td>
 		</tr></tbody></table><table align="center" width="14%">
@@ -50,6 +50,7 @@
 		</tr>
 		</tbody></table>
 		</form>
+		<p id="error"></p>
 		
 </body>
 </html>
