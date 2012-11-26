@@ -1,8 +1,18 @@
 /*James Dressel and James Robertson*/
+
 input
 {
 	font-family:"Trebuchet MS";
 	font-size:100%;
+}
+
+.username
+{
+	font-family:"Trebuchet MS";
+	font-size:80%;
+	position: fixed; 
+	top: 5px;
+	right: 10px;
 }
 
 button
@@ -38,11 +48,19 @@ h1
 	text-align:center;
 }
 
-p
+.normal 
 {
 	text-align:center;
 	font-family:"Trebuchet MS";
 	font-size:150%;
+}
+
+#error
+{
+	text-align:center;
+	font-family:"Trebuchet MS";
+	color:red;
+	font-size:100%;
 }
 
 table.center 
