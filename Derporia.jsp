@@ -23,9 +23,6 @@
 	<hr>
 
 	<br>
-	<p class="normal">
-		Make a claim and make assertions to support your claim. 
-	</p>
 	
 	<table class="center" border="1">
 		<tbody>
