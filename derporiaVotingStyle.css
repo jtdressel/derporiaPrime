@@ -91,8 +91,13 @@ body
 }
 
 h1
-{
-		
+{	
+	font-family:"Trebuchet MS";
+	text-align:center;
+}
+
+h2
+{	
 	font-family:"Trebuchet MS";
 	text-align:center;
 }
@@ -121,8 +126,6 @@ table.center
 {
 	margin-left:auto;
 	margin-right:auto;
-	padding-left:0px;
-	padding-right:0px;
 	width:100%;
 }
 
