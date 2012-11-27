@@ -48,26 +48,45 @@ button.login
 	right: 16px;
 }
 
-.red 
+button.red 
 { 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF0000), to(#600000)); 
 	border: solid 1px #600000; 
 	color:white;
 	cursor: pointer;
 }
-.yellow 
+
+button.yellow 
 { 
 	border: solid 1px #FF6600;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFF00), to(#FF6600));
 	color:white;
 	cursor: pointer;
 }
-.green 
+
+button.green 
 { 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00FF33 ), to(#009933)); 
 	border: solid 1px #009933;  
 	color:white;
 	cursor: pointer;
+}
+
+td.red 
+{ 
+	background: #FF0000; 
+	color:white;
+}
+td.yellow 
+{ 
+	background: #FFCC00;
+	color:white;
+}
+
+td.green 
+{ 
+	background: #009933;   
+	color:white;
 }
 
 textarea
