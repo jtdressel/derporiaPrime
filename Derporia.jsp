@@ -6,9 +6,9 @@
 <title>Derporia: the never-ending land of claims</title>
 
 <!-- A project by James Dressel and James Robertson -->
-<link rel="stylesheet" type="text/css" href="derporiaStyle.css"><!--http://mason.gmu.edu/~jrobertq/derporia/derporiaStyle.css-->
+<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>
 
-<script src="derporiaAssert.js"> </script><!--http://mason.gmu.edu/~jrobertq/derporia/derporiaAssert.js-->
+<script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaAssert.js"/>
 </head>
 
 	<body>
