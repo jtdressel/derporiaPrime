@@ -1,4 +1,4 @@
-package jdressel.DerporiaPremium;
+package jdressel.Derporia64;
 // James Dressel and James Robertson
 // Based on the Hello.java example
 // Import Servlet Libraries
@@ -70,15 +70,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 		out.println("<table width=\"100%\">");
 		out.println("<tbody><tr>");
 		out.println("<td align=\"left\">");
-	out.println("<button onclick=\"location.href='http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPremium.Results?claim=" + claim + "&assertions="+ assertions +"&disagree="+(disagree+1)+"&unsure="+unsure+"&convinced="+convinced+"'\" type=\"button\" name=\"disagree\">Disagree</button>");
+	out.println("<button onclick=\"location.href='http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Results?claim=" + claim + "&assertions="+ assertions +"&disagree="+(disagree+1)+"&unsure="+unsure+"&convinced="+convinced+"'\" type=\"button\" name=\"disagree\">Disagree</button>");
 		out.println("</td>");
 		out.println("<td align=\"center\">");
-		out.println("<button onclick=\"location.href='http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPremium.Results?claim=" + claim + "&assertions="+ assertions +"&disagree="+disagree+"&unsure="+(unsure+1)+"&convinced="+convinced+"'\" type=\"button\" name=\"unsure\">Unsure</button>");
+		out.println("<button onclick=\"location.href='http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Results?claim=" + claim + "&assertions="+ assertions +"&disagree="+disagree+"&unsure="+(unsure+1)+"&convinced="+convinced+"'\" type=\"button\" name=\"unsure\">Unsure</button>");
 		out.println("<br>");
 		//out.println("Unsure: " + unsure");
 		out.println("</td>");
 		out.println("<td align=\"right\">");
-	out.println("<button onclick=\"location.href='http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPremium.Results?claim=" + claim + "&assertions="+ assertions +"&disagree="+disagree+"&unsure="+unsure+"&convinced="+(convinced+1)+"'\" type=\"button\" name=\"convinced\">Convinced</button>");
+	out.println("<button onclick=\"location.href='http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Results?claim=" + claim + "&assertions="+ assertions +"&disagree="+disagree+"&unsure="+unsure+"&convinced="+(convinced+1)+"'\" type=\"button\" name=\"convinced\">Convinced</button>");
 		out.println("</td>");
 		out.println("</tr>");
 		
