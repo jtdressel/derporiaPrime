@@ -42,7 +42,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		out.println("	<br />");
 		out.println("	<input class=\"regular\" type=\"submit\" name=\"Submit\"/>");
 		out.println("	</form>");
-		out.println("	</div>//TODO");
+		out.println("	</div>");
 	}
 	else
 		out.println("<div class=\"username\">You are logged in as "+derp+"</div>");
