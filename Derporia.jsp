@@ -83,7 +83,6 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		<p id="error"></p>
 		
 <h4>By James Robertson and James Dressel</h4>
-<a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp">TODO: Deleteme</a>
 </body>
 </html>
 
