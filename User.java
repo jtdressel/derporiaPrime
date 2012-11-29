@@ -21,13 +21,33 @@ public class User {
 		return assertions;
 	}
 	
-	/*
-	 * 	Adds an assertion to the list of assertions made by this user
-	 * 	@author James Robertson
+	/**		Removes a from the list of assertions
 	 * 
-	 * 	@return True if assertion was added 
-	 * 	@return False if the assertion already exists
-	 * 	@throws NullPointerException if a is null
+	 * 		@author James Robertson
+	 * 
+	 * 		@param a the assertion to be removed
+	 * 		@return true if the assertion was removed
+	 * 		@return false if the assertion could not be found
+	 * 		@throws NullPointerException if a is null
+	 */
+	
+	public boolean removeAssertion(Assertion a){
+		if(a == null)		
+			throw new NullPointerException();
+		if(!assertions.contains(a))
+			return false;
+		assertions.remove(assertions.indexOf(a));
+		return true;
+	}
+	
+	/**		Adds an assertion to the list of assertions made by this user
+	 * 	
+	 * 		@author James Robertson
+	 * 		
+	 * 		@param a the assertion to add
+	 * 		@return True if assertion was added 
+	 * 		@return False if the assertion already exists
+	 * 		@throws NullPointerException if a is null
 	 */
 	public boolean makeAssertion(Assertion a){
 		if(a==null)
