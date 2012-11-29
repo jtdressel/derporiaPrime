@@ -29,12 +29,10 @@ out.println("<br>");
 out.println("starting");
 out.println("<br>");
 	Iterator iterator = Singleton.getAssertions().iterator();
-	while(iterator.hasNext()){
-		Assertion assertion = (Assertion)iterator.next();
-out.println("<br>");
-		System.out.println(assertion);
-
-	}
+	for (Iterator<Assertion> ass = Singleton.getAssertions().iterator(); ass.hasNext();){
+			out.println("<br> loop");
+			out.println(ass.next());
+		}
 
 	out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\"> home</a>");
         out.close();
