@@ -1,6 +1,6 @@
 package jdressel.Derporia64;
 import java.util.*;
-
+import java.util.UUID;
 /*	
  * 	This class contains assertions made by users
  * 	@author James Robertson
@@ -12,6 +12,7 @@ public class Assertion {
 	private final String UN;
 	private String title;
 	private String body;
+	private UUID id;
 	private List<User> voters;
 	
 		public Assertion(String username, String title, String body) {
@@ -19,6 +20,11 @@ public class Assertion {
 		UN = username;
 		this.title= title;
 		this.body = body;
+		id = UUID.randomUUID();
+	}
+
+	public String getId(){
+		return id.toString();
 	}
 		
 	public String getName() {
@@ -138,7 +144,7 @@ public class Assertion {
 
 	@Override
 	public String toString(){
-		return("User name: " + UN + " Claim: "+ title + " Body: "+body + " Convinced: " + convinced + " Disagree: " + disagree + " unsure: " + unsure);
+		return("User name: " + UN + " Claim: "+ title + " Body: "+body + " Convinced: " + convinced + " Disagree: " + disagree + " unsure: " + unsure + "UUID: " + id);
 	}
 	
 }
