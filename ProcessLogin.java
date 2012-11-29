@@ -23,17 +23,28 @@ throws ServletException, IOException  {
 public void doPost(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException {
 	username = request.getParameter("username")==null ? "" : request.getParameter("username");
 	HttpSession session = request.getSession();//If a session does not exist, this will start one
-	User user = new User(username);
-	session.setAttribute("username",user);
+	if(session.getAttribute("username")!=null){
+	//user is already logged in
+		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/LoggedInAlready.jsp"));
+	}else{
+		User user = new User(username);
+		session.setAttribute("username",user);
 
-	//TODO: clean this up
+		//TODO: clean this up
 
-	res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
-	/*if(null != session.getAttribute("loginRequester")){
 		res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
-	}
 	
-	res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));*/
+	//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
+	
+
+	/*if(null != session.getAttribute("loginRequester")){
+			res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
+		}
+	
+		res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));*/
+	}
+
+
 }
 
 }

@@ -31,13 +31,15 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<%
 Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
 out.println(derp);//TODO
-session.setAttribute("loginRequester", "reddit.com");//TODO
+session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");//TODO
 %>
 
 	<div class="username">
+	<form name="loginForm"  action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessLogin" method="post">
 	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
 	<br />
-	<button type="button" class="login" name="loginButton" align="right">Log In</button>
+	<input class="regular" type="submit" name="Submit"/>
+	</form>
 	</div>
 	
 	<hr>
