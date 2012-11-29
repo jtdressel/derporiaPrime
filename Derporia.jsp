@@ -28,7 +28,12 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 
 	<body>
 	<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1> 
-	
+	<%
+Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
+out.println(derp);//TODO
+session.setAttribute("loginRequester", "reddit.com");//TODO
+%>
+
 	<div class="username">
 	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
 	<br />
@@ -68,6 +73,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		<p id="error"></p>
 		
 <h4>By James Robertson and James Dressel</h4>
+<a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp">TODO: Deleteme</a>
 </body>
 </html>
 

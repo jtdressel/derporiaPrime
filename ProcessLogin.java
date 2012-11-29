@@ -26,14 +26,14 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 	User user = new User(username);
 	session.setAttribute("username",user);
 
-	res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));//TODO: clean this up
-/*
+	//TODO: clean this up
 
-	if(null != session.getAttribute("loginRequester")){
+	res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
+	/*if(null != session.getAttribute("loginRequester")){
 		res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
 	}
 	
-	res.sendRedirect(res.encodeRedirectURL(request.getHeader("http://reddit.com")));*/
+	res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));*/
 }
 
 }
