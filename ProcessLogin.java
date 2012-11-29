@@ -22,13 +22,12 @@ throws ServletException, IOException  {
  }
 public void doPost(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException {
 	username = request.getParameter("username")==null ? "" : request.getParameter("username");
-	res.setContentType ("text/html");
-	PrintWriter out = res.getWriter();
-	out.println(username);
 	HttpSession session = request.getSession();//If a session does not exist, this will start one
 	User user = new User(username);
 	session.setAttribute("username",user);
-        out.close ();
+
+
+	res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));
 }
 
 }
