@@ -5,6 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.util.Iterator;
+import java.util.*;
 
 
 public class ProcessClaim extends HttpServlet {
@@ -28,36 +29,24 @@ throws ServletException, IOException  {
 
 public void doPost(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException {
 	HttpSession session = request.getSession();
+	setClaimAssertion(request);
 	if(session.getAttribute("username")==null){
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
 	} else {
-Assertion a = new Assertion((String)session.getAttribute("username").toString(), claim, assertions);
-Singleton.addAssertion(a);
-/*
-		PrintWriter out = res.getWriter();
-
-		setClaimAssertion(request);
-		out.println("process claim: "+ claim);
-		out.println("<br>");
-		out.println("process ass: "+ assertions);
-		out.println("<br>");
-		out.println("user" + session.getAttribute("username"));
-		out.println("<br>toString");
-		
-		
 		Assertion a = new Assertion((String)session.getAttribute("username").toString(), claim, assertions);
-		out.println(a);
-		
-		out.println("<br>in singleton<br>");
-		out.println(Singleton.getAssertions().size());
+		if(getServletContext().getAttribute("jdresselAssertions")==null){
+			//getServletContext().setAttribute("jdresselAssertions", new HashSet<Assertion>());
+			//Set<Assertion> assertions = (Set<Assertion>)getServletContext().getAttribute("jdresselAssertions");
+			//assertions.add(a);
+			getServletContext().setAttribute("jdresselAssertions",a);
+		} else{
+			//Set<Assertion> assertions = (Set<Assertion>)getServletContext().getAttribute("jdresselAssertions");
+			//assertions.add(a);
+			//getServletContext().setAttribute("jdresselAssertions",assertions);
+			getServletContext().setAttribute("jdresselAssertions",a);
+		}		
 
-		for (Iterator<Assertion> ass = Singleton.getAssertions().iterator(); ass.hasNext();){
-			out.println("<br> loop");
-			out.println(ass.next());
-		}
 
-
-		out.close();*/
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
 	}
 
