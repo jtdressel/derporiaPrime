@@ -54,7 +54,25 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				//User test = new User("derp");
 		
 	//			underVote.voteConvinced(test);//TODO
-				underVote.setConvinced(underVote.getConvinced()+1);
+
+				if(vote.equals("convinced")){
+					underVote.setConvinced(underVote.getConvinced()+1);
+				assertions.add(underVote);
+				}
+
+
+				if(vote.equals("unsure")){
+					underVote.setUnsure(underVote.getUnsure()+1);
+				assertions.add(underVote);
+				}
+
+
+				if(vote.equals("disagree")){
+					underVote.setDisagree(underVote.getDisagree()+1);
+				assertions.add(underVote);
+				}
+
+
 				assertions.add(underVote);
 				getServletContext().setAttribute("jdresselAssertionSet",assertions);
 				

@@ -49,8 +49,20 @@ public class Assertion {
 		return convinced;
 	}
 	
+	public void setConvinced(int i) {
+		convinced = i;
+	}
+
+	public void setUnsure(int i) {
+		unsure = i;
+	}
+
 	public int getDisagree() {
 		return disagree;
+	}
+
+	public void setDisagree(int i) {
+		disagree = i;
 	}
 	
 	public int getUnsure() {
