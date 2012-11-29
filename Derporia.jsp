@@ -11,7 +11,7 @@
 version= parseInt(navigator.appVersion);
 browser = navigator.appName;
 
-if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")||(browser == "Firefox")||(browser == "Opera") ) {
+if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")||(browser == "Firefox")/*DOES NOT WORK WITH OPERA||(browser == "Opera")*/ ) {
 document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
 }
 
