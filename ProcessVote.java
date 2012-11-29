@@ -67,7 +67,10 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 				else if(underVote.getUN().equals(session.getAttribute("username"))){
 					//out.println("same");
+<<<<<<< HEAD
 					//out.println("<p class=/"error/">You cannot vote on your own post!<p>");
+=======
+>>>>>>> 64fd897be639770fc8043b5aaca13ce432e91143
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
