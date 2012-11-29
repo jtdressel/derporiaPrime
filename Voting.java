@@ -29,8 +29,8 @@ Set<Assertion> assertions = (Set<Assertion>)d;
 
 out.println("<!DOCTYPE html>");
 out.println("<html><head>");
-out.println("<meta http-equiv=\"content-type\" content=\"text/html\"; charset=UTF-8">");
-out.println("<meta charset="UTF-8">");
+out.println("<meta http-equiv=\"content-type\" content=\"text/html\"; charset=\"UTF-8\">");
+out.println("<meta charset=\"UTF-8\">");
 out.println("<title>Derporia: the never-ending land of claims</title>");
 
 out.println("<!-- A project by James Dressel and James Robertson -->");
