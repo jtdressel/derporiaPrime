@@ -1,5 +1,14 @@
 body
 {	
-	font-family:"Terminal";
+	font:"Cutive Mono";
 	background-color:black;
+}
+
+
+p
+{
+	text-align:left;
+	font:"Cutive Mono";
+	font-size:150%;
+	color:#45b711; 
 }
