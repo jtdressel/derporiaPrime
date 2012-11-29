@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -6,6 +6,20 @@
 <title>Derporia: the never-ending land of claims</title>
 
 <!-- A project by James Dressel and James Robertson -->
+<script language="JavaScript">
+<!--
+version= parseInt(navigator.appVersion);
+browser = navigator.appName;
+
+if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")||(browser == "Firefox")||(browser == "Opera") ) {
+document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
+}
+
+else{
+document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle2.css"/>");
+}
+-->
+</script>
 <link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css" title="3"/>
 <link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/DerporiaStyle4.css" title="not3"/>
 
