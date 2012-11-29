@@ -67,7 +67,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 				else if(underVote.getUN().equals(session.getAttribute("username"))){
 					//out.println("same");
-					out.println("<p class=/"error/">You cannot vote on your own post!<p>");
+					//out.println("<p class=/"error/">You cannot vote on your own post!<p>");
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
@@ -105,53 +105,6 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 }
  }
-
-public void doPost(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException {
-	HttpSession session = request.getSession();
-	setVariables(request);
-	if(session.getAttribute("username")==null){
-		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
-	} else {
-
-		//TODO check for empty
-		
-
-
-		//Check if it is the users assertion
-		//check if
-
-		Object d = getServletContext().getAttribute("jdresselAssertionSet");
-	
-		if(d==null){
-			//TODO
-		} else {
-		Set<Assertion> assertions = (Set<Assertion>)d;
-			PrintWriter out = res.getWriter ();
-	
-		out.println("stuff");
-		for(Iterator<Assertion> assertionIterator = assertions.iterator(); assertionIterator.hasNext();){
-			Assertion assertion = assertionIterator.next();
-			out.println(assertion);
-			if(assertion.getId().equals(id)){
-				out.println(assertion.getId());
-				underVote = assertion;
-				underVote.voteConvinced(new User(username));
-				//underVote.setConvinced(underVote.getConvinced()+1);
-				assertions.add(underVote);
-				getServletContext().setAttribute("jdresselAssertionSet",assertions);
-				
-			}
-		
-		}
-
-		out.close();
-		//res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
-	}
-
-	
-
-
-}}
 
 private void setVariables(HttpServletRequest request){
 		vote = request.getParameter("vote")==null ? "" : request.getParameter("vote");
