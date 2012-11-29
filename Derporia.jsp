@@ -26,19 +26,25 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 
 	<body>
 	<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1> 
-<%
-Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
-out.println(derp);//TODO
-session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");//TODO
-%>
 
-	<div class="username">
-	<form name="loginForm"  action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessLogin" method="post">
-	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
-	<br />
-	<input class="regular" type="submit" name="Submit"/>
-	</form>
-	</div>
+	
+	<%@ page language="java" %>
+	
+	<%
+	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
+	if(derp=="")
+		out.println("<div class="username">/n
+			<form name="loginForm"  action="http:////apps-swe432.vse.gmu.edu:8080//swe432//servlet//jdressel.Derporia64.ProcessLogin" method="post">/n
+			Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">/n
+			<br //>/n
+			<input class="regular" type="submit" name="Submit"//>/n
+			<//form>/n
+			<//div>);////TODO/n");
+	else
+		out.println("<div class="username">You are logged in as"+derp+"<//div>");
+	session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");//TODO/n
+	%>
+
 	
 	<hr>
 
