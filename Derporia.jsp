@@ -12,14 +12,16 @@ version= parseInt(navigator.appVersion);
 browser = navigator.appName;
 
 if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")/*||(browser == "Firefox")/*DOES NOT WORK WITH OPERA OR FIREFOX ||(browser == "Opera")*/ ) {
-document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
+document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css\"/>");
 }
 
 else{
-document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle2.css"/>");
+document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle2.css\"/>");
 }
 -->
 </script>
+
+<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>
 
 <script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaAssert.js"></script>
 </head>
