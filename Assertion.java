@@ -138,7 +138,7 @@ public class Assertion {
 
 	@Override
 	public String toString(){
-		return(UN+title+body);
+		return("User name: " + UN + " Claim: "+ title + " Body: "+body + " Convinced: " + convinced + " Disagree: " + disagree + " unsure: " + unsure);
 	}
 	
 }
