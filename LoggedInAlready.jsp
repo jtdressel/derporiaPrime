@@ -16,7 +16,9 @@
 	<body>
 	<h1>Error: Already Logged In</h1> 
 
-	<p>You are arleady logged in. Would you like to log out?</p>
+	<p>You are arleady logged in. <form metod="link" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Logout"><input type="submit" value="logout"/></form>
+
+</p>
 	
 		
 <h4>By James Robertson and James Dressel</h4>
