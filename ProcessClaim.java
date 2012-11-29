@@ -37,10 +37,6 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 		if(getServletContext().getAttribute("jdresselAssertionSet")==null){
 			Set<Assertion> assertions = new HashSet<Assertion>();
 			getServletContext().setAttribute("jdresselAssertionSet",assertions);
-			//getServletContext().setAttribute("jdresselAssertionSet", new HashSet<Assertion>());
-			//Set<Assertion> assertions = (Set<Assertion>)getServletContext().getAttribute("jdresselAssertionSet");
-			//assertions.add(a);
-			//getServletContext().setAttribute("jdresselAssertionSet",a);
 		} 
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
 		Set asse = (Set)d;
