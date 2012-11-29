@@ -27,273 +27,280 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 	} else {
 Set<Assertion> assertions = (Set<Assertion>)d;
 
+out.println("<!DOCTYPE html>");
+out.println("<html><head>");
+out.println("<meta http-equiv=\"content-type\" content=\"text/html\"; charset=UTF-8">");
+out.println("<meta charset="UTF-8">");
+out.println("<title>Derporia: the never-ending land of claims</title>");
+
+out.println("<!-- A project by James Dressel and James Robertson -->");
+out.println("<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaVotingStyle.css\" />");
+
+out.println("<script src=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaVoting.js\" /> </script>");
+out.println("</head>");
+
+out.println("<body>");
+out.println("<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1>");
+
+out.println("<div class=\"username\">");
+out.println("Log In: <input type=\"text\" name=\"username\" placeholder=\"Username\" onkeypress=\"checkEnter(event)\">");
+out.println("<br />");
+out.println("<button type=\"button\" class=\"login\" name=\"loginButton\" align=\"right\">Log In</button>");
+out.println("</div>");
+	
+	
+	
+	
+	
+	
 	for(Iterator<Assertion> assertionIterator = assertions.iterator(); assertionIterator.hasNext();){
-			<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p class="center"><a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a> just posted:</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							</td>
-						</tr>
-					</tbody>
-	</table>		
-	
-	<h2>Check out some posts by other users!</h2>
-	
-	<!--END JUST SUBMITTED A CLAIM-->
-	<table class="mega">
-		<tr>
-			<td class="mega">
-					<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p>Post by <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a></p>
-							</td>
-						</tr>
-						<tr>
-							<td> <!--TODO make this dynamic change class between colors depending on vote-->
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							<p>Convinced: 0<br>
-								Unsure:    0<br>
-								Disagree:  0</p>
-							</td>
-						</tr>
-					</tbody>
-					</table>		
-					<table class="center">
-					<tbody><tr>
-						<td>
-						<table width="100%">
-							<tbody><tr>
-							<td align="left">
-								<button type="button" class="red" name="disagree">Disagree</button> 
-							</td>
-							<td align="center">
-								<button type="button" class="yellow" name="unsure">Unsure</button> 
-							</td>
-							<td align="right">
-								<button type="button" class="green" name="convinced">Convinced</button> 
-							</td>
-							</tr>
-						</tbody></table>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-			</td>
-			<td class="mega">
-					<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p>Post by <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a></p>
-							</td>
-						</tr>
-						<tr>
-							<td> <!--TODO make this dynamic change class between colors depending on vote-->
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							<p>Convinced: 0<br>
-								Unsure:    0<br>
-								Disagree:  0</p>
-							</td>
-						</tr>
-					</tbody>
-					</table>		
-					<table class="center">
-					<tbody><tr>
-						<td>
-						<table width="100%">
-							<tbody><tr>
-							<td align="left">
-								<button type="button" class="red" name="disagree">Disagree</button> 
-							</td>
-							<td align="center">
-								<button type="button" class="yellow" name="unsure">Unsure</button> 
-							</td>
-							<td align="right">
-								<button type="button" class="green" name="convinced">Convinced</button> 
-							</td>
-							</tr>
-						</tbody></table>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-			</td>
-			<td class="mega">
-					<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p>Post by <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a></p>
-							</td>
-						</tr>
-						<tr>
-							<td> <!--TODO make this dynamic change class between colors depending on vote-->
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							<p>Convinced: 0<br>
-								Unsure:    0<br>
-								Disagree:  0</p>
-							</td>
-						</tr>
-					</tbody>
-					</table>		
-					<table class="center">
-					<tbody><tr>
-						<td>
-						<table width="100%">
-							<tbody><tr>
-							<td align="left">
-								<button type="button" class="red" name="disagree">Disagree</button> 
-							</td>
-							<td align="center">
-								<button type="button" class="yellow" name="unsure">Unsure</button> 
-							</td>
-							<td align="right">
-								<button type="button" class="green" name="convinced">Convinced</button> 
-							</td>
-							</tr>
-						</tbody></table>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-			</td>
-		</tr>
-		<tr>
-			<td class="mega">
-					<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p>Post by <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a></p>
-							</td>
-						</tr>
-						<tr>
-							<td class="red"> <!--TODO make this dynamic change class between colors depending on vote-->
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							<p>Convinced: 0<br>
-								Unsure:    0<br>
-								Disagree:  1</p>
-							</td>
-						</tr>
-					</tbody>
-					</table>		
-					<table class="center">
-					<tbody><tr>
-						<td>
-						<table width="100%">
-							<tbody><tr>
-							<td align="left">
-								<button type="button" class="red" name="disagree">Disagree</button> 
-							</td>
-							<td align="center">
-								<button type="button" class="yellow" name="unsure">Unsure</button> 
-							</td>
-							<td align="right">
-								<button type="button" class="green" name="convinced">Convinced</button> 
-							</td>
-							</tr>
-						</tbody></table>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-			</td>
-			<td class="mega">
-					<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p>Post by <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a></p>
-							</td>
-						</tr>
-						<tr>
-							<td class="yellow"><!--TODO make this dynamic change class between colors depending on vote-->
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							<p>Convinced: 0<br>
-								Unsure:    1<br>
-								Disagree:  0</p>
-							</td>
-						</tr>
-					</tbody>
-					</table>		
-					<table class="center">
-					<tbody><tr>
-						<td>
-						<table width="100%">
-							<tbody><tr>
-							<td align="left">
-								<button type="button" class="red" name="disagree">Disagree</button> 
-							</td>
-							<td align="center">
-								<button type="button" class="yellow" name="unsure">Unsure</button> 
-							</td>
-							<td align="right">
-								<button type="button" class="green" name="convinced">Convinced</button> 
-							</td>
-							</tr>
-						</tbody></table>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-			</td>
-			<td class="mega">
-					<table class="center">
-					<tbody>
-						<tr>
-							<td>
-								<p>Post by <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html">UserName</a></p>
-								
-							</td>
-						</tr>
-						<tr>
-							<td class="green"><!--TODO make this dynamic change class between colors depending on vote-->
-							<p class="center"><b>Claim needs to go here</b></p>
-							<p class="center"><i>Assertion needs to go here</i></p>
-							<p>Convinced: 1<br>
-								Unsure:    0<br>
-								Disagree:  0</p>
-							</td>
-						</tr>
-					</tbody>
-					</table>		
-					<table class="center">
-					<tbody><tr>
-						<td>
-						<table width="100%">
-							<tbody><tr>
-							<td align="left">
-								<button type="button" class="red" name="disagree">Disagree</button> 
-							</td>
-							<td align="center">
-								<button type="button" class="yellow" name="unsure">Unsure</button> 
-							</td>
-							<td align="right">
-								<button type="button" class="green" name="convinced">Convinced</button> 
-							</td>
-							</tr>
-						</tbody></table>
-						</td>
-					</tr>
-					</tbody>
-					</table>
-			</td>
-		</tr>
-	</table>
+out.println("							<table class=\"mega\">");
+out.println("								<tr>");
+out.println("									<td class=\"mega\">");
+out.println("											<table class=\"center\">");
+out.println("											<tbody>");
+out.println("												<tr>");
+out.println("													<td>");
+out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("												<tr>");
+out.println("													<td> <!--TODO make this dynamic change class between colors depending on vote-->");
+out.println("													<p class=\"center\"><b>Claim needs to go here</b></p>");
+out.println("													<p class=\"center\"><i>Assertion needs to go here</i></p>");
+out.println("													<p>Convinced: 0<br>");
+out.println("														Unsure:    0<br>");
+out.println("														Disagree:  0</p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("											</tbody>");
+out.println("											</table>		");
+out.println("											<table class=\"center\">");
+out.println("											<tbody><tr>");
+out.println("												<td>");
+out.println("												<table width=\"100%\">");
+out.println("													<tbody><tr>");
+out.println("													<td align=\"left\">");
+out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+out.println("													</td>");
+out.println("													<td align=\"center\">");
+out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+out.println("													</td>");
+out.println("													<td align=\"right\">");
+out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+out.println("													</td>");
+out.println("													</tr>");
+out.println("												</tbody></table>");
+out.println("												</td>");
+out.println("											</tr>");
+out.println("											</tbody>");
+out.println("											</table>");
+out.println("									</td>");
+out.println("									<td class=\"mega\">");
+out.println("											<table class=\"center\">");
+out.println("											<tbody>");
+out.println("												<tr>");
+out.println("													<td>");
+out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("												<tr>");
+out.println("													<td> <!--TODO make this dynamic change class between colors depending on vote-->");
+out.println("													<p class=\"center\"><b>Claim needs to go here</b></p>");
+out.println("													<p class=\"center\"><i>Assertion needs to go here</i></p>");
+out.println("													<p>Convinced: 0<br>");
+out.println("														Unsure:    0<br>");
+out.println("														Disagree:  0</p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("											</tbody>");
+out.println("											</table>		");
+out.println("											<table class=\"center\">");
+out.println("											<tbody><tr>");
+out.println("												<td>");
+out.println("												<table width=\"100%\">");
+out.println("													<tbody><tr>");
+out.println("													<td align=\"left\">");
+out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+out.println("													</td>");
+out.println("													<td align=\"center\">");
+out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+out.println("													</td>");
+out.println("													<td align=\"right\">");
+out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+out.println("													</td>");
+out.println("													</tr>");
+out.println("												</tbody></table>");
+out.println("												</td>");
+out.println("											</tr>");
+out.println("											</tbody>");
+out.println("											</table>");
+out.println("									</td>");
+out.println("									<td class=\"mega\">");
+out.println("											<table class=\"center\">");
+out.println("											<tbody>");
+out.println("												<tr>");
+out.println("													<td>");
+out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("												<tr>");
+out.println("													<td> <!--TODO make this dynamic change class between colors depending on vote-->");
+out.println("													<p class=\"center\"><b>Claim needs to go here</b></p>");
+out.println("													<p class=\"center\"><i>Assertion needs to go here</i></p>");
+out.println("													<p>Convinced: 0<br>");
+out.println("														Unsure:    0<br>");
+out.println("														Disagree:  0</p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("											</tbody>");
+out.println("											</table>		");
+out.println("											<table class=\"center\">");
+out.println("											<tbody><tr>");
+out.println("												<td>");
+out.println("												<table width=\"100%\">");
+out.println("													<tbody><tr>");
+out.println("													<td align=\"left\">");
+out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+out.println("													</td>");
+out.println("													<td align=\"center\">");
+out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+out.println("													</td>");
+out.println("													<td align=\"right\">");
+out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+out.println("													</td>");
+out.println("													</tr>");
+out.println("												</tbody></table>");
+out.println("												</td>");
+out.println("											</tr>");
+out.println("											</tbody>");
+out.println("											</table>");
+out.println("									</td>");
+out.println("								</tr>");
+out.println("								<tr>");
+out.println("									<td class=\"mega\">");
+out.println("											<table class=\"center\">");
+out.println("											<tbody>");
+out.println("												<tr>");
+out.println("													<td>");
+out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("												<tr>");
+out.println("													<td class=\"red\"> <!--TODO make this dynamic change class between colors depending on vote-->");
+out.println("													<p class=\"center\"><b>Claim needs to go here</b></p>");
+out.println("													<p class=\"center\"><i>Assertion needs to go here</i></p>");
+out.println("													<p>Convinced: 0<br>");
+out.println("														Unsure:    0<br>");
+out.println("														Disagree:  1</p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("											</tbody>");
+out.println("											</table>		");
+out.println("											<table class=\"center\">");
+out.println("											<tbody><tr>");
+out.println("												<td>");
+out.println("												<table width=\"100%\">");
+out.println("													<tbody><tr>");
+out.println("													<td align=\"left\">");
+out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+out.println("													</td>");
+out.println("													<td align=\"center\">");
+out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+out.println("													</td>");
+out.println("													<td align=\"right\">");
+out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+out.println("													</td>");
+out.println("													</tr>");
+out.println("												</tbody></table>");
+out.println("												</td>");
+out.println("											</tr>");
+out.println("											</tbody>");
+out.println("											</table>");
+out.println("									</td>");
+out.println("									<td class=\"mega\">");
+out.println("											<table class=\"center\">");
+out.println("											<tbody>");
+out.println("												<tr>");
+out.println("													<td>");
+out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("												<tr>");
+out.println("													<td class=\"yellow\"><!--TODO make this dynamic change class between colors depending on vote-->");
+out.println("													<p class=\"center\"><b>Claim needs to go here</b></p>");
+out.println("													<p class=\"center\"><i>Assertion needs to go here</i></p>");
+out.println("													<p>Convinced: 0<br>");
+out.println("														Unsure:    1<br>");
+out.println("														Disagree:  0</p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("											</tbody>");
+out.println("											</table>		");
+out.println("											<table class=\"center\">");
+out.println("											<tbody><tr>");
+out.println("												<td>");
+out.println("												<table width=\"100%\">");
+out.println("													<tbody><tr>");
+out.println("													<td align=\"left\">");
+out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+out.println("													</td>");
+out.println("													<td align=\"center\">");
+out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+out.println("													</td>");
+out.println("													<td align=\"right\">");
+out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+out.println("													</td>");
+out.println("													</tr>");
+out.println("												</tbody></table>");
+out.println("												</td>");
+out.println("											</tr>");
+out.println("											</tbody>");
+out.println("											</table>");
+out.println("									</td>");
+out.println("									<td class=\"mega\">");
+out.println("											<table class=\"center\">");
+out.println("											<tbody>");
+out.println("												<tr>");
+out.println("													<td>");
+out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+out.println("														");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("												<tr>");
+out.println("													<td class=\"green\"><!--TODO make this dynamic change class between colors depending on vote-->");
+out.println("													<p class=\"center\"><b>Claim needs to go here</b></p>");
+out.println("													<p class=\"center\"><i>Assertion needs to go here</i></p>");
+out.println("													<p>Convinced: 1<br>");
+out.println("														Unsure:    0<br>");
+out.println("														Disagree:  0</p>");
+out.println("													</td>");
+out.println("												</tr>");
+out.println("											</tbody>");
+out.println("											</table>		");
+out.println("											<table class=\"center\">");
+out.println("											<tbody><tr>");
+out.println("												<td>");
+out.println("												<table width=\"100%\">");
+out.println("													<tbody><tr>");
+out.println("													<td align=\"left\">");
+out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+out.println("													</td>");
+out.println("													<td align=\"center\">");
+out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+out.println("													</td>");
+out.println("													<td align=\"right\">");
+out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+out.println("													</td>");
+out.println("													</tr>");
+out.println("												</tbody></table>");
+out.println("												</td>");
+out.println("											</tr>");
+out.println("											</tbody>");
+out.println("											</table>");
+out.println("									</td>");
+out.println("								</tr>");
+out.println("							</table>");
 		
 		Assertion assertion = assertionIterator.next();
 		out.println(assertion);
