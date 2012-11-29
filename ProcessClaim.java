@@ -30,9 +30,21 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 	if(session.getAttribute("username")==null){
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
 	} else {
+	//	PrintWriter out = res.getWriter();
+
 		setClaimAssertion(request);
+	/*	out.println("process claim: "+ claim);
+		out.println("<br>");
+		out.println("process ass: "+ assertions);
+		out.println("<br>");
+		out.println("user" + session.getAttribute("username"));
+				out.println("<br>toString");
+		out.println(a);
+		out.close();*/
 		Assertion a = new Assertion((String)session.getAttribute("username").toString(), claim, assertions);
+
 		Singleton.addAssertion(a);
+		
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
 	}
 
