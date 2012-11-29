@@ -16,7 +16,7 @@ throws ServletException, IOException  {
 	* Send the user back to where they belong
 	*/
  
-	String destination="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp";        
+	String destination="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp";
 	res.sendRedirect(res.encodeRedirectURL(destination));
  
  }
@@ -25,6 +25,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 	res.setContentType ("text/html");
 	PrintWriter out = res.getWriter();
 	out.println(username);
+	HttpSession session = request.getSession();//If a session does not exist, this will start one
+	User user = new User(username);
+	session.setAttribute("username",user);
         out.close ();
 }
 
