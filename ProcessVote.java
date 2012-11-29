@@ -30,13 +30,6 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 	} else {
 
 		//TODO check for empty
-		//PrintWriter out = res.getWriter ();
-		//out.println("Session UN:"+session.getAttribute("username"));
-		//out.println("<br>");
-
-
-		//Check if it is the users assertion
-		//check if
 
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
 	
@@ -53,13 +46,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 			if(assertion.getId().equals(id)){
 				
 				underVote = assertion;
-				//User test = new User("derp");
-		
-	//			underVote.voteConvinced(test);//TODO
-				//out.println("UnderVote:"+underVote.getUN());
-				//out.println("<br>");
-				//out.println(session.getAttribute("username").hashCode());
-				//out.println(underVote.getUN().hashCode());
+	
 				if(underVote.getUN().hashCode()==session.getAttribute("username").hashCode()){
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));//TODO alert user they cannot vote on thier own thing
 				}
@@ -67,10 +54,8 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 				else if(underVote.getUN().equals(session.getAttribute("username"))){
 					//out.println("same");
-<<<<<<< HEAD
 					//out.println("<p class=/"error/">You cannot vote on your own post!<p>");
-=======
->>>>>>> 64fd897be639770fc8043b5aaca13ce432e91143
+
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
