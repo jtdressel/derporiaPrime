@@ -46,7 +46,7 @@ document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"http://apps-sw
 	}
 	else
 		out.println("<div class=\"username\">You are logged in as"+derp+"<//div>");
-	session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");//TODO/n
+	session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");
 	%>
 
 	
