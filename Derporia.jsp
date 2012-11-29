@@ -11,7 +11,7 @@
 version= parseInt(navigator.appVersion);
 browser = navigator.appName;
 
-if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")||(browser == "Firefox")/*DOES NOT WORK WITH OPERA||(browser == "Opera")*/ ) {
+if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")/*||(browser == "Firefox")/*DOES NOT WORK WITH OPERA OR FIREFOX ||(browser == "Opera")*/ ) {
 document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
 }
 
@@ -20,15 +20,13 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 }
 -->
 </script>
-<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css" title="3"/>
-<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/DerporiaStyle4.css" title="not3"/>
 
 <script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaAssert.js"></script>
 </head>
 
 	<body>
 	<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1> 
-	<%
+<%
 Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
 out.println(derp);//TODO
 session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");//TODO
