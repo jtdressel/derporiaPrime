@@ -61,42 +61,43 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				//out.println(session.getAttribute("username").hashCode());
 				//out.println(underVote.getUN().hashCode());
 				if(underVote.getUN().hashCode()==session.getAttribute("username").hashCode()){
-					res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));//TODO alert user they cannot vote on thier own thing
+					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));//TODO alert user they cannot vote on thier own thing
 				}
 
 
-				if(underVote.getUN().equals(session.getAttribute("username"))){
-				//	out.println("same");
-					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
-				}
+				else if(underVote.getUN().equals(session.getAttribute("username"))){
+					//out.println("same");
+					res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 
-				if(vote.equals("convinced")){
+				}
+				else if(vote.equals("convinced")){
+
 				
 					underVote.setConvinced(underVote.getConvinced()+1);
 				assertions.add(underVote);
 				}
 
 
-				if(vote.equals("unsure")){
+				else if(vote.equals("unsure")){
 					underVote.setUnsure(underVote.getUnsure()+1);
 				assertions.add(underVote);
 				}
 
 
-				if(vote.equals("disagree")){
+				else if(vote.equals("disagree")){
 					underVote.setDisagree(underVote.getDisagree()+1);
 				assertions.add(underVote);
 				}
 
 
 				assertions.add(underVote);
-				getServletContext().setAttribute("jdresselAssertionSet",assertions);
-				
+				//getServletContext().setAttribute("jdresselAssertionSet",assertions);
+				res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
 			}
 		
 		}
 
-		//res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
+		
 	}
 
 	
