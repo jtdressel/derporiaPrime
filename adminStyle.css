@@ -1,6 +1,6 @@
 body
 {	
-	font:"Cutive Mono";
+	font-family:"Lucida Console", Monaco, monospace;
 	background-color:black;
 }
 
@@ -8,7 +8,7 @@ body
 p
 {
 	text-align:left;
-	font:"Cutive Mono";
+	font-family:Courier New, Courier New, monospace;
 	font-size:150%;
 	color:#45b711; 
 }
