@@ -61,7 +61,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				//out.println(session.getAttribute("username").hashCode());
 				//out.println(underVote.getUN().hashCode());
 				if(underVote.getUN().hashCode()==session.getAttribute("username").hashCode()){
-					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));//TODO alert user they cannot vote on thier own thing
+					out.println("<p class=/"error/">You cannot vote on your own post!<p>");//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));//TODO alert user they cannot vote on thier own thing
 				}
 
 
