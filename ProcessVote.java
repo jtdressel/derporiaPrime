@@ -30,7 +30,9 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 	} else {
 
 		//TODO check for empty
-		
+		//PrintWriter out = res.getWriter ();
+		//out.println("Session UN:"+session.getAttribute("username"));
+		//out.println("<br>");
 
 
 		//Check if it is the users assertion
@@ -54,8 +56,22 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				//User test = new User("derp");
 		
 	//			underVote.voteConvinced(test);//TODO
+				//out.println("UnderVote:"+underVote.getUN());
+				//out.println("<br>");
+				//out.println(session.getAttribute("username").hashCode());
+				//out.println(underVote.getUN().hashCode());
+				if(underVote.getUN().hashCode()==session.getAttribute("username").hashCode()){
+					res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));//TODO alert user they cannot vote on thier own thing
+				}
+
+
+				if(underVote.getUN().equals(session.getAttribute("username"))){
+				//	out.println("same");
+					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
+				}
 
 				if(vote.equals("convinced")){
+				
 					underVote.setConvinced(underVote.getConvinced()+1);
 				assertions.add(underVote);
 				}
@@ -80,7 +96,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		
 		}
 
-		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
+		//res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
 	}
 
 	
