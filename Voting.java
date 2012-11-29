@@ -19,9 +19,10 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 	PrintWriter out = res.getWriter ();
 	HttpSession session = request.getSession();
 	
-	out.println(getServletContext().getAttribute("jdresselAssertions"));
-	
-
+	out.println(getServletContext().getAttribute("jdresselAssertionSet"));
+	Object d = getServletContext().getAttribute("jdresselAssertionSet");
+		Set<Assertion> asse = (Set<Assertion>)d;
+	out.println(asse.size());
 	out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\"> home</a>");
         out.close();
     }

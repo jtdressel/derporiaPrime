@@ -34,17 +34,19 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
 	} else {
 		Assertion a = new Assertion((String)session.getAttribute("username").toString(), claim, assertions);
-		if(getServletContext().getAttribute("jdresselAssertions")==null){
-			//getServletContext().setAttribute("jdresselAssertions", new HashSet<Assertion>());
-			//Set<Assertion> assertions = (Set<Assertion>)getServletContext().getAttribute("jdresselAssertions");
+		if(getServletContext().getAttribute("jdresselAssertionSet")==null){
+			Set<Assertion> assertions = new HashSet<Assertion>();
+			getServletContext().setAttribute("jdresselAssertionSet",assertions);
+			//getServletContext().setAttribute("jdresselAssertionSet", new HashSet<Assertion>());
+			//Set<Assertion> assertions = (Set<Assertion>)getServletContext().getAttribute("jdresselAssertionSet");
 			//assertions.add(a);
-			getServletContext().setAttribute("jdresselAssertions",a);
-		} else{
-			//Set<Assertion> assertions = (Set<Assertion>)getServletContext().getAttribute("jdresselAssertions");
-			//assertions.add(a);
-			//getServletContext().setAttribute("jdresselAssertions",assertions);
-			getServletContext().setAttribute("jdresselAssertions",a);
-		}		
+			//getServletContext().setAttribute("jdresselAssertionSet",a);
+		} 
+		Object d = getServletContext().getAttribute("jdresselAssertionSet");
+		Set asse = (Set)d;
+		asse.add(a);
+		getServletContext().setAttribute("jdresselAssertionSet",asse);
+				
 
 
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
