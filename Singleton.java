@@ -1,5 +1,8 @@
 package jdressel.Derporia64;
 import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
 
 
 /*	
@@ -33,7 +36,7 @@ public class Singleton {
 	}
 
 	public static void addSession(HttpSession session){
-		users.add(session);
+		sessions.add(session);
 	}
 
 	public static void removeAssertion(Assertion assertion){
