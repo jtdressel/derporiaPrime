@@ -4,27 +4,22 @@ import java.util.*;
 
 public class Derporia 
 {
-	private List<Assertion> assertions; 
-	private List<User> usernames;
-	
-	public Derporia(List<Assertion> assertions, List<User> usernames) {
-		this.assertions = assertions;
-		this.usernames = usernames;
-	}
+	private static List<Assertion> assertions; 
+	private static List<User> usernames;
 
-	public List<Assertion> getAssertions() {
+	public static List<Assertion> getAssertions() {
 		return assertions;
 	}
 
-	public void setAssertions(List<Assertion> assertions) {
+	public static void setAssertions(List<Assertion> assertions) {
 		this.assertions = assertions;
 	}
 
-	public List<User> getUsernames() {
+	public static List<User> getUsernames() {
 		return usernames;
 	}
 
-	public void setUsernames(List<User> usernames) {
+	public static void setUsernames(List<User> usernames) {
 		this.usernames = usernames;
 	}
 	
@@ -37,7 +32,7 @@ public class Derporia
 	 * 		@return false if the assertion could not be found
 	 * 		@throws NullPointerExcpetion if a is null
 	 */
-	public boolean removeAssertion(Assertion a){
+	public static boolean removeAssertion(Assertion a){
 		if(a==null)
 			throw new NullPointerException();
 		
@@ -62,7 +57,7 @@ public class Derporia
 	 * 		@return false if the assertion could not be found
 	 * 		@throws NullPointerExcpetion if a is null
 	 */
-	public boolean removeUser(User u){
+	public static boolean removeUser(User u){
 		if(u == null)
 			throw new NullPointerException();
 		
