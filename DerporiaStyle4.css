@@ -1,0 +1,96 @@
+/*James Dressel and James Robertson*/
+
+input
+{
+	font-family:"Trebuchet MS";
+	font-size:100%;
+}
+
+.username
+{
+	font-family:"Trebuchet MS";
+	font-size:80%;
+	position: fixed; 
+	top: 5px;
+	right: 10px;
+}
+
+button, input.regular
+{
+	font-family:"Trebuchet MS";
+	text-align: center;
+	font-size:80%;
+	padding-top: 4px; 
+	padding-bottom: 4px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: solid 1px #999999;
+	color:white;
+	cursor: pointer;
+}
+
+button.login
+{
+	font-family:"Trebuchet MS";
+	text-align: center;
+	font-size:80%;
+	padding-top: 4px; 
+	padding-bottom: 4px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: solid 1px #999999;
+	color:white;
+	cursor: pointer;
+	position: fixed; 
+	top: 37px;
+	right: 16px;
+}
+
+textarea
+{
+	font-family:"Trebuchet MS";
+	font-size:100%;
+	width: 100%; 
+	margin: 0; 
+	padding:0; 
+}
+
+textarea:focus
+{
+	border: 3px solid green;
+}
+	
+body
+{	
+	font-family:"Trebuchet MS";
+	background-color:#d0e4fe;
+}
+
+h1
+{
+		
+	font-family:"Trebuchet MS";
+	text-align:center;
+}
+
+.normal 
+{
+	text-align:center;
+	font-family:"Trebuchet MS";
+	font-size:150%;
+}
+
+#error
+{
+	text-align:center;
+	font-family:"Trebuchet MS";
+	color:red;
+	font-size:100%;
+}
+
+table.center 
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:54%
+}
