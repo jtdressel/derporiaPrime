@@ -11,6 +11,13 @@
 <script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaAssert.js"></script>
 </head>
 
+<%
+String refText = request.getHeader("referer");
+session.setAttribute("loginRequester", refText);
+%>
+
+
+
 	<body>
 	<h1>Please Login</h1> 
 	
