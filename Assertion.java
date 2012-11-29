@@ -135,5 +135,10 @@ public class Assertion {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString(){
+		return(UN+title+body);
+	}
 	
 }
