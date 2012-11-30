@@ -17,8 +17,7 @@ throws ServletException, IOException  {
 	* Send the user back to where they belong
 	*/
  
-	String destination="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp";
-	res.sendRedirect(res.encodeRedirectURL(destination));
+	res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));
  
  }
 
