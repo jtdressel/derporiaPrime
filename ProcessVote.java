@@ -59,22 +59,23 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
-
-				
 					underVote.setConvinced(underVote.getConvinced()+1);
-				assertions.add(underVote);
+					assertions.add(underVote);
+					session.getAttribute("username").voteConvinced(underVote);
 				}
 
 
 				else if(vote.equals("unsure")){
 					underVote.setUnsure(underVote.getUnsure()+1);
-				assertions.add(underVote);
+					assertions.add(underVote);
+					session.getAttribute("username").voteUnsure(underVote);
 				}
 
 
 				else if(vote.equals("disagree")){
 					underVote.setDisagree(underVote.getDisagree()+1);
-				assertions.add(underVote);
+					assertions.add(underVote);
+					session.getAttribute("username").voteDisagree(underVote);
 				}
 
 
