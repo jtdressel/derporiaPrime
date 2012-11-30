@@ -44,6 +44,8 @@ public class User {
 		else if(disagree.contains(a))
 			disagree.remove(a);
 		convinced.add(a);
+		if(!assertions.contains(a))
+			assertions.add(a);
 		return true;
 	}
 	
@@ -69,6 +71,8 @@ public class User {
 			return false;
 		else if(disagree.contains(a))
 			disagree.remove(a);
+		if(!assertions.contains(a))
+			assertions.add(a);
 		unsure.add(a);
 	}
 	
@@ -94,6 +98,8 @@ public class User {
 			unsure.remove(a);
 		else if(disagree.contains(a))
 			return false;
+		if(!assertions.contains(a))
+			assertions.add(a);
 		disagree.add(a);
 	}
 	
