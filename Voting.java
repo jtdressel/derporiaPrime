@@ -80,12 +80,12 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("													</td>");
 				out.println("												</tr>");
 				out.println("												<tr>");
-				if(session.getAttribute("username").equals(assertion.getUN()){
-					if(session.getAttribute("username").getConvinced.contains(assertion))
+				if(session.getAttribute("username").equals(assertion.getUN())){
+					if(session.getAttribute("username").getConvinced().contains(assertion))
 						out.println("													<td class=\"green\">");
-					if(session.getAttribute("username").getUnsure.contains(assertion))
+					if(session.getAttribute("username").getUnsure().contains(assertion))
 						out.println("													<td class=\"yellow\">");
-					if(session.getAttribute("username").getDisagree.contains(assertion))
+					if(session.getAttribute("username").getDisagree().contains(assertion))
 						out.println("													<td class=\"red\">");
 				}
 				else
