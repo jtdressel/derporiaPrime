@@ -40,7 +40,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		out.println("<form name=\"loginForm\"  action=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessLogin\" method=\"post\">");
 		out.println("Log In: <input type=\"text\" name=\"username\" placeholder=\"Username\" onkeypress=\"checkEnter(event)\">");
 		out.println("	<br />");
-		out.println("	<input class=\"regular\" type=\"submit\" name=\"Submit\"/>");
+		out.println("	<input class=\"regular\" type=\"submit\" name=\"Log In\"/>");
 		out.println("	</form>");
 		out.println("	</div>");
 	}
