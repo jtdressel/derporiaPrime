@@ -110,7 +110,7 @@ public class Assertion {
 			unsure--;
 		if(!voters.contains(u))
 			voters.add(u);
-		u.voteDisagree();
+		u.voteDisagree(this);
 		disagree++;
 		return true;
 	}
