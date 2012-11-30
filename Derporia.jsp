@@ -6,8 +6,8 @@
 <title>Derporia: the never-ending land of claims</title>
 
 <!-- A project by James Dressel and James Robertson -->
-<!--<script language="JavaScript">
-
+<script language="JavaScript">
+<!--
 version= parseInt(navigator.appVersion);
 browser = navigator.appName;
 
@@ -18,12 +18,12 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 else{
 document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle2.css"/>");
 }
-
-</script>-->
+-->
+</script>
 
 <link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>
 
-<script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaAssert.js"></script>
+<script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporia.js"></script>
 </head>
 
 	<body>
@@ -40,7 +40,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		out.println("<form name=\"loginForm\"  action=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessLogin\" method=\"post\">");
 		out.println("Log In: <input type=\"text\" name=\"username\" placeholder=\"Username\" onkeypress=\"checkEnter(event)\">");
 		out.println("	<br />");
-		out.println("	<input class=\"regular\" type=\"submit\" name=\"Submit\"/>");
+		out.println("	<input class=\"regular\" type=\"submit\" name=\"Log In\"/>");
 		out.println("	</form>");
 		out.println("	</div>");
 	}
