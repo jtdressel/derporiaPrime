@@ -8,6 +8,9 @@ import java.util.*;
 public class User {
 	private final String UN;
 	private List<Assertion> assertions;
+	private List<Assertion> convinced;
+	private List<Assertion> unsure;
+	private List<Assertion> disagree;
 	
 	public User(String username){
 		UN = username;
@@ -15,6 +18,30 @@ public class User {
 	
 	public String getUN(){
 		return UN;
+	}
+	
+	public List<Assertion> getConvinced(){
+		return convinced;
+	}
+	
+	public void voteConvinced(Assertion a){
+		convinced.add(a);
+	}
+	
+	public List<Assertion> getUnsure(){
+		return unsure;
+	}
+	
+	public List<Assertion> voteUnsure(Assertion a){
+		unsure.add(a);
+	}
+	
+	public List<Assertion> getDisagree(){
+		return disagree;
+	}
+	
+	public List<Assertion> voteDisagree(){
+		disagree.add(a);
 	}
 	
 	public List<Assertion> getAssertions(){

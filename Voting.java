@@ -80,7 +80,12 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("													</td>");
 				out.println("												</tr>");
 				out.println("												<tr>");
-				out.println("													<td> <!--TODO make this dynamic change class between colors depending on vote-->");
+				if(session.getAttribute("username").equals(assertion.getUN()){
+					
+				
+				}
+				else
+					out.println("													<td>");
 				out.println("													<p class=\"center\"><b>"+assertion.getName()+"</b></p>");
 				out.println("													<p class=\"center\"><i>"+assertion.getBody()+"</i></p>");
 				out.println("													<p>Convinced: "+assertion.getConvinced()+"<br>");

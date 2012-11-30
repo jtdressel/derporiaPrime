@@ -81,6 +81,8 @@ public class Assertion {
 			throw new NullPointerException("User cannot be null");
 		if(voters.contains(u))
 			return false;
+		voters.add(u);
+		u.voteConvinced(this);
 		convinced++;
 		return true;
 	}
@@ -97,6 +99,8 @@ public class Assertion {
 			throw new NullPointerException("User cannot be null");
 		if(voters.contains(u))
 			return false;
+		voters.add(u);
+		u.voteDisagree(this);
 		disagree++;
 		return true;
 	}
@@ -113,6 +117,8 @@ public class Assertion {
 			throw new NullPointerException("User cannot be null");
 		if(voters.contains(u))
 			return false;
+		voters.add(u);
+		u.voteUnsurethis);
 		unsure++;
 		return true;
 	}
