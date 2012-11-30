@@ -54,7 +54,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				}
 				else if(vote.equals("convinced")){
 					if(underVote.getVoters().contains(session.getAttribute("username"))&&session.getAttribute("username").getConvinced().contains(underVote)) { //User has voted on this post in this way
-					//TODO alert user they have already voted in this way
+						//TODO alert user they have already voted in this way
 					}
 					else{
 						underVote.voteConvinced(session.getAttribute("username"));
@@ -66,7 +66,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 				else if(vote.equals("unsure")){
 				if(underVote.getVoters().contains(session.getAttribute("username"))&&session.getAttribute("username").getUnsure().contains(underVote)) { //User has voted on this post in this way
-					//TODO alert user they have already voted in this way
+						//TODO alert user they have already voted in this way
 					}
 					else{
 						underVote.voteUnsure(session.getAttribute("username"));
@@ -78,7 +78,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 				else if(vote.equals("disagree")){
 					if(underVote.getVoters().contains(session.getAttribute("username"))&&session.getAttribute("username").getDisagree().contains(underVote)) { //User has voted on this post in this way
-					//TODO alert user they have already voted in this way
+						//TODO alert user they have already voted in this way
 					}
 					else{
 						underVote.voteDisagree(session.getAttribute("username"));
