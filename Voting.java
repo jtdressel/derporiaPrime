@@ -132,7 +132,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		res.setContentType ("text/html");
 		PrintWriter out = res.getWriter ();
 		
-		out.println("							<h4>By James Robertson and James Dressel</h4>"")
+		out.println("							<h4>By James Robertson and James Dressel</h4>")
 		out.println("							</body>");
 		out.println("							</html>");
 		
