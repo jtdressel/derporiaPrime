@@ -24,15 +24,53 @@ public class User {
 		return convinced;
 	}
 	
-	public void voteConvinced(Assertion a){
+	/**		Adds a to the list of assertions voted convinced for.  
+	 *		If a has been voted on differently, removes a from the different list and adds to convinced.		
+	 *
+	 * 		@author James Robertson
+	 * 
+	 * 		@param a the assertion to be added to convinced
+	 * 		@return true if the assertion was added
+	 * 		@return false if the assertion is already in convinced
+	 * 		@throws NullPointerException if a is null
+	 */
+	
+	public boolean voteConvinced(Assertion a){
+		if(a==null)
+			throw new NullPointerException();
+		else if(convinced.contains(a))
+			return false;
+		else if(unsure.contains(a))
+			unsure.remove(a);
+		else if(disagree.contains(a))
+			disagree.remove(a);
 		convinced.add(a);
+		return true;
 	}
 	
 	public List<Assertion> getUnsure(){
 		return unsure;
 	}
 	
-	public List<Assertion> voteUnsure(Assertion a){
+	/**		Adds a to the list of assertions voted unsure for.  
+	 *		If a has been voted on differently, removes a from the different list and adds to unsure.		
+	 *
+	 * 		@author James Robertson
+	 * 
+	 * 		@param a the assertion to be added to unsure
+	 * 		@return true if the assertion was added
+	 * 		@return false if the assertion is already in unsure
+	 * 		@throws NullPointerException if a is null
+	 */
+	public void voteUnsure(Assertion a){
+		if(a==null)
+			throw new NullPointerException();
+		else if(convinced.contains(a))
+			convinced.remove(a);
+		else if(unsure.contains(a))
+			return false;
+		else if(disagree.contains(a))
+			disagree.remove(a);
 		unsure.add(a);
 	}
 	
@@ -40,7 +78,25 @@ public class User {
 		return disagree;
 	}
 	
-	public List<Assertion> voteDisagree(){
+	/**		Adds a to the list of assertions voted disagree for.  
+	 *		If a has been voted on differently, removes a from the different list and adds to disagree.		
+	 *
+	 * 		@author James Robertson
+	 * 
+	 * 		@param a the assertion to be added to disagree
+	 * 		@return true if the assertion was added
+	 * 		@return false if the assertion is already in disagree
+	 * 		@throws NullPointerException if a is null
+	 */
+	public void voteDisagree(){
+		if(a==null)
+			throw new NullPointerException();
+		else if(convinced.contains(a))
+			convinced.remove(a);
+		else if(unsure.contains(a))
+			unsure.remove(a);
+		else if(disagree.contains(a))
+			return false;
 		disagree.add(a);
 	}
 	
