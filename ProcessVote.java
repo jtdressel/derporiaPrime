@@ -47,43 +47,43 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				
 				underVote = assertion;
 	
-				if(underVote.getUN().equals(session.getAttribute("username").getUN())){
+				if(underVote.getUN().equals((User)session.getAttribute("username").getUN())){
 					//out.println("same");
 					//out.println("<p class=/"error/">You cannot vote on your own post!<p>");
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
-					if(underVote.getVoters().contains(session.getAttribute("username"))&&session.getAttribute("username").getConvinced().contains(underVote)) { //User has voted on this post in this way
+					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&(User)session.getAttribute("username").getConvinced().contains(underVote)) { //User has voted on this post in this way
 						//TODO alert user they have already voted in this way
 					}
 					else{
-						underVote.voteConvinced(session.getAttribute("username"));
+						underVote.voteConvinced((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						session.getAttribute("username").voteConvinced(underVote);
+						(User)session.getAttribute("username").voteConvinced(underVote);
 					}
 				}
 
 
 				else if(vote.equals("unsure")){
-				if(underVote.getVoters().contains(session.getAttribute("username"))&&session.getAttribute("username").getUnsure().contains(underVote)) { //User has voted on this post in this way
+				if(underVote.getVoters().contains((User)session.getAttribute("username"))&&(User)session.getAttribute("username").getUnsure().contains(underVote)) { //User has voted on this post in this way
 						//TODO alert user they have already voted in this way
 					}
 					else{
-						underVote.voteUnsure(session.getAttribute("username"));
+						underVote.voteUnsure((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						session.getAttribute("username").voteUnsure(underVote);
+						(User)session.getAttribute("username").voteUnsure(underVote);
 					}
 				}
 
 
 				else if(vote.equals("disagree")){
-					if(underVote.getVoters().contains(session.getAttribute("username"))&&session.getAttribute("username").getDisagree().contains(underVote)) { //User has voted on this post in this way
+					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&(User)session.getAttribute("username").getDisagree().contains(underVote)) { //User has voted on this post in this way
 						//TODO alert user they have already voted in this way
 					}
 					else{
-						underVote.voteDisagree(session.getAttribute("username"));
+						underVote.voteDisagree((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						session.getAttribute("username").voteDisagree(underVote);
+						(User)session.getAttribute("username").voteDisagree(underVote);
 					}
 				}
 
