@@ -46,7 +46,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		Object derp  = request.getSession().getAttribute("username")==null ? "" : request.getSession().getAttribute("username");
 	out.println(Utility.loginHeaderBanner(derp));
 		request.getSession().setAttribute("loginRequester","http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting");
-		out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\"> Make and Assertion!</a>");
+		out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\" class=\"center\"> Make and Assertion!</a>");
 
 	}
 	
