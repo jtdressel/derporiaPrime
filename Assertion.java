@@ -13,6 +13,11 @@ public class Assertion {
 	private String title;
 	private String body;
 	private UUID id;
+	
+	public List<User> getVoters() {
+		return voters;
+	}
+
 	private List<User> voters;
 	
 		public Assertion(String username, String title, String body) {

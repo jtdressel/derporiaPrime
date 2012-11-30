@@ -4,7 +4,6 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
-import java.util.Iterator;
 import java.util.*;
 
 
@@ -13,7 +12,6 @@ public class ProcessVote extends HttpServlet {
 private String vote;
 
 private Assertion underVote;
-private String username;
 private String id;
 public void doGet(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException  {
  
@@ -47,43 +45,43 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				
 				underVote = assertion;
 	
-				if(underVote.getUN().equals((User)session.getAttribute("username").getUN())){
+				if(underVote.getUN().equals(((User) session.getAttribute("username")).getUN())){
 					//out.println("same");
 					//out.println("<p class=/"error/">You cannot vote on your own post!<p>");
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
-					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&(User)session.getAttribute("username").getConvinced().contains(underVote)) { //User has voted on this post in this way
+					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&((User) session.getAttribute("username")).getConvinced().contains(underVote)) { //User has voted on this post in this way
 						//TODO alert user they have already voted in this way
 					}
 					else{
 						underVote.voteConvinced((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						(User)session.getAttribute("username").voteConvinced(underVote);
+						((User) session.getAttribute("username")).voteConvinced(underVote);
 					}
 				}
 
 
 				else if(vote.equals("unsure")){
-				if(underVote.getVoters().contains((User)session.getAttribute("username"))&&(User)session.getAttribute("username").getUnsure().contains(underVote)) { //User has voted on this post in this way
+				if(underVote.getVoters().contains((User)session.getAttribute("username"))&&((User) session.getAttribute("username")).getUnsure().contains(underVote)) { //User has voted on this post in this way
 						//TODO alert user they have already voted in this way
 					}
 					else{
 						underVote.voteUnsure((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						(User)session.getAttribute("username").voteUnsure(underVote);
+						((User) session.getAttribute("username")).voteUnsure(underVote);
 					}
 				}
 
 
 				else if(vote.equals("disagree")){
-					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&(User)session.getAttribute("username").getDisagree().contains(underVote)) { //User has voted on this post in this way
+					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&((User) session.getAttribute("username")).getDisagree().contains(underVote)) { //User has voted on this post in this way
 						//TODO alert user they have already voted in this way
 					}
 					else{
 						underVote.voteDisagree((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						(User)session.getAttribute("username").voteDisagree(underVote);
+						((User) session.getAttribute("username")).voteDisagree(underVote);
 					}
 				}
 
