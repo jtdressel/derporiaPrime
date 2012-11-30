@@ -23,7 +23,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 
 <link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>
 
-<script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaAssert.js"></script>
+<script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporia.js"></script>
 </head>
 
 	<body>
