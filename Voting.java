@@ -49,8 +49,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		out.println("<button type=\"button\" class=\"login\" name=\"loginButton\" align=\"right\">Log In</button>");
 		out.println("</div>");
 		out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\"> Make and Assertion!</a>");
-		
-		out.close();
+
 	}
 	
 	public void printBody(HttpServletRequest request, HttpServletResponse res) throws IOException{
@@ -126,7 +125,6 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("							</table>");
 		}
 			
-		out.close();
 	}
 		
 	public void printBottom(HttpServletResponse res) throws IOException{
