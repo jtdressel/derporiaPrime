@@ -1,7 +1,7 @@
 package jdressel.Derporia64;
 import java.util.*;
 
-/*
+/**
  *	This class contains a user for Derporia
  *	@author James Robertson
  */
@@ -26,7 +26,6 @@ public class User {
 	
 	/**		Adds a to the list of assertions voted convinced for.  
 	 *		If a has been voted on differently, removes a from the different list and adds to convinced.		
-	 *
 	 * 		@author James Robertson
 	 * 
 	 * 		@param a the assertion to be added to convinced
@@ -54,7 +53,6 @@ public class User {
 	
 	/**		Adds a to the list of assertions voted unsure for.  
 	 *		If a has been voted on differently, removes a from the different list and adds to unsure.		
-	 *
 	 * 		@author James Robertson
 	 * 
 	 * 		@param a the assertion to be added to unsure
@@ -80,8 +78,7 @@ public class User {
 	
 	/**		Adds a to the list of assertions voted disagree for.  
 	 *		If a has been voted on differently, removes a from the different list and adds to disagree.		
-	 *
-	 * 		@author James Robertson
+	 *		@author James Robertson
 	 * 
 	 * 		@param a the assertion to be added to disagree
 	 * 		@return true if the assertion was added
@@ -105,7 +102,6 @@ public class User {
 	}
 	
 	/**		Removes a from the list of assertions
-	 * 
 	 * 		@author James Robertson
 	 * 
 	 * 		@param a the assertion to be removed
@@ -124,7 +120,6 @@ public class User {
 	}
 	
 	/**		Adds an assertion to the list of assertions made by this user
-	 * 	
 	 * 		@author James Robertson
 	 * 		
 	 * 		@param a the assertion to add

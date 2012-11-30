@@ -1,7 +1,7 @@
 package jdressel.Derporia64;
 import java.util.*;
 import java.util.UUID;
-/*	
+/**	
  * 	This class contains assertions made by users
  * 	@author James Robertson
  */
@@ -69,56 +69,53 @@ public class Assertion {
 		return unsure;
 	}
 	
-	/*	Increments convinced if u has not already voted on this Assertion
-	 * 	@author James Robertson
+	/**		Increments convinced if u has not already voted on this Assertion
+	 * 		@author James Robertson
 	 * 
-	 * 	@return True if the vote was added successfully
-	 * 	@return False if the user has already voted on this Assertion
-	 * 	@throws NullPointerException if u is null
+	 * 		@return True if the vote was added successfully
+	 * 		@return False if the user has already voted on this Assertion in this way
+	 * 		@throws NullPointerException if u is null
 	 */
 	public boolean voteConvinced(User u){
 		if(u==null)
 			throw new NullPointerException("User cannot be null");
-		if(voters.contains(u))
+		if(u.voteConvinced(this))
 			return false;
 		voters.add(u);
-		u.voteConvinced(this);
 		convinced++;
 		return true;
 	}
 	
-	/*	Increments disagree if u has not already voted on this Assertion
-	 * 	@author James Robertson
+	/**		Increments disagree if u has not already voted on this Assertion
+	 * 		@author James Robertson
 	 * 
-	 * 	@return True if the vote was added successfully
-	 * 	@return False if the user has already voted on this Assertion
-	 * 	@throws NullPointerException if u is null
+	 * 		@return True if the vote was added successfully
+	 * 		@return False if the user has already voted on this Assertion in this way
+	 * 		@throws NullPointerException if u is null
 	 */
 	public boolean voteDisagree(User u){
 		if(u==null)
 			throw new NullPointerException("User cannot be null");
-		if(voters.contains(u))
+		if(u.voteDisagree(this))
 			return false;
 		voters.add(u);
-		u.voteDisagree(this);
 		disagree++;
 		return true;
 	}
 
-	/*	Increments unsure if u has not already voted on this Assertion
-	 * 	@author James Robertson
+	/**		Increments unsure if u has not already voted on this Assertion
+	 * 		@author James Robertson
 	 * 
-	 * 	@return True if the vote was added successfully
-	 * 	@return False if the user has already voted on this Assertion
-	 * 	@throws NullPointerException if u is null
+	 * 		@return True if the vote was added successfully
+	 * 		@return False if the user has already voted on this Assertion in this way
+	 * 		@throws NullPointerException if u is null
 	 */
 	public boolean voteUnsure(User u){
 		if(u==null)
 			throw new NullPointerException("User cannot be null");
-		if(voters.contains(u))
+		if(u.voteUnsure(this);)
 			return false;
 		voters.add(u);
-		u.voteUnsurethis);
 		unsure++;
 		return true;
 	}
