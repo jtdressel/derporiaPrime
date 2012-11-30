@@ -47,8 +47,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 	out.println(Utility.loginHeaderBanner(derp));
 		request.getSession().setAttribute("loginRequester","http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting");
 		out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\"> Make and Assertion!</a>");
-		
-		out.close();
+
 	}
 	
 	public void printBody(HttpServletRequest request, HttpServletResponse res) throws IOException{
@@ -124,7 +123,6 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("							</table>");
 		}
 			
-		out.close();
 	}
 		
 	public void printBottom(HttpServletResponse res) throws IOException{
