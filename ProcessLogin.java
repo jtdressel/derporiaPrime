@@ -30,18 +30,20 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 		User user = new User(username);
 		session.setAttribute("username",user);
 
-		//TODO: clean this up
+		//TODO: clean this up...
+		
+		if(session.getAttribute("loginRequester")!=null){
+		String toPage = (String)session.getAttribute("loginRequester");
+		session.removeAttribute("loginRequester");
+		res.sendRedirect(res.encodeRedirectURL(toPage));
 
-		res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
-	
-	//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
-	
-
-	/*if(null != session.getAttribute("loginRequester")){
-			res.sendRedirect(res.encodeRedirectURL((String)session.getAttribute("loginRequester")));
+		} else {
+			res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));
 		}
+
 	
-		res.sendRedirect(res.encodeRedirectURL(request.getHeader("referer")));*/
+	//once user is logged in, send them somewhere 
+	
 	}
 
 

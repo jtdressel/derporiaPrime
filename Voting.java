@@ -11,11 +11,11 @@ import java.util.*;
 
 
 public class Voting extends HttpServlet {
- 
+private HttpServletRequest request;
 private final String styleSheet = "";
 
 public void doGet(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException {
-		
+	this.request = request;	
 	printTop(res);
 	
 	printBody(request, res);
@@ -43,11 +43,9 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		out.println("<body>");
 		out.println("<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1>");
 
-		out.println("<div class=\"username\">");
-		out.println("Log In: <input type=\"text\" name=\"username\" placeholder=\"Username\" onkeypress=\"checkEnter(event)\">");
-		out.println("<br />");
-		out.println("<button type=\"button\" class=\"login\" name=\"loginButton\" align=\"right\">Log In</button>");
-		out.println("</div>");
+		Object derp  = request.getSession().getAttribute("username")==null ? "" : request.getSession().getAttribute("username");
+	out.println(Utility.loginHeaderBanner(derp));
+		request.getSession().setAttribute("loginRequester","http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting");
 		out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\"> Make and Assertion!</a>");
 		
 		out.close();
