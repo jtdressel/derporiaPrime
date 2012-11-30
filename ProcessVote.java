@@ -57,7 +57,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 					//TODO alert user they have already voted in this way
 					}
 					else{
-						underVote.setConvinced(underVote.getConvinced()+1);
+						underVote.voteConvinced(session.getAttribute("username"));
 						assertions.add(underVote);
 						session.getAttribute("username").voteConvinced(underVote);
 					}
@@ -69,7 +69,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 					//TODO alert user they have already voted in this way
 					}
 					else{
-						underVote.setUnsure(underVote.getUnsure()+1);
+						underVote.voteUnsure(session.getAttribute("username"));
 						assertions.add(underVote);
 						session.getAttribute("username").voteUnsure(underVote);
 					}
@@ -81,7 +81,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 					//TODO alert user they have already voted in this way
 					}
 					else{
-						underVote.setDisagree(underVote.getDisagree()+1);
+						underVote.voteDisagree(session.getAttribute("username"));
 						assertions.add(underVote);
 						session.getAttribute("username").voteDisagree(underVote);
 					}
