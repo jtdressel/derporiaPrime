@@ -62,7 +62,7 @@ public class User {
 	 * 		@return false if the assertion is already in unsure
 	 * 		@throws NullPointerException if a is null
 	 */
-	public void voteUnsure(Assertion a){
+	public boolean voteUnsure(Assertion a){
 		if(a==null)
 			throw new NullPointerException("Assertion cannot be null");
 		else if(convinced.contains(a))
@@ -74,6 +74,7 @@ public class User {
 		if(!assertions.contains(a))
 			assertions.add(a);
 		unsure.add(a);
+		return true;
 	}
 	
 	public List<Assertion> getDisagree(){
@@ -89,7 +90,7 @@ public class User {
 	 * 		@return false if the assertion is already in disagree
 	 * 		@throws NullPointerException if a is null
 	 */
-	public void voteDisagree(){
+	public boolean voteDisagree(Assertion a){
 		if(a==null)
 			throw new NullPointerException("Assertion cannot be null");
 		else if(convinced.contains(a))
@@ -101,6 +102,7 @@ public class User {
 		if(!assertions.contains(a))
 			assertions.add(a);
 		disagree.add(a);
+		return true;
 	}
 	
 	public List<Assertion> getAssertions(){

@@ -79,11 +79,11 @@ public class Assertion {
 	public boolean voteConvinced(User u){
 		if(u==null)
 			throw new NullPointerException("User cannot be null");
-		if(u.getDisagree().contains(a))
-			disagree;
-		else if(u.getConvinced().contains(a))
+		if(u.getDisagree().contains(this))
+			disagree--;
+		else if(u.getConvinced().contains(this))
 			return false;
-		else if(u.getUnsure().contains(a))
+		else if(u.getUnsure().contains(this))
 			unsure--;
 		if(!voters.contains(u))
 			voters.add(u);
@@ -102,11 +102,11 @@ public class Assertion {
 	public boolean voteDisagree(User u){
 		if(u==null)
 			throw new NullPointerException("User cannot be null");
-		if(u.getDisagree().contains(a))
+		if(u.getDisagree().contains(this))
 			return false;
-		else if(u.getConvinced().contains(a))
+		else if(u.getConvinced().contains(this))
 			convinced--;
-		else if(u.getUnsure().contains(a))
+		else if(u.getUnsure().contains(this))
 			unsure--;
 		if(!voters.contains(u))
 			voters.add(u);
@@ -125,11 +125,11 @@ public class Assertion {
 	public boolean voteUnsure(User u){
 		if(u==null)
 			throw new NullPointerException("User cannot be null");
-		if(u.getDisagree().contains(a))
+		if(u.getDisagree().contains(this))
 			disagree--;
-		else if(u.getConvinced().contains(a))
+		else if(u.getConvinced().contains(this))
 			convinced--;
-		else if(u.getUnsure().contains(a))
+		else if(u.getUnsure().contains(this))
 			return false;
 		if(!voters.contains(u))
 			voters.add(u);
