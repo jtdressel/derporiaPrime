@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import java.io.*;
 
 
-/*	
+/**
  * 	This class contains assertions made by users
  * 	@author James Dressel
  */

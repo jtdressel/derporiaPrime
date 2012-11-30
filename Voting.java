@@ -16,17 +16,17 @@ private final String styleSheet = "";
 
 public void doGet(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException {
 		
-	printTop();
+	printTop(res);
 	
-	printBody();
+	printBody(request, res);
 	
-	printBottom();
+	printBottom(res);
 
     }
 	
-	public void printTop(){
+	public void printTop(HttpServletResponse res) throws IOException{
 		res.setContentType ("text/html");
-		PrintWriter out = res.getWriter ();
+		PrintWriter out = res.getWriter();
 		
 		out.println("<!DOCTYPE html>");
 		out.println("<html><head>");
@@ -53,9 +53,9 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		out.close();
 	}
 	
-	public void printBody(){
+	public void printBody(HttpServletRequest request, HttpServletResponse res) throws IOException{
 		res.setContentType ("text/html");
-		PrintWriter out = res.getWriter ();
+		PrintWriter out = res.getWriter();
 		HttpSession session = request.getSession();
 		
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
@@ -63,6 +63,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		if(d==null){
 			out.println("<p>There are currently no Assertions :(</p>");
 		} else {
+			@SuppressWarnings("unchecked")
 			Set<Assertion> assertions = (Set<Assertion>)d;
 
 			out.println("							<table class=\"mega\">");
@@ -81,11 +82,11 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("												</tr>");
 				out.println("												<tr>");
 				if(session.getAttribute("username").equals(assertion.getUN())){
-					if(session.getAttribute("username").getConvinced().contains(assertion))
+					if(((User) session.getAttribute("username")).getConvinced().contains(assertion))
 						out.println("													<td class=\"green\">");
-					if(session.getAttribute("username").getUnsure().contains(assertion))
+					if(((User) session.getAttribute("username")).getUnsure().contains(assertion))
 						out.println("													<td class=\"yellow\">");
-					if(session.getAttribute("username").getDisagree().contains(assertion))
+					if(((User) session.getAttribute("username")).getDisagree().contains(assertion))
 						out.println("													<td class=\"red\">");
 				}
 				else
@@ -128,11 +129,11 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		out.close();
 	}
 		
-	public void printBottom(){
+	public void printBottom(HttpServletResponse res) throws IOException{
 		res.setContentType ("text/html");
-		PrintWriter out = res.getWriter ();
+		PrintWriter out = res.getWriter();
 		
-		out.println("							<h4>By James Robertson and James Dressel</h4>")
+		out.println("							<h4>By James Robertson and James Dressel</h4>");
 		out.println("							</body>");
 		out.println("							</html>");
 		
