@@ -87,12 +87,11 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 						out.println("													<td class=\"yellow\">");
 					if(session.getAttribute("username").getDisagree.contains(assertion))
 						out.println("													<td class=\"red\">");
-				
 				}
 				else
 					out.println("													<td>");
-				out.println("													<p class=\"center\"><b>"+assertion.getName()+"</b></p>");
-				out.println("													<p class=\"center\"><i>"+assertion.getBody()+"</i></p>");
+				out.println("													<p class=\"center\"><b>Claim: <br />"+assertion.getName()+"</b></p>");
+				out.println("													<p class=\"center\"><i>Assertions: <br />"+assertion.getBody()+"</i></p>");
 				out.println("													<p>Convinced: "+assertion.getConvinced()+"<br>");
 				out.println("														Unsure:    "+assertion.getUnsure()+"<br>");
 				out.println("														Disagree:  "+assertion.getDisagree()+"</p>");
