@@ -40,7 +40,7 @@ session.setAttribute("loginRequester", refText);
 			<button type="button" onclick="resetForm()">Clear</button> 
 		</td>
 		<td align="right">
-			<input class="regular" type="submit" name="Submit"/>
+			<input class="regular" type="submit" name="Log In"/>
 		</td>
 		</tr>
 		</tbody></table>
