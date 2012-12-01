@@ -74,8 +74,8 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		</tbody></table>
 		</form>
 		<p id="error"></p>
-		<a href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessReset">RESET ALL THE THINGS</a>
-<h4>By James Robertson and James Dressel</h4>
+		<a href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessReset">Reset all asertions</a>
+<h4>By James Robertson and James Dressel Homework 10</h4>
 </body>
 </html>
 
