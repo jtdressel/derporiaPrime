@@ -74,7 +74,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("											<tbody>");
 				out.println("												<tr>");
 				out.println("													<td>");
-				out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/username.html\">UserName</a></p>");
+				out.println("														<p>Post by <a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/"+assertion.getUN()+".html\">"+assertion.getUN()+"</a></p>");
 				out.println("													</td>");
 				out.println("												</tr>");
 				out.println("												<tr>");
