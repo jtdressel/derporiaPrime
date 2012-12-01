@@ -31,7 +31,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 </head>
 
 	<body>
-	<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1> 
+	<h1><a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1> 
 
 	<%@ page import="jdressel.Derporia64.Utility" %>
 	<%@ page language="java" %>
