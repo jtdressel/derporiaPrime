@@ -78,15 +78,17 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("													</td>");
 				out.println("												</tr>");
 				out.println("												<tr>");
-				if(session.getAttribute("username").equals(assertion.getUN())){
-					if(((User) session.getAttribute("username")).getConvinced().contains(assertion))
+				String username = (session.getAttribute("username") == null)?"":session.getAttribute("username").toString(); 
+				User user = new User(username);
+/*				if(username.equals(assertion.getUN())){
+					if(user.getConvinced().contains(assertion))
 						out.println("													<td class=\"green\">");
-					if(((User) session.getAttribute("username")).getUnsure().contains(assertion))
+					if(user.getUnsure().contains(assertion))
 						out.println("													<td class=\"yellow\">");
-					if(((User) session.getAttribute("username")).getDisagree().contains(assertion))
+					if(user.getDisagree().contains(assertion))
 						out.println("													<td class=\"red\">");
 				}
-				else
+				else*/
 					out.println("													<td>");
 				out.println("													<p class=\"center\"><b>Claim: <br />"+assertion.getName()+"</b></p>");
 				out.println("													<p class=\"center\"><i>Assertions: <br />"+assertion.getBody()+"</i></p>");
