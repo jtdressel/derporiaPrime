@@ -108,13 +108,13 @@ out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdress
 				out.println("												<table width=\"100%\">");
 				out.println("													<tbody><tr>");
 				out.println("													<td align=\"left\">");
-				out.println("														<button type=\"button\" class=\"red\" name=\"disagree\">Disagree</button> ");
+				out.println("														<button type=\"submit\" formaction=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=disagree&id=\" class=\"red\" name=\"disagree\">Disagree</button> ");
 				out.println("													</td>");
 				out.println("													<td align=\"center\">");
-				out.println("														<button type=\"button\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
+				out.println("														<button type=\"submit\" formaction=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=unsure&id=\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
 				out.println("													</td>");
 				out.println("													<td align=\"right\">");
-				out.println("														<button type=\"button\" class=\"green\" name=\"convinced\">Convinced</button> ");
+				out.println("														<button type=\"submit\" formaction=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=convinced&id=\" class=\"green\" name=\"convinced\">Convinced</button> ");
 				out.println("													</td>");
 				out.println("													</tr>");
 				out.println("												</tbody></table>");
