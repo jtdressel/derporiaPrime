@@ -7,16 +7,17 @@ import java.io.*;
 
 
 public class ProcessReset extends HttpServlet {
+private String login="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp";
 
-private String username;
 public void doGet(HttpServletRequest request, HttpServletResponse res)
 throws ServletException, IOException  {
- 
-	/*
-	* Send the user back to where they belong
-	*/
- 	getServletContext().setAttribute("jdresselAssertionSet",null);
-	String login="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp";
+
+ 	HttpSession session = request.getSession();
+	session.invalidate(); //(I thought about invalidating all sessions, but did not want to mess with the other webapps in the context)
+	
+	getServletContext().setAttribute("jdresselAssertionSet",null);//Remove assertions
+	
+	
 	String destination = request.getHeader("referer")==null ? login : request.getHeader("referer");
 	res.sendRedirect(res.encodeRedirectURL(destination));
  
