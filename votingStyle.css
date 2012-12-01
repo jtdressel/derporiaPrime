@@ -15,7 +15,7 @@ input
 	right: 10px;
 }
 
-button, submit
+button, submit, input.regular
 {
 	font-family:"Trebuchet MS";
 	text-align: center;
