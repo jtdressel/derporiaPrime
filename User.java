@@ -35,17 +35,6 @@ public class User {
 	 */
 	
 	public boolean voteConvinced(Assertion a){
-		if(a==null)
-			throw new NullPointerException();
-		else if(convinced.contains(a))
-			return false;
-		else if(unsure.contains(a))
-			unsure.remove(a);
-		else if(disagree.contains(a))
-			disagree.remove(a);
-		convinced.add(a);
-		if(!assertions.contains(a))
-			assertions.add(a);
 		return true;
 	}
 	
@@ -63,17 +52,6 @@ public class User {
 	 * 		@throws NullPointerException if a is null
 	 */
 	public boolean voteUnsure(Assertion a){
-		if(a==null)
-			throw new NullPointerException("Assertion cannot be null");
-		else if(convinced.contains(a))
-			convinced.remove(a);
-		else if(unsure.contains(a))
-			return false;
-		else if(disagree.contains(a))
-			disagree.remove(a);
-		if(!assertions.contains(a))
-			assertions.add(a);
-		unsure.add(a);
 		return true;
 	}
 	
@@ -91,17 +69,6 @@ public class User {
 	 * 		@throws NullPointerException if a is null
 	 */
 	public boolean voteDisagree(Assertion a){
-		if(a==null)
-			throw new NullPointerException("Assertion cannot be null");
-		else if(convinced.contains(a))
-			convinced.remove(a);
-		else if(unsure.contains(a))
-			unsure.remove(a);
-		else if(disagree.contains(a))
-			return false;
-		if(!assertions.contains(a))
-			assertions.add(a);
-		disagree.add(a);
 		return true;
 	}
 	

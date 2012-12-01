@@ -26,7 +26,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 	if(session.getAttribute("username")==null){
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
 	} else {
-
+		User derp = new User("derp");
 		//TODO check for empty
 
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
@@ -51,38 +51,27 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
 				}
 				else if(vote.equals("convinced")){
-					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&((User) session.getAttribute("username")).getConvinced().contains(underVote)) { //User has voted on this post in this way
-						//TODO alert user they have already voted in this way
-					}
-					else{
+					
 						underVote.voteConvinced((User)session.getAttribute("username"));
 						assertions.add(underVote);
-						((User) session.getAttribute("username")).voteConvinced(underVote);
-					}
+						derp.voteConvinced(underVote);
 				}
 
 
 				else if(vote.equals("unsure")){
-				if(underVote.getVoters().contains((User)session.getAttribute("username"))&&((User) session.getAttribute("username")).getUnsure().contains(underVote)) { //User has voted on this post in this way
-						//TODO alert user they have already voted in this way
-					}
-					else{
-						underVote.voteUnsure((User)session.getAttribute("username"));
+				underVote.voteUnsure(derp);
 						assertions.add(underVote);
-						((User) session.getAttribute("username")).voteUnsure(underVote);
-					}
+						derp.voteUnsure(underVote);
+					
 				}
 
 
 				else if(vote.equals("disagree")){
-					if(underVote.getVoters().contains((User)session.getAttribute("username"))&&((User) session.getAttribute("username")).getDisagree().contains(underVote)) { //User has voted on this post in this way
-						//TODO alert user they have already voted in this way
-					}
-					else{
+					
 						underVote.voteDisagree((User)session.getAttribute("username"));
 						assertions.add(underVote);
 						((User) session.getAttribute("username")).voteDisagree(underVote);
-					}
+					
 				}
 
 

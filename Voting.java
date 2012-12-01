@@ -32,7 +32,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		out.println("<html><head>");
 		out.println("<meta http-equiv=\"content-type\" content=\"text/html\"; charset=\"UTF-8\">");
 		out.println("<meta charset=\"UTF-8\">");
-		out.println("<title>Derporia: the never-ending land of claims</title>");
+		out.println("<title>Derporia: the never-ending land of claimDEFWFWWEFs</title>");
 
 		out.println("<!-- A project by James Dressel and James Robertson -->");
 		out.println("<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaVotingStyle.css\" />");
@@ -67,6 +67,9 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 
 			for(Iterator<Assertion> assertionIterator = assertions.iterator(); assertionIterator.hasNext();){
 				Assertion assertion = assertionIterator.next();
+						out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=convinced&id=" + assertion.getId() +" \">Convinced</a>");
+out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=disagree&id=" + assertion.getId() +" \">disagree</a>");
+out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=unsure&id=" + assertion.getId() +" \">unsure</a>");
 
 				out.println("								<tr>");
 				out.println("									<td class=\"mega\">");
