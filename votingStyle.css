@@ -30,7 +30,7 @@ button, submit
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
 }
 
-.login
+a
 {
 	font-family:"Trebuchet MS";
 	text-align: center;
