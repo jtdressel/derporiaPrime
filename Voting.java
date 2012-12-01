@@ -58,7 +58,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
 		
 		if(d==null){
-			out.println("<p>There are currently no Assertions :(</p>");
+			out.println("<p>There are currently no claims :(</p>");
 		} else {
 			@SuppressWarnings("unchecked")
 			Set<Assertion> assertions = (Set<Assertion>)d;
