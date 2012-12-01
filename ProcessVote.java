@@ -45,7 +45,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				
 				underVote = assertion;
 	
-				if(underVote.getUN().equals(((User) session.getAttribute("username")).getUN())){
+				if(underVote.getUN().equals(((User) session.getAttribute("username")).getUN())||(User) session.getAttribute("username")==null){
 					//out.println("same");
 					//out.println("<p class=/"error/">You cannot vote on your own post!<p>");
 					//res.sendRedirect(res.encodeRedirectURL("http://reddit.com"));
