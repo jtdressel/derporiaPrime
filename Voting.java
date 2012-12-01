@@ -41,7 +41,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 		out.println("</head>");
 
 		out.println("<body>");
-		out.println("<h1>Derporia: the never-ending land of <del>baseless</del> claims</h1>");
+		out.println("<h1><a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1>");
 
 		Object derp  = request.getSession().getAttribute("username")==null ? "" : request.getSession().getAttribute("username");
 	out.println(Utility.loginHeaderBanner(derp));
