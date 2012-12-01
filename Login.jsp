@@ -47,7 +47,7 @@ session.setAttribute("loginRequester", refText);
 		</form>
 		<p id="error"></p>
 		
-<h4>By James Robertson and James Dressel</h4>
+<h4>By James Robertson and James Dressel Homework 10</h4>
 </body>
 </html>
 
