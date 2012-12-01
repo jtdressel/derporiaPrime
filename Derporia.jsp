@@ -8,10 +8,13 @@
 <!-- A project by James Dressel and James Robertson -->
 <script language="JavaScript">
 <!--
-version= parseInt(navigator.appVersion);
-browser = navigator.appName;
+var N = navigator.appName;
+var ua = navigator.userAgent; 
+var tem;
+ 
+var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
 
-if ( (browser == "Microsoft Internet Explorer" && (version >= 4))||(browser == "Chrome")||(browser == "Safari")/*||(browser == "Firefox")/*DOES NOT WORK WITH OPERA OR FIREFOX ||(browser == "Opera")*/ ) {
+if(ua.match(/(chrome|safari|msie)\/?\s*(\.?\d+(\.\d+)*)/i)){
 document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
 }
 
@@ -21,7 +24,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 -->
 </script>
 
-<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>
+<!--<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>-->
 
 <script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporia.js"></script>
 
