@@ -104,15 +104,15 @@ public void doGet(HttpServletRequest request, HttpServletResponse res) throws Se
 				out.println("												<table width=\"100%\">");
 				out.println("													<tbody><tr>");
 				out.println("													<td align=\"left\">");
-				out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=disagree&id=" + assertion.getId() +" \">disagree</a>");//TODO make button work
+				out.println("<a class=\".red\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=disagree&id=" + assertion.getId() +" \">disagree</a>");//TODO make button work
 				out.println("														<button type=\"submit\" formaction=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=disagree&id=\" class=\"red\" name=\"disagree\">Disagree</button> ");
 				out.println("													</td>");
 				out.println("													<td align=\"center\">");
-				out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=unsure&id=" + assertion.getId() +" \">unsure</a>");//TODO make button work
+				out.println("<a class=\".yellow\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=unsure&id=" + assertion.getId() +" \">unsure</a>");//TODO make button work
 				out.println("														<button type=\"submit\" formaction=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=unsure&id=\" class=\"yellow\" name=\"unsure\">Unsure</button> ");
 				out.println("													</td>");
 				out.println("													<td align=\"right\">");
-				out.println("<a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=convinced&id=" + assertion.getId() +" \">Convinced</a>");//TODO make button work
+				out.println("<a class=\".green\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=convinced&id=" + assertion.getId() +" \">Convinced</a>");//TODO make button work
 				out.println("														<button type=\"submit\" formaction=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=convinced&id=\" class=\"green\" name=\"convinced\">Convinced</button> ");
 				out.println("													</td>");
 				out.println("													</tr>");

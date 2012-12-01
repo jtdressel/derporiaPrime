@@ -30,7 +30,7 @@ button, submit
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
 }
 
-button.login
+.login
 {
 	font-family:"Trebuchet MS";
 	text-align: center;
@@ -48,7 +48,7 @@ button.login
 	right: 16px;
 }
 
-button.red 
+.red 
 { 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF0000), to(#600000)); 
 	border: solid 1px #600000; 
@@ -56,7 +56,7 @@ button.red
 	cursor: pointer;
 }
 
-button.yellow 
+.yellow 
 { 
 	border: solid 1px #FF6600;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFF00), to(#FF6600));
@@ -64,7 +64,7 @@ button.yellow
 	cursor: pointer;
 }
 
-button.green 
+.green 
 { 
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00FF33 ), to(#009933)); 
 	border: solid 1px #009933;  
