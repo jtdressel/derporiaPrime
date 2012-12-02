@@ -6,7 +6,6 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.Iterator;
 import java.util.*;
-
 @SuppressWarnings("serial")//Usually bad, but the class does not being serialized. 
 public class ProcessClaim extends HttpServlet {
 
@@ -39,7 +38,13 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 			getServletContext().setAttribute("jdresselAssertionSet",assertions);
 		} 
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
-		Set setOfAssets = (Set)d;
+		Set<Assertion> setOfAssets;
+		try{
+			setOfAssets = (Set<Assertion>)d;
+		}catch(ClassCastException e){
+			setOfAssets = new HashSet<Assertion>();
+		}
+		
 		setOfAssets.add(a);
 		getServletContext().setAttribute("jdresselAssertionSet",setOfAssets);
 				
