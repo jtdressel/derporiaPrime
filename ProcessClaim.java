@@ -47,15 +47,8 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 		
 		setOfAssets.add(a);
 		getServletContext().setAttribute("jdresselAssertionSet",setOfAssets);
-				
-
-
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
 	}
-
-	
-
-
 }
 
 private void setClaimAssertion(HttpServletRequest request){
