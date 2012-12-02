@@ -33,7 +33,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 	if(session.getAttribute("username")==null){
 		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
 	} else {
-		Assertion a = new Assertion((String)session.getAttribute("username").toString(), claim, assertions);
+		Assertion a = new Assertion(session.getAttribute("username").toString(), claim, assertions);
 		if(getServletContext().getAttribute("jdresselAssertionSet")==null){
 			Set<Assertion> assertions = new HashSet<Assertion>();
 			getServletContext().setAttribute("jdresselAssertionSet",assertions);
