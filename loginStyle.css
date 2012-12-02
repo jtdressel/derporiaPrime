@@ -48,7 +48,7 @@ button.login
 	right: 16px;
 }
 
-textarea
+.login, textarea
 {
 	font-family:"Trebuchet MS";
 	font-size:100%;
