@@ -39,9 +39,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse res) throws S
 			getServletContext().setAttribute("jdresselAssertionSet",assertions);
 		} 
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
-		Set asse = (Set)d;
-		asse.add(a);
-		getServletContext().setAttribute("jdresselAssertionSet",asse);
+		Set setOfAssets = (Set)d;
+		setOfAssets.add(a);
+		getServletContext().setAttribute("jdresselAssertionSet",setOfAssets);
 				
 
 
