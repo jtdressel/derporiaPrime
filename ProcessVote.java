@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 
-
+@SuppressWarnings("serial")//Usually bad, but the class does not being serialized. 
 public class ProcessVote extends HttpServlet {
 
 private String vote;
