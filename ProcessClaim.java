@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.Iterator;
 import java.util.*;
 
-
+@SuppressWarnings("serial")//Usually bad, but the class does not being serialized. 
 public class ProcessClaim extends HttpServlet {
 
 private String claim;
