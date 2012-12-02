@@ -30,7 +30,7 @@ button, submit, input.regular
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
 }
 
-button
+a
 {
 	font-family:"Trebuchet MS";
 	text-align: center;
@@ -43,9 +43,7 @@ button
 	color:white;
 	cursor: pointer;
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
-	position: fixed; 
-	top: 37px;
-	right: 16px;
+
 }
 
 .red 
