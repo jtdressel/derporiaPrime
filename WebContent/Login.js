@@ -18,5 +18,4 @@ function validateForm(){
 		return true;
 	}
 	return false;
-	}
 }
