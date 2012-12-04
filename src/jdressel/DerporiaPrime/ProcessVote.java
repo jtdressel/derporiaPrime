@@ -98,7 +98,7 @@ private String id;
 
     				assertions.add(underVote);
     				//getServletContext().setAttribute("jdresselAssertionSet",assertions);
-    				res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting"));
+    				res.sendRedirect(res.encodeRedirectURL("Voting"));
     			}
     		
     		}

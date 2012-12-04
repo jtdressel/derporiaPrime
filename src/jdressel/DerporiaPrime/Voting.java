@@ -52,20 +52,20 @@ public class Voting extends HttpServlet {
 		out.println("<html><head>");
 		out.println("<meta http-equiv=\"content-type\" content=\"text/html\"; charset=\"UTF-8\">");
 		out.println("<meta charset=\"UTF-8\">");
-		out.println("<title><a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\">Derporia</a>: the never-ending land of claimDEFWFWWEFs</title>");
+		out.println("<title><a href=\"Derporia.jsp\">Derporia</a>: the never-ending land of claimDEFWFWWEFs</title>");
 
 		out.println("<!-- A project by James Dressel and James Robertson -->");
-		out.println("<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/votingStyle.css\" />");
+		out.println("<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"votingStyle.css\" />");
 
-		out.println("<script src=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/votingStyle.js\" /> </script>");
+		out.println("<script src=\"votingStyle.js\" /> </script>");
 		out.println("</head>");
 
 		out.println("<body>");
-		out.println("<h1><a href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1>");
+		out.println("<h1><a href=\"Derporia.jsp\">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1>");
 
 		Object derp  = request.getSession().getAttribute("username")==null ? "" : request.getSession().getAttribute("username");
-	out.println(Utility.loginHeaderBanner(derp));
-		request.getSession().setAttribute("loginRequester","http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting");
+		out.println(Utility.loginHeaderBanner(derp));
+		request.getSession().setAttribute("loginRequester","Voting");
 		
 
 	}
@@ -124,16 +124,16 @@ public class Voting extends HttpServlet {
 				out.println("												<table width=\"100%\">");
 				out.println("													<tbody><tr>");
 				out.println("													<td align=\"left\">");
-				out.println("<a class=\"red\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=disagree&id=" + assertion.getId() +" \">Disagree</a>");
+				out.println("<a class=\"red\" href=\"ProcessVote?vote=disagree&id=" + assertion.getId() +" \">Disagree</a>");
 				
 																
 				out.println("													</td>");
 				out.println("													<td align=\"center\">");
-				out.println("<a class=\"yellow\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=unsure&id=" + assertion.getId() +" \">Unsure</a>");
+				out.println("<a class=\"yellow\" href=\"ProcessVote?vote=unsure&id=" + assertion.getId() +" \">Unsure</a>");
 				
 				out.println("													</td>");
 				out.println("													<td align=\"right\">");
-				out.println("<a class=\"green\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessVote?vote=convinced&id=" + assertion.getId() +" \">Convinced</a>");
+				out.println("<a class=\"green\" href=\"ProcessVote?vote=convinced&id=" + assertion.getId() +" \">Convinced</a>");
 				
 				out.println("													</td>");
 				out.println("													</tr>");
@@ -153,7 +153,7 @@ public class Voting extends HttpServlet {
 	public void printBottom(HttpServletResponse res) throws IOException{
 		res.setContentType ("text/html");
 		PrintWriter out = res.getWriter();
-		out.println("<a class=\"button\" href=\"http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp\" class=\"center\"> Make a Claim!</a>");
+		out.println("<a class=\"button\" href=\"Derporia.jsp\" class=\"center\"> Make a Claim!</a>");
 		out.println("							<h4>By James Robertson and James Dressel Homework 10</h4>");
 		out.println("							</body>");
 		out.println("							</html>");

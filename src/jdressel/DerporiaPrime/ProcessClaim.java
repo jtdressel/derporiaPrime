@@ -39,7 +39,7 @@ public class ProcessClaim extends HttpServlet {
 		HttpSession session = request.getSession();
 		setClaimAssertion(request);
 		if(session.getAttribute("username")==null){
-			response.sendRedirect(response.encodeRedirectURL(""));//TODO//ERROR, send the user back
+			response.sendRedirect(response.encodeRedirectURL("Login.jsp"));//TODO//ERROR, send the user back
 		} else {
 			Assertion a = new Assertion(session.getAttribute("username").toString(), claim, assertions);
 			if(getServletContext().getAttribute("jdresselAssertionSet")==null){
@@ -56,7 +56,7 @@ public class ProcessClaim extends HttpServlet {
 			
 			setOfAssets.add(a);
 			getServletContext().setAttribute("jdresselAssertionSet",setOfAssets);
-			response.sendRedirect(response.encodeRedirectURL(""));//TODO
+			response.sendRedirect(response.encodeRedirectURL("Voting"));//TODO
 		}
 	}
 	private void setClaimAssertion(HttpServletRequest request){
