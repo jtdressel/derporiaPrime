@@ -26,12 +26,12 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 
 <link rel="stylesheet" type="text/css" href="derporiaStyle.css"/>
 
-<script src="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporia.js"></script>
+<script src="derporia.js"></script>
 
 </head>
 
 	<body>
-	<h1><a href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1> 
+	<h1><a href="Derporia.jsp">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1> 
 
 	<%@ page import="jdressel.DerporiaPrime.Utility" %>
 	<%@ page language="java" %>
@@ -39,19 +39,22 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<%
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
 	out.println(Utility.loginHeaderBanner(derp));
-	session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Derporia.jsp");
+	session.setAttribute("loginRequester", "Derporia.jsp");
 	%>
 
 	
 	<hr>
-
+<div>\n<form name="loginForm"  action="ProcessLogin" method="post">
+	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
+	<input class="regular" type="submit" value="Login" name="Log In"/>
+	</form></div>
 	<br>
 	
 	<table class="center" border="1">
 		<tbody>
 			<tr>
 				<td>
-					<form name="assertionForm"  onsubmit="return validateForm()" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.ProcessClaim" method="post">
+					<form name="assertionForm"  onsubmit="return validateForm()" action="jdressel.DerporiaPrime.ProcessClaim" method="post">
 
 						<textarea cols="30" rows="1" name="claim" autofocus="autofocus" placeholder="Make a Claim" onkeypress="checkSubmit(event);return noEnter(event)"></textarea>
 					<br>
@@ -74,7 +77,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		</tbody></table>
 		</form>
 		<p id="error"></p>
-		<a href="jdressel.Derporia64.ProcessReset">Reset all asertions</a>
+		<a href="ProcessReset">Reset all asertions</a>
 <h4>By James Robertson and James Dressel Homework 10</h4>
 </body>
 </html>
