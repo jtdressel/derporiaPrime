@@ -1,4 +1,4 @@
-package jdressel.Derporia64;
+package jdressel.DerporiaPrime;
 import java.util.*;
 
 /**
