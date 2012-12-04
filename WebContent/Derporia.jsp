@@ -44,17 +44,14 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 
 	
 	<hr>
-<div>\n<form name="loginForm"  action="ProcessLogin" method="post">
-	Log In: <input type="text" name="username" placeholder="Username" onkeypress="checkEnter(event)">
-	<input class="regular" type="submit" value="Login" name="Log In"/>
-	</form></div>
+
 	<br>
 	
 	<table class="center" border="1">
 		<tbody>
 			<tr>
 				<td>
-					<form name="assertionForm"  onsubmit="return validateForm()" action="jdressel.DerporiaPrime.ProcessClaim" method="post">
+					<form name="assertionForm"  onsubmit="return validateForm()" action="ProcessClaim" method="post">
 
 						<textarea cols="30" rows="1" name="claim" autofocus="autofocus" placeholder="Make a Claim" onkeypress="checkSubmit(event);return noEnter(event)"></textarea>
 					<br>
