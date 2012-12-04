@@ -45,7 +45,7 @@ private String id;
      	HttpSession session = request.getSession();
     	setVariables(request);
     	if(session.getAttribute("username")==null){
-    		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/Login.jsp"));//ERROR, send the user back
+    		res.sendRedirect(res.encodeRedirectURL(""));//TODO ERROR, send the user back
     	} else {
     		User derp = new User("derp");
     		//TODO check for empty
