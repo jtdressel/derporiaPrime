@@ -29,7 +29,7 @@ public class ProcessLogin extends HttpServlet {
 		* Send the user back to where they belong
 		*/
 	 
-		String destination="";//TODO
+		String destination="Derporia.jsp";//TODO
 		response.sendRedirect(response.encodeRedirectURL(destination));//TODO
 	}
 
@@ -41,7 +41,7 @@ public class ProcessLogin extends HttpServlet {
 		HttpSession session = request.getSession();//If a session does not exist, this will start one
 		if(session.getAttribute("username")!=null){
 		//user is already logged in
-			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/LoggedInAlready.jsp"));
+			response.sendRedirect(response.encodeRedirectURL(""));//TODO
 		}else{
 			User user = new User(username);
 			session.setAttribute("username",user);
