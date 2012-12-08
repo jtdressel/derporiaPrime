@@ -1,0 +1,20 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="users">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="user">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="votedOn" maxOccurs="unbounded" minOccurs="0"/>
+              <xs:element type="xs:string" name="convinced" maxOccurs="unbounded" minOccurs="0"/>
+              <xs:element type="xs:string" name="unsure" maxOccurs="unbounded" minOccurs="0"/>
+              <xs:element type="xs:string" name="disagree" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="name" use="required"/>
+            <xs:attribute type="xs:string" name="password" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
