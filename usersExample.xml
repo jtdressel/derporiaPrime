@@ -1,0 +1,10 @@
+<users>
+	<user name="James Derp" password="aHashedPassword">
+	<votedOn>3437fe44-1f00-44e8-8709-51a2aecef4e6</votedOn>
+	<votedOn>202a0268-3d06-423d-a60f-d46ab09d7259</votedOn>
+	<votedOn>4f3c386b-863f-41cb-8696-93b4cfdd3767</votedOn>
+	<disagree>202a0268-3d06-423d-a60f-d46ab09d7259</disagree>
+	<convinced>3437fe44-1f00-44e8-8709-51a2aecef4e6</convinced>
+	<unsure>4f3c386b-863f-41cb-8696-93b4cfdd3767</unsure>
+	</user>
+</users>
