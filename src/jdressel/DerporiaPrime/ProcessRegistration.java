@@ -2,6 +2,8 @@ package jdressel.DerporiaPrime;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -34,33 +36,68 @@ public class ProcessRegistration extends HttpServlet {
 	}
 
 	/**
+	 * Processes a registration. If user or password is blank the user is directed to an error page. If the username is 
+	 * already in use the user is directed to an error page. 
+	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//check username and password parameters
-		//check to see if username is in use
 		//create user
 		//login as user
 		String username = request.getParameter("username")==null ? "" : request.getParameter("username");//TODO: error page if null
 		String password = request.getParameter("password")==null ? "" : request.getParameter("password");//TODO error page if null
-		//Object d = getServletContext().getAttribute("jdresselAssertionSet");
-
-		
 		HttpSession session = request.getSession();//If a session does not exist, this will start one
-		if(session.getAttribute("username")!=null){
-		//user is already logged in
+		ServletContext context = getServletContext();
+		
+		
+		if(username.equals("")){
+			response.sendRedirect(response.encodeRedirectURL("UsernameMustNotBeEmpty.jsp"));
+		} else if (password.equals("")){
+			response.sendRedirect(response.encodeRedirectURL("PasswordMustNotBeEmpty.jsp"));
+		} else if(session.getAttribute("username")!=null){
 			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));//TODO
+		} else if(getUserMap().containsKey(username)){
+			response.sendRedirect(response.encodeRedirectURL("UserAlreadyExists.jsp"));
+			//TODO check to see if the user exists
 		} else
 		{
-			User user = new User(username, password, getServletContext());
+			User user = new User(username, password);
+			addUserToMap(user);
+			//TODO add user to the map jdresselUserSet
 			session.setAttribute("username",user);
-			session.removeAttribute("loginRequester");//TODO: determine if loginRequestion exists
-			response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
-			
+			if(session.getAttribute("loginRequester")!=null){
+				String toPage = session.getAttribute("loginRequester").toString();
+				session.removeAttribute("loginRequester");
+				response.sendRedirect(response.encodeRedirectURL(toPage));
+			} else {
+				response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
+			}	
 		}
-		
-		
-		
+	}
+	
+
+	@SuppressWarnings("unchecked")
+	public Map<String, User> getUserMap(){
+		ServletContext context = getServletContext();
+		Map<String, User> userMap = new HashMap<String, User>();
+		Object attribute = context.getAttribute("jdresselUserMap");
+		if(attribute!=null){
+			//TODO check to see if this is correct class
+			userMap = (Map<String, User>)attribute;
+		}
+		return userMap;
 	}
 
+	@SuppressWarnings("unchecked")
+	public void addUserToMap(User user){
+		ServletContext context = getServletContext();
+		Map<String, User> userMap = new HashMap<String, User>();
+		Object attribute = context.getAttribute("jdresselUserMap");
+		if(attribute!=null){
+			//TODO check to see if this is correct class
+			userMap = (Map<String, User>)attribute;
+		}
+		userMap.put(user.getUN(), user);
+		context.setAttribute("jdresselUserMap", userMap);
+	}
 }

@@ -19,11 +19,9 @@ public class User {
 		UN = username;
 	}
 	
-	public User(String username, String password, ServletContext context){
+	public User(String username, String password){
 		UN = username;
 		this.password = hashPassword(password);
-		addUserToSet(context);
-		//TODO register in set
 	}
 	
 	public String getUN(){
@@ -146,48 +144,13 @@ public class User {
 		//TODO: Actually hash the password
 		return password;
 	}
-	
-	@SuppressWarnings("unchecked")
-	private void addUserToSet(ServletContext context){
-		Set<User> userSet = getUserSet(context);
-		userSet.add(this);
-		context.setAttribute("jdresselUserSet", userSet);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public static Set<User> getUserSet(ServletContext context){
-		Object users = context.getAttribute("jdresselUserSet");
-		HashSet<User> userSet = null;
-		if(users==null){
-			userSet = new HashSet<User>();
-		} else {
-			//TODO check if class is correct
-			userSet = (HashSet<User>) users;
-		}
-		return userSet;
-	}
-	
+
 	public boolean passwordCorrect(String password){
 		if(this.password.equals(hashPassword(password)))
 			return true;
 		return false;
 	}
 	
-	public static User getUser(String username, Set<User> userSet){
-		User search = new User(username);
-		if (userSet.contains(search)){
-			for (Iterator<User> userIt = userSet.iterator(); userIt.hasNext(); ){
-				User user = userIt.next();
-				if(user.getUN().equals(username)){
-					return user;
-				}
-			}
-			return null;//TODO throw exception
-		} else {
-			//TODO throw exception
-			return null;
-		}
-	}
 
 	
 	

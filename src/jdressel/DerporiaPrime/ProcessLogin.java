@@ -4,7 +4,9 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -39,9 +41,15 @@ public class ProcessLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//process parameters
+		//if user logged in deal with it. 
+		//if username or password empty deal with it. 
+		
 		username = request.getParameter("username")==null ? "" : request.getParameter("username");
 		String password = request.getParameter("password")==null ? "" : request.getParameter("password");
 		HttpSession session = request.getSession();//If a session does not exist, this will start one
+		
+		
 		if(session.getAttribute("username")!=null){
 		//user is already logged in
 			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));//TODO
@@ -51,7 +59,7 @@ public class ProcessLogin extends HttpServlet {
 			User user = new User(username);
 			
 			if(passwordCorrect(user, password)){
-				user = new User(username, password, getServletContext());
+				user = new User(username, password);
 			} else {
 				//TODO throw exception
 				response.sendRedirect(response.encodeRedirectURL("WrongPassword.jsp"));
@@ -62,7 +70,7 @@ public class ProcessLogin extends HttpServlet {
 			if(session.getAttribute("loginRequester")!=null){
 			String toPage = (String)session.getAttribute("loginRequester");
 			session.removeAttribute("loginRequester");
-			response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));//TODO had problem here
+			response.sendRedirect(response.encodeRedirectURL(toPage));//TODO had problem here
 
 			} else {
 				response.sendRedirect(response.encodeRedirectURL(request.getHeader("referer")));
@@ -74,8 +82,8 @@ public class ProcessLogin extends HttpServlet {
 	}
 	
 	private boolean userExists(User user){
-		Set<User> userSet = User.getUserSet(getServletContext());
-		if(userSet.contains(user)){
+		Map<String, User> userMap = getUserMap();
+		if(userMap.containsKey(user.getUN())){
 			return true;
 		} else {
 			return false;
@@ -83,14 +91,35 @@ public class ProcessLogin extends HttpServlet {
 	}
 	
 	private boolean passwordCorrect(User user, String password){
-		Set<User> userSet = User.getUserSet(getServletContext());
-		User onServer = User.getUser(user.getUN(), userSet);
+		Map<String, User> userMap = getUserMap();
+		User onServer = userMap.get(user.getUN());
 		
 		if (onServer.passwordCorrect(password)){
 			return true;
 		}
-		return false;
-		
+		return false;	
+	}
+	@SuppressWarnings("unchecked")
+	public Map<String, User> getUserMap(){
+		ServletContext context = getServletContext();
+		Map<String, User> userMap = new HashMap<String, User>();
+		Object attribute = context.getAttribute("jdresselUserMap");
+		if(attribute!=null){
+			//TODO check to see if this is correct class
+			userMap = (Map<String, User>)attribute;
+		}
+		return userMap;
 	}
 
+	@SuppressWarnings("unchecked")
+	public void addUserToMap(User user){
+		ServletContext context = getServletContext();
+		Map<String, User> userMap = new HashMap<String, User>();
+		Object attribute = context.getAttribute("jdresselUserMap");
+		if(attribute!=null){
+			//TODO check to see if this is correct class
+			userMap = (Map<String, User>)attribute;
+		}
+		userMap.put(user.getUN(), user);
+	}
 }
