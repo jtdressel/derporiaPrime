@@ -19,7 +19,7 @@ public class User {
 	
 	public User(String username, String password){
 		UN = username;
-		this.password = password;
+		this.password = hashPassword(password);
 	}
 	
 	public String getUN(){
@@ -136,6 +136,11 @@ public class User {
 	public String toString()
 	{
 		return UN.toString();
+	}
+	
+	public static String hashPassword(String password){
+		//TODO: Actually hash the password
+		return password;
 	}
 	
 }
