@@ -1,20 +1,20 @@
--<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
--  <xs:element name="assertions">
--    <xs:complexType>
--      <xs:sequence>
--        <xs:element name="assertion">
--          <xs:complexType>
--            <xs:simpleContent>
--              <xs:extension base="xs:string">
--                <xs:attribute type="xs:string" name="uuid"/>
--                <xs:attribute type="xs:string" name="title"/>
--                <xs:attribute type="xs:string" name="body"/>
--              </xs:extension>
--            </xs:simpleContent>
--          </xs:complexType>
--        </xs:element>
--      </xs:sequence>
--    </xs:complexType>
--  </xs:element>
--</xs:schema>
-
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="assertions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="assertion">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="uuid"/>
+                <xs:attribute type="xs:string" name="title"/>
+                <xs:attribute type="xs:string" name="body"/>
+				<xs:attribute type="xs:string" name="username"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
