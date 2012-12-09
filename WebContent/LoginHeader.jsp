@@ -13,8 +13,11 @@
 <body>
 	<div class="username">
 		<form name="loginForm"  action="ProcessLogin" method="post">
-			Log In: <input type="text" name="username" placeholder=Username onkeypress="checkEnter(event)">
+			Log In: <input type="text" name="username" placeholder=Username onkeypress="checkEnter(event)"/>
+			<input type="password" name="password" placeholder="password"/>
 			<input class="regular" type="submit" value="Login" name="Log In"/>
+			
+			<a href="Register.jsp">register</a>
 		</form>
 	</div>
 </body>

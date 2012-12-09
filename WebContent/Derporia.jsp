@@ -38,10 +38,10 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	
 	<%
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
-	out.println(Utility.loginHeaderBanner(derp));
+
 	session.setAttribute("loginRequester", "Derporia.jsp");
 	%>
-
+	<jsp:include page="UsernameHeader.jsp" />
 	
 	<hr>
 

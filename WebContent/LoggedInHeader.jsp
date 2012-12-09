@@ -5,5 +5,5 @@
 	String username = Utility.getUsername(session);
 %>
 <div class="username">
-	You are logged in as <%= username %> <%= Utility.isLoggedIn(session) %> <a href=ProcessLogout> Logout</a>
+	You are logged in as <%= username %> <a href=ProcessLogout> Logout</a>
 </div>
