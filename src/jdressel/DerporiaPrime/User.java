@@ -149,8 +149,14 @@ public class User {
 	
 	@SuppressWarnings("unchecked")
 	private void addUserToSet(ServletContext context){
+		Set<User> userSet = getUserSet(context);
+		userSet.add(this);
+		context.setAttribute("jdresselUserSet", userSet);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static Set<User> getUserSet(ServletContext context){
 		Object users = context.getAttribute("jdresselUserSet");
-		
 		HashSet<User> userSet = null;
 		if(users==null){
 			userSet = new HashSet<User>();
@@ -158,8 +164,7 @@ public class User {
 			//TODO check if class is correct
 			userSet = (HashSet<User>) users;
 		}
-		userSet.add(this);
-		context.setAttribute("jdresselUserSet", userSet);
+		return userSet;
 	}
 	
 }

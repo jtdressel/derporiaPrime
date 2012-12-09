@@ -4,6 +4,8 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -38,15 +40,16 @@ public class ProcessLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		username = request.getParameter("username")==null ? "" : request.getParameter("username");
+		String password = request.getParameter("password")==null ? "" : request.getParameter("password");
 		HttpSession session = request.getSession();//If a session does not exist, this will start one
 		if(session.getAttribute("username")!=null){
 		//user is already logged in
 			response.sendRedirect(response.encodeRedirectURL(""));//TODO
-		}else{
+		} else if(!userExists(new User(username))){
+			response.sendRedirect(response.encodeRedirectURL(""));//TODO
+		} else{
 			User user = new User(username);
 			session.setAttribute("username",user);
-
-			//TODO: clean this up...
 			
 			if(session.getAttribute("loginRequester")!=null){
 			String toPage = (String)session.getAttribute("loginRequester");
@@ -56,13 +59,21 @@ public class ProcessLogin extends HttpServlet {
 			} else {
 				response.sendRedirect(response.encodeRedirectURL(request.getHeader("referer")));
 			}
-
-		
-		//once user is logged in, send them somewhere 
 		
 		}
 
 
+	}
+	
+	private boolean userExists(User user){
+		Set<User> userSet = User.getUserSet(getServletContext());
+		if(userSet.contains(user)){
+			return true;
+		} else {
+			return false;
+		}
+		
+		
 	}
 
 }
