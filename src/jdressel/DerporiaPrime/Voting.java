@@ -3,6 +3,10 @@ package jdressel.DerporiaPrime;
 // Import Servlet Libraries
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 // Import Java Libraries
 import java.io.*;
@@ -33,7 +37,15 @@ public class Voting extends HttpServlet {
         this.request = request;	
     	printTop(response);
     	
-    	printBody(request, response);
+    	try {
+			printBody(request, response);
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	printBottom(response);
 	}
@@ -70,18 +82,21 @@ public class Voting extends HttpServlet {
 
 	}
 	
-	public void printBody(HttpServletRequest request, HttpServletResponse res) throws IOException{
+	@SuppressWarnings("unchecked")
+	public void printBody(HttpServletRequest request, HttpServletResponse res) throws IOException, SAXException, ParserConfigurationException{
 		res.setContentType ("text/html");
 		PrintWriter out = res.getWriter();
 		HttpSession session = request.getSession();
 		
-		Object d = getServletContext().getAttribute("jdresselAssertionSet");
+		Utility.load(this.getServletContext());
 		
-		if(d==null){
+		Object d = getServletContext().getAttribute("jdresselAssertionSet");
+		@SuppressWarnings("unchecked")
+		Set<Assertion> assertions = (Set<Assertion>)d;
+		
+		if(assertions.isEmpty()){
 			out.println("<p>There are currently no claims :(</p>");
 		} else {
-			@SuppressWarnings("unchecked")
-			Set<Assertion> assertions = (Set<Assertion>)d;
 			ArrayList<Assertion> sorted = new ArrayList<Assertion>(assertions);
     		Collections.sort(sorted);
 
@@ -161,5 +176,25 @@ public class Voting extends HttpServlet {
 		out.println("							</html>");
 		
 		out.close();
+	}
+	
+	public void destroy()
+	{
+		try {
+			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.destroy();
 	}
 }

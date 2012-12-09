@@ -3,6 +3,11 @@ package jdressel.DerporiaPrime;
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
+
 import java.io.*;
 import java.util.*;
 
@@ -38,6 +43,14 @@ public class ProcessClaim extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		setClaimAssertion(request);
+		
+		try {
+			Utility.load(this.getServletContext());
+		} catch (SAXException | ParserConfigurationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		if(session.getAttribute("username")==null){
 			response.sendRedirect(response.encodeRedirectURL("Login.jsp"));//TODO//ERROR, send the user back
 		} else {
@@ -62,5 +75,26 @@ public class ProcessClaim extends HttpServlet {
 	private void setClaimAssertion(HttpServletRequest request){
 		claim = request.getParameter("claim")==null ? "" : request.getParameter("claim");
 		assertions = request.getParameter("assertions")==null ? "" : request.getParameter("assertions");
+	}
+	
+	@Override
+	public void destroy()
+	{
+		try {
+			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.destroy();
 	}
 }

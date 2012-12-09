@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class ProcessVote
@@ -50,12 +54,17 @@ private String id;
     		User derp = new User("derp");
     		//TODO check for empty
 
+    		try {
+				Utility.load(this.getServletContext());
+			} catch (SAXException | ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
     		Object d = getServletContext().getAttribute("jdresselAssertionSet");
-    	
-    		if(d==null){
-    			//TODO
-    		} else {
-    		Set<Assertion> assertions = (Set<Assertion>)d;
+
+    		@SuppressWarnings("unchecked")
+			Set<Assertion> assertions = (Set<Assertion>)d;
     			
     	
 
@@ -110,7 +119,6 @@ private String id;
 
 
     }
-     }
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -121,6 +129,25 @@ private String id;
 		vote = request.getParameter("vote")==null ? "" : request.getParameter("vote");
 		id = request.getParameter("id")==null ? "" : request.getParameter("id");
 	}
-
+	@Override
+	public void destroy()
+	{
+		try {
+			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.destroy();
+	}
 
 }

@@ -77,7 +77,11 @@ public class Utility {
 		return true;
 	}
 	
-	public void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
+	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
+		
+		if(context.getAttribute("jdresselUserMap")!=null&&context.getAttribute("jdresselAssertionSet")!=null)
+			return;
+			
 		
 		File userFile = new File("users.xml");
 		File assertionFile = new File("assertions.xml");
@@ -110,7 +114,7 @@ public class Utility {
 	 
 			  Node user = userList.item(i);
 		      Element e = (Element)user;
-		      User u = new User(e.getAttribute("name"), e.getAttribute("password"), context);
+		      User u = new User(e.getAttribute("name"), e.getAttribute("password"));
 		      
 		      NodeList userTags = user.getChildNodes();
 		      
@@ -145,10 +149,9 @@ public class Utility {
 		
 		context.setAttribute("jdresselUserMap", userMap);
 		context.setAttribute("jdresselAssertionSet", assertionSet);		
-	}
-		
+	}		
 	
-	public void saveUsers(Map<String, User> userMap) throws ParserConfigurationException, TransformerException, SAXException, IOException{
+	public static void saveUsers(Map<String, User> userMap) throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
 		File file = new File("users.xml");
 		file.delete();
@@ -217,7 +220,7 @@ public class Utility {
 		//System.out.println(xmlOutput);
 	}
 	
-	public void saveAssertions(Set<Assertion> assertionSet)throws ParserConfigurationException, TransformerException, SAXException, IOException{
+	public static void saveAssertions(Set<Assertion> assertionSet)throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
 		File file = new File("assertions.xml");
 		file.delete();

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class ProcessRegistration
@@ -49,6 +54,12 @@ public class ProcessRegistration extends HttpServlet {
 		HttpSession session = request.getSession();//If a session does not exist, this will start one
 		ServletContext context = getServletContext();
 		
+		try {
+			Utility.load(context);
+		} catch (SAXException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if(username.equals("")){
 			response.sendRedirect(response.encodeRedirectURL("UsernameMustNotBeEmpty.jsp"));
@@ -99,5 +110,25 @@ public class ProcessRegistration extends HttpServlet {
 		}
 		userMap.put(user.getUN(), user);
 		context.setAttribute("jdresselUserMap", userMap);
+	}
+	
+	public void destroy()
+	{
+		try {
+			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.destroy();
 	}
 }

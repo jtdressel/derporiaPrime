@@ -3,6 +3,11 @@ package jdressel.DerporiaPrime;
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -44,6 +49,13 @@ public class ProcessLogin extends HttpServlet {
 		//process parameters
 		//if user logged in deal with it. 
 		//if username or password empty deal with it. 
+		
+		try {
+			Utility.load(this.getServletContext());
+		} catch (SAXException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		username = request.getParameter("username")==null ? "" : request.getParameter("username");
 		String password = request.getParameter("password")==null ? "" : request.getParameter("password");
@@ -121,5 +133,25 @@ public class ProcessLogin extends HttpServlet {
 			userMap = (Map<String, User>)attribute;
 		}
 		userMap.put(user.getUN(), user);
+	}
+	
+	public void destroy()
+	{
+		try {
+			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.destroy();
 	}
 }
