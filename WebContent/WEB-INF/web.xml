@@ -109,4 +109,14 @@
     <servlet-name>ProcessRegistration</servlet-name>
     <url-pattern>/ProcessRegistration</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProcessDeleteAssertion</display-name>
+    <servlet-name>ProcessDeleteAssertion</servlet-name>
+    <servlet-class>jdressel.DerporiaPrime.ProcessDeleteAssertion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessDeleteAssertion</servlet-name>
+    <url-pattern>/ProcessDeleteAssertion</url-pattern>
+  </servlet-mapping>
 </web-app>
