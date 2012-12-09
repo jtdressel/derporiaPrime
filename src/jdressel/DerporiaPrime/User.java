@@ -1,6 +1,8 @@
 package jdressel.DerporiaPrime;
 import java.util.*;
 
+import javax.servlet.ServletContext;
+
 /**
  *	This class contains a user for Derporia
  *	@author James Robertson
@@ -17,9 +19,11 @@ public class User {
 		UN = username;
 	}
 	
-	public User(String username, String password){
+	public User(String username, String password, ServletContext context){
 		UN = username;
 		this.password = hashPassword(password);
+		addUserToSet(context);
+		//TODO register in set
 	}
 	
 	public String getUN(){
@@ -141,6 +145,21 @@ public class User {
 	public static String hashPassword(String password){
 		//TODO: Actually hash the password
 		return password;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void addUserToSet(ServletContext context){
+		Object users = context.getAttribute("jdresselUserSet");
+		
+		HashSet<User> userSet = null;
+		if(users==null){
+			userSet = new HashSet<User>();
+		} else {
+			//TODO check if class is correct
+			userSet = (HashSet<User>) users;
+		}
+		userSet.add(this);
+		context.setAttribute("jdresselUserSet", userSet);
 	}
 	
 }
