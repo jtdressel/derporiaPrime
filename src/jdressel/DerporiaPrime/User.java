@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class User {
 	private final String UN;
+	private String password;
 	private List<Assertion> assertions;
 	private List<Assertion> convinced;
 	private List<Assertion> unsure;
@@ -14,6 +15,11 @@ public class User {
 	
 	public User(String username){
 		UN = username;
+	}
+	
+	public User(String username, String password){
+		UN = username;
+		this.password = password;
 	}
 	
 	public String getUN(){
