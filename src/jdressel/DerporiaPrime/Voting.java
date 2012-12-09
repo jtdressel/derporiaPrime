@@ -82,11 +82,13 @@ public class Voting extends HttpServlet {
 		} else {
 			@SuppressWarnings("unchecked")
 			Set<Assertion> assertions = (Set<Assertion>)d;
+			ArrayList<Assertion> sorted = new ArrayList<Assertion>(assertions);
+    		Collections.sort(sorted);
 
 			out.println("							<table class=\"mega\">");
 
-			for(Iterator<Assertion> assertionIterator = assertions.iterator(); assertionIterator.hasNext();){
-				Assertion assertion = assertionIterator.next();
+			for(Assertion assertion: sorted){
+				
 				out.println("								<tr>");
 				out.println("									<td class=\"mega\">");
 				out.println("											<table class=\"center\">");

@@ -5,7 +5,7 @@ import java.util.UUID;
  * 	This class contains assertions made by users
  * 	@author James Robertson
  */
-public class Assertion {
+public class Assertion implements Comparable{
 	private int convinced = 0;
 	private int disagree = 0;
 	private int unsure = 0;
@@ -161,4 +161,32 @@ public class Assertion {
 		return("User name: " + UN + " Claim: "+ title + " Body: "+body + " Convinced: " + convinced + " Disagree: " + disagree + " unsure: " + unsure + "UUID: " + id);
 	}
 	
+	/**		Compares two Assertions by their number of votes, first by convinced then by subtracting disagree
+	 * 		@author James Robertson
+	 * 
+	 * 		@param o the Object to be compared to
+	 * 		@return 1 if this is greater than o
+	 * 		@return 0 if they are equal
+	 * 		@return -1 if this is less than o
+	 * 		@throws ClassCastException if o is not an Assertion
+	 */
+	public int compareTo(Object o){
+		if (getClass() != o.getClass())
+			throw new ClassCastException();
+		if(this.getConvinced()==((Assertion) o).getConvinced()){
+			
+			if(this.getDisagree()==((Assertion) o).getDisagree())
+				return 0;
+			
+			else if(this.getDisagree()>((Assertion) o).getDisagree())
+				return 1;
+			
+			else return -1;
+		}
+		
+		else if(this.getConvinced()>((Assertion) o).getConvinced())
+			return -1;
+		
+		else return 1;
+	}
 }
