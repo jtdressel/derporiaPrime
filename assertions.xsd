@@ -5,11 +5,11 @@
         <xs:element name="assertion">
           <xs:complexType>
             <xs:simpleContent>
-              <xs:extension base="xs:string">
-                <xs:attribute type="xs:string" name="uuid"/>
-                <xs:attribute type="xs:string" name="title"/>
-                <xs:attribute type="xs:string" name="body"/>
-              </xs:extension>
+				<xs:sequence>
+					<xs:element type="xs:string" name="title" use="required"/>
+					<xs:element type="xs:string" name="body" use="required"/>
+				</xs:sequence>
+				<xs:attribute type="xs:string" name="uuid" use="required"/>
             </xs:simpleContent>
           </xs:complexType>
         </xs:element>
