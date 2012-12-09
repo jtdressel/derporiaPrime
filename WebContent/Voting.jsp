@@ -49,11 +49,6 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 
 
 
-
-
-
-
-
 	<%
 	Object d = getServletContext().getAttribute("jdresselAssertionSet");
 	

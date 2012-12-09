@@ -98,7 +98,7 @@ private String id;
 
     				assertions.add(underVote);
     				//getServletContext().setAttribute("jdresselAssertionSet",assertions);
-    				res.sendRedirect(res.encodeRedirectURL("Voting"));
+    				res.sendRedirect(res.encodeRedirectURL("Voting.jsp"));
     			}
     		
     		}
