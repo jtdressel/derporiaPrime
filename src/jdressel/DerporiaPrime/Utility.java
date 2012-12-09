@@ -163,14 +163,9 @@ public class Utility {
 			
 			assertion.setAttribute("uuid",	a.getId());
 			
-			Element title = doc.createElement("title");
-			title.appendChild(doc.createTextNode(a.getName()));
-			assertion.appendChild(title);
+			assertion.setAttribute("title", a.getName());
 			
-			Element body = doc.createElement("body");
-			title.appendChild(doc.createTextNode(a.getBody()));
-			assertion.appendChild(body);			
-			
+			assertion.setAttribute("body", a.getBody());
 		}
 		
 		// write the content into xml file
