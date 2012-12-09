@@ -99,4 +99,14 @@
     <servlet-name>ProcessVote</servlet-name>
     <url-pattern>/ProcessVote</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProcessRegistration</display-name>
+    <servlet-name>ProcessRegistration</servlet-name>
+    <servlet-class>jdressel.DerporiaPrime.ProcessRegistration</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessRegistration</servlet-name>
+    <url-pattern>/ProcessRegistration</url-pattern>
+  </servlet-mapping>
 </web-app>
