@@ -167,4 +167,28 @@ public class User {
 		return userSet;
 	}
 	
+	public boolean passwordCorrect(String password){
+		if(this.password.equals(hashPassword(password)))
+			return true;
+		return false;
+	}
+	
+	public static User getUser(String username, Set<User> userSet){
+		User search = new User(username);
+		if (userSet.contains(search)){
+			for (Iterator<User> userIt = userSet.iterator(); userIt.hasNext(); ){
+				User user = userIt.next();
+				if(user.getUN().equals(username)){
+					return user;
+				}
+			}
+			return null;//TODO throw exception
+		} else {
+			//TODO throw exception
+			return null;
+		}
+	}
+
+	
+	
 }
