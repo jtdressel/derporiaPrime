@@ -153,11 +153,14 @@ public class Utility {
 	
 	public static void saveUsers(Map<String, User> userMap) throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
-		File file = new File("users.xml");
+		File file = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml");
 		file.delete();
+
+		File f = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml");
+		f.createNewFile();
 		
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-
+		
 		Element users = doc.createElement("users");
 		doc.appendChild(users);
 		 
@@ -204,7 +207,7 @@ public class Utility {
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2"); //indent is automatically set to 0
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File("users.xml"));
+		StreamResult result = new StreamResult(new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml"));
 		
 		transformer.transform(source, result);
 		
@@ -222,8 +225,11 @@ public class Utility {
 	
 	public static void saveAssertions(Set<Assertion> assertionSet)throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
-		File file = new File("assertions.xml");
+		File file = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml");
 		file.delete();
+		
+		File f = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml");
+		f.createNewFile();
 		
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();;
 
@@ -249,7 +255,7 @@ public class Utility {
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2"); //indent is automatically set to 0
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File("users.xml"));
+		StreamResult result = new StreamResult(new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml"));
 		
 		transformer.transform(source, result);
 	}
