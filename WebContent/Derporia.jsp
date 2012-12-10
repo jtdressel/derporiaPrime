@@ -75,7 +75,8 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		</form>
 		<p id="error"></p>
 		<a href="ProcessReset">Reset all asertions</a>
-<h4>By James Robertson and James Dressel Homework 10</h4>
+<p>We made modifications 1, 2, 3, 4. Diagram hard copy will be submitted in class.</p>
+<h4>By James Robertson and James Dressel Homework 11</h4>
 </body>
 </html>
 
