@@ -77,6 +77,19 @@ public class Utility {
 		return true;
 	}
 	
+	/**
+	 * Checks to see if the context has been initialized. 
+	 * @param context
+	 * @return true if the context has been initialized, false otherwise. 
+	 */
+	public static boolean isLoaded(ServletContext context){
+		if((context.getAttribute("jdresselUserMap")!=null)&&(context.getAttribute("jdresselAssertionSet")!=null)){
+			return true;
+		} else{
+			return false;
+		}
+	}
+	
 	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
 				
 		File userFile = new File(fileLocation+"//users.xml");
