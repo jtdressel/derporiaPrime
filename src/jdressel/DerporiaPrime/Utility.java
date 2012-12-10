@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Utility {
-
+	private static final String fileLocation = "//home//jtdressel//swe//derporiaPrime//";// proper practices would use the system.file seperator
 	public static String loginHeaderBanner(Object userObject){
 		String username = "";
 		//Determine user
@@ -79,8 +79,9 @@ public class Utility {
 	
 	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
 				
-		File userFile = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml");
-		File assertionFile = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml");
+		File userFile = new File(fileLocation+"//users.xml");
+
+		File assertionFile = new File(fileLocation+"//assertions.xml");
 		HashMap<String, User> userMap = new HashMap<String, User>();
 		Set<Assertion> assertionSet = new HashSet<Assertion>();
 		
@@ -157,10 +158,10 @@ public class Utility {
 	
 	public static void saveUsers(Map<String, User> userMap) throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
-		File file = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml");
+		File file = new File(fileLocation+"//users.xml");
 		file.delete();
 
-		File f = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml");
+		File f = new File(fileLocation+"//users.xml");
 		f.createNewFile();
 		
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
@@ -213,7 +214,7 @@ public class Utility {
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2"); //indent is automatically set to 0
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml"));
+		StreamResult result = new StreamResult(new File(fileLocation+"//users.xml"));
 		
 		transformer.transform(source, result);
 		
@@ -231,10 +232,10 @@ public class Utility {
 	
 	public static void saveAssertions(Set<Assertion> assertionSet)throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
-		File file = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml");
+		File file = new File(fileLocation+"//assertions.xml");
 		file.delete();
 		
-		File f = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml");
+		File f = new File(fileLocation+"//assertions.xml");
 		f.createNewFile();
 		
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();;
@@ -261,7 +262,7 @@ public class Utility {
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2"); //indent is automatically set to 0
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml"));
+		StreamResult result = new StreamResult(new File(fileLocation+"//assertions.xml"));
 		
 		transformer.transform(source, result);
 	}
