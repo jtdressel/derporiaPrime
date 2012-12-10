@@ -28,8 +28,7 @@ session.setAttribute("loginRequester", refText);
 					<form name="loginForm"  onsubmit="return validateForm()" action="ProcessLogin" method="post">
 
 						<input type="text" class="login" name="username" autofocus="autofocus" placeholder="Username:" onkeypress="checkSubmit(event);return noEnter(event)">
-						
-				</td>
+				</td>				
 			</tr>
 		</tbody>
 	</table>

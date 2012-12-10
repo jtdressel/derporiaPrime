@@ -111,7 +111,7 @@ public class Utility {
 	 
 			  Node user = userList.item(i);
 		      Element e = (Element)user;
-		      User u = new User(e.getAttribute("name"), e.getAttribute("password"));
+		      User u = new User(e.getAttribute("username"), e.getAttribute("password"));
 		      
 		      NodeList userTags = user.getChildNodes();
 		      if(userTags!=null){
@@ -171,7 +171,6 @@ public class Utility {
 		// user elements
 		for(Map.Entry<String, User> entry : userMap.entrySet()){
 			Element user = doc.createElement("user");
-			users.appendChild(user);
 			
 			user.setAttribute("username", entry.getValue().getUN());
 			user.setAttribute("password", entry.getValue().getPassword());
@@ -202,6 +201,7 @@ public class Utility {
 					user.appendChild(unsure);
 				}
 			}
+			users.appendChild(user);
 			
 		}
 		

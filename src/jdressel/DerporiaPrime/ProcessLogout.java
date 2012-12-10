@@ -33,6 +33,22 @@ public class ProcessLogout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		String destination = (request.getHeader("referer")!= null ? request.getHeader("referer") : null);//TODO point this to derporia home

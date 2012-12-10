@@ -66,18 +66,27 @@ public class ProcessLogin extends HttpServlet {
 		//user is already logged in
 			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));//TODO
 		} else if(!userExists(new User(username))){
-			response.sendRedirect(response.encodeRedirectURL("UserDoesNotExist.jsp"));//TODO
+			response.sendRedirect(response.encodeRedirectURL("Register.jsp"));//TODO user does not exist
 		}  else{
 			User user = new User(username);
-			
 			if(passwordCorrect(user, password)){
 				user = new User(username, password);
+				//good to go
 			} else {
 				//TODO throw exception
 				response.sendRedirect(response.encodeRedirectURL("WrongPassword.jsp"));
 			}
 			
 			session.setAttribute("username",user);
+			this.addUserToMap(user);
+			
+			try {
+				Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+			} catch (ParserConfigurationException | TransformerException
+					| SAXException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			if(session.getAttribute("loginRequester")!=null){
 			String toPage = (String)session.getAttribute("loginRequester");

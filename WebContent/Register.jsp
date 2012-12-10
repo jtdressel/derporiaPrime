@@ -24,13 +24,13 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 */-->
 </script>
 
-<link rel="stylesheet" type="text/css" href="derporiaStyle.css"/>
+<link rel="stylesheet" type="text/css" href="loginStyle.css"/>
 
 <script src="derporia.js"></script>
 </head>
 
 	<body>
-	<h1><a href="Derporia.jsp">Derporia</a>: Please Login</h1> 
+	<h1><a href="Derporia.jsp">Derporia</a>: Please Register</h1> 
 	
 	<table class="center" border="1">
 		<tbody>
@@ -39,7 +39,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 					<form name="loginForm"  onsubmit="return validateForm()" action="ProcessRegistration" method="post">
 
 						<input type="text" class="login" name="username" autofocus="autofocus" placeholder="Username:" onkeypress="checkSubmit(event);return noEnter(event)">
-						<input type="password" class="login" name="password" autofocus="autofocus" placeholder="password:" onkeypress="checkSubmit(event);return noEnter(event)">
+						<input type="password" class="login" name="password" autofocus="autofocus" placeholder="Password" onkeypress="checkSubmit(event);return noEnter(event)">
 				</td>
 			</tr>
 		</tbody>
