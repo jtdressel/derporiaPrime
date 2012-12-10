@@ -108,7 +108,7 @@ public class Utility {
 	 
 			  Node assertion = assertionList.item(i);
 		      Element e = (Element)assertion;
-		      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"));
+		      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"), e.getAttribute("uuid"));
 		      assertionSet.add(a);
 		      
 			}

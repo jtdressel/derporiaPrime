@@ -12,7 +12,8 @@ public class Assertion implements Comparable{
 	private final String UN;
 	private String title;
 	private String body;
-	private UUID id;
+	//private UUID id;
+	private String id;
 	
 	public List<User> getVoters() {
 		return voters;
@@ -20,12 +21,20 @@ public class Assertion implements Comparable{
 
 	private List<User> voters;
 	
-		public Assertion(String username, String title, String body) {
+	public Assertion(String username, String title, String body) {
 		super();
 		UN = username;
 		this.title= title;
 		this.body = body;
-		id = UUID.randomUUID();
+		id = UUID.randomUUID().toString();
+	}
+	
+	public Assertion(String username, String title, String body, String id) {
+		super();
+		UN = username;
+		this.title= title;
+		this.body = body;
+		this.id = id;
 	}
 
 	public String getId(){
