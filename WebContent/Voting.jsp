@@ -75,6 +75,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 				<p>Claim: <%= assertion.getName() %> <% if(assertion.getUN().equals(Utility.getUsername(derp))){%><a href="ProcessDeleteAssertion?id=<%= assertion.getId() %>">Delete Claim</a><% } %></p>
 				<p>Support:<%= assertion.getBody() %></p>
 				<p>By: <%=assertion.getUN() %></p>
+				<p><%= assertion.getId() %></p>
 			</td>
 		</tr>
 	</tbody>
