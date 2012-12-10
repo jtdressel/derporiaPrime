@@ -78,13 +78,9 @@ public class Utility {
 	}
 	
 	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
-		
-		if(context.getAttribute("jdresselUserMap")!=null&&context.getAttribute("jdresselAssertionSet")!=null)
-			return;
-			
-		
-		File userFile = new File("users.xml");
-		File assertionFile = new File("assertions.xml");
+				
+		File userFile = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\users.xml");
+		File assertionFile = new File("H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\assertions.xml");
 		HashMap<String, User> userMap = new HashMap<String, User>();
 		Set<Assertion> assertionSet = new HashSet<Assertion>();
 		
@@ -103,7 +99,8 @@ public class Utility {
 		      
 			}
 		}
-		
+		else
+			assertionFile.createNewFile();
 		if(userFile.exists()){
 			Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(userFile);
 			doc.getDocumentElement().normalize();
@@ -117,35 +114,42 @@ public class Utility {
 		      User u = new User(e.getAttribute("name"), e.getAttribute("password"));
 		      
 		      NodeList userTags = user.getChildNodes();
-		      
-		      for (int j=0; j<userList.getLength(); j++) {
-		    	  if(userTags.item(j).getNodeName().equals("disagree")){
-		    		  for(Assertion a: assertionSet){
-		    			  if(a.getId().equals(userTags.item(j)))
-		    				  u.voteDisagree(a);
+		      if(userTags!=null){
+		    	  for (int j=0; j<userList.getLength(); j++) {
+		    		  if(userTags.item(j)!=null&&userTags.item(j).getNodeName()!=null){
+		    			  if(userTags.item(j).getNodeName().equals("disagree")){
+				    		  for(Assertion a: assertionSet){
+				    			  if(a.getId().equals(userTags.item(j)))
+				    				  u.voteDisagree(a);
+				    		  }
+				    		  
+				    	  }
+				    	  if(userTags.item(j).getNodeName().equals("convinced")){
+				    		  for(Assertion a: assertionSet){
+				    			  if(a.getId().equals(userTags.item(j)))
+				    				  u.voteConvinced(a);
+				    		  }
+				    		  
+				    	  }
+				    	  if(userTags.item(j).getNodeName().equals("unsure")){
+				    		  for(Assertion a: assertionSet){
+				    			  if(a.getId().equals(userTags.item(j)))
+				    				  u.voteUnsure(a);
+				    		  }
 		    		  }
 		    		  
-		    	  }
-		    	  if(userTags.item(j).getNodeName().equals("convinced")){
-		    		  for(Assertion a: assertionSet){
-		    			  if(a.getId().equals(userTags.item(j)))
-		    				  u.voteConvinced(a);
-		    		  }
-		    		  
-		    	  }
-		    	  if(userTags.item(j).getNodeName().equals("unsure")){
-		    		  for(Assertion a: assertionSet){
-		    			  if(a.getId().equals(userTags.item(j)))
-		    				  u.voteUnsure(a);
-		    		  }
-		    		  
-		    	  }
+			    		  
+			    	  }
 
+			      }
 		      }
+		      
 		      
 		      userMap.put(u.getUN(), u);
 			}
 		}
+		else
+			userFile.createNewFile();
 		
 		context.setAttribute("jdresselUserMap", userMap);
 		context.setAttribute("jdresselAssertionSet", assertionSet);		
@@ -168,35 +172,37 @@ public class Utility {
 		for(Map.Entry<String, User> entry : userMap.entrySet()){
 			Element user = doc.createElement("user");
 			users.appendChild(user);
-			 
+			
 			user.setAttribute("username", entry.getValue().getUN());
-			user.setAttribute("password", "password");
-			//TODO get password user.setAttribute("password", entry.getValue().getPassword());
+			user.setAttribute("password", entry.getValue().getPassword());
 			 
 			// votedOn loop until set is done, same for disagree, convinced and unsure
-			for(Assertion a: entry.getValue().getAssertions()){
-				Element votedOn = doc.createElement("votedOn");
-				votedOn.appendChild(doc.createTextNode(a.getId()));
-				user.appendChild(votedOn);
+			if(entry.getValue().getAssertions()!=null){
+				for(Assertion a: entry.getValue().getAssertions()){
+					Element votedOn = doc.createElement("votedOn");
+					votedOn.appendChild(doc.createTextNode(a.getId()));
+					user.appendChild(votedOn);
+				}
+				
+				for(Assertion a: entry.getValue().getDisagree()){
+					Element disagree = doc.createElement("disagree");
+					disagree.appendChild(doc.createTextNode(a.getId()));
+					user.appendChild(disagree);
+				}
+				
+				for(Assertion a: entry.getValue().getConvinced()){
+					Element convinced = doc.createElement("convinced");
+					convinced.appendChild(doc.createTextNode(a.getId()));
+					user.appendChild(convinced);
+				}
+				
+				for(Assertion a: entry.getValue().getUnsure()){
+					Element unsure = doc.createElement("unsure");
+					unsure.appendChild(doc.createTextNode(a.getId()));
+					user.appendChild(unsure);
+				}
 			}
 			
-			for(Assertion a: entry.getValue().getDisagree()){
-				Element disagree = doc.createElement("disagree");
-				disagree.appendChild(doc.createTextNode(a.getId()));
-				user.appendChild(disagree);
-			}
-			
-			for(Assertion a: entry.getValue().getConvinced()){
-				Element convinced = doc.createElement("convinced");
-				convinced.appendChild(doc.createTextNode(a.getId()));
-				user.appendChild(convinced);
-			}
-			
-			for(Assertion a: entry.getValue().getUnsure()){
-				Element unsure = doc.createElement("unsure");
-				unsure.appendChild(doc.createTextNode(a.getId()));
-				user.appendChild(unsure);
-			}
 		}
 		
 		 

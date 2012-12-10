@@ -28,6 +28,10 @@ public class User {
 		return UN;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+	
 	public List<Assertion> getConvinced(){
 		return convinced;
 	}
