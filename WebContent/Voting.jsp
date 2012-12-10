@@ -41,7 +41,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<%
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
 
-	session.setAttribute("loginRequester", "Derporia.jsp");
+	session.setAttribute("loginRequester", "Voting.jsp");
 	%>
 	<jsp:include page="UsernameHeader.jsp" />
 	
