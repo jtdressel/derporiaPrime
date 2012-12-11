@@ -53,7 +53,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 			<button type="button" onclick="resetForm()">Clear</button> 
 		</td>
 		<td align="right">
-			<input class="regular" type="submit" value="Register" name="Log In"/>
+			<input class="regular" type="submit" value="Register" name="Register"/>
 		</td>
 		</tr>
 		</tbody></table>
