@@ -109,6 +109,9 @@ public class Utility {
 				  Node assertion = assertionList.item(i);
 			      Element e = (Element)assertion;
 			      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"), e.getAttribute("uuid"));
+			      a.setDisagree(e.getAttribute("disagree"));
+			      a.setConvinced(e.getAttribute("convinced"));
+			      a.setUnsure(e.getAttribute("unsure"));
 			      assertionSet.add(a);
 			      
 				}
