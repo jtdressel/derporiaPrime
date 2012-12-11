@@ -191,41 +191,44 @@ public class Utility {
 		doc.appendChild(users);
 		 
 		// user elements
-		for(Map.Entry<String, User> entry : userMap.entrySet()){
-			Element user = doc.createElement("user");
-			
-			user.setAttribute("username", entry.getValue().getUN());
-			user.setAttribute("password", entry.getValue().getPassword());
-			 
-			// votedOn loop until set is done, same for disagree, convinced and unsure
-			if(entry.getValue().getAssertions()!=null){
-				for(Assertion a: entry.getValue().getAssertions()){
-					Element votedOn = doc.createElement("votedOn");
-					votedOn.appendChild(doc.createTextNode(a.getId()));
-					user.appendChild(votedOn);
-				}
+		if(userMap!=null){
+			for(Map.Entry<String, User> entry : userMap.entrySet()){
+				Element user = doc.createElement("user");
 				
-				for(Assertion a: entry.getValue().getDisagree()){
-					Element disagree = doc.createElement("disagree");
-					disagree.appendChild(doc.createTextNode(a.getId()));
-					user.appendChild(disagree);
+				user.setAttribute("username", entry.getValue().getUN());
+				user.setAttribute("password", entry.getValue().getPassword());
+				 
+				// votedOn loop until set is done, same for disagree, convinced and unsure
+				if(entry.getValue().getAssertions()!=null){
+					for(Assertion a: entry.getValue().getAssertions()){
+						Element votedOn = doc.createElement("votedOn");
+						votedOn.appendChild(doc.createTextNode(a.getId()));
+						user.appendChild(votedOn);
+					}
+					
+					for(Assertion a: entry.getValue().getDisagree()){
+						Element disagree = doc.createElement("disagree");
+						disagree.appendChild(doc.createTextNode(a.getId()));
+						user.appendChild(disagree);
+					}
+					
+					for(Assertion a: entry.getValue().getConvinced()){
+						Element convinced = doc.createElement("convinced");
+						convinced.appendChild(doc.createTextNode(a.getId()));
+						user.appendChild(convinced);
+					}
+					
+					for(Assertion a: entry.getValue().getUnsure()){
+						Element unsure = doc.createElement("unsure");
+						unsure.appendChild(doc.createTextNode(a.getId()));
+						user.appendChild(unsure);
+					}
 				}
+				users.appendChild(user);
 				
-				for(Assertion a: entry.getValue().getConvinced()){
-					Element convinced = doc.createElement("convinced");
-					convinced.appendChild(doc.createTextNode(a.getId()));
-					user.appendChild(convinced);
-				}
-				
-				for(Assertion a: entry.getValue().getUnsure()){
-					Element unsure = doc.createElement("unsure");
-					unsure.appendChild(doc.createTextNode(a.getId()));
-					user.appendChild(unsure);
-				}
 			}
-			users.appendChild(user);
-			
 		}
+		
 		
 		 
 
