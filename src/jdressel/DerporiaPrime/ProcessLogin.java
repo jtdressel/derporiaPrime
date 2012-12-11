@@ -65,8 +65,10 @@ public class ProcessLogin extends HttpServlet {
 		if(session.getAttribute("username")!=null){
 		//user is already logged in
 			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));//TODO
+			return;
 		} else if(!userExists(new User(username))){
 			response.sendRedirect(response.encodeRedirectURL("Register.jsp"));//TODO user does not exist
+			return;
 		}  else{
 			User user = new User(username);
 			if(passwordCorrect(user, password)){
@@ -75,6 +77,7 @@ public class ProcessLogin extends HttpServlet {
 			} else {
 				//TODO throw exception
 				response.sendRedirect(response.encodeRedirectURL("WrongPassword.jsp"));
+				return;
 			}
 			
 			session.setAttribute("username",user);
@@ -89,12 +92,14 @@ public class ProcessLogin extends HttpServlet {
 			}
 			
 			if(session.getAttribute("loginRequester")!=null){
-			String toPage = (String)session.getAttribute("loginRequester");
+			String toPage = session.getAttribute("loginRequester").toString();
 			session.removeAttribute("loginRequester");
-			response.sendRedirect(response.encodeRedirectURL(toPage));//TODO had problem here
+			response.sendRedirect(response.encodeRedirectURL(toPage));
+			return;
 
 			} else {
 				response.sendRedirect(response.encodeRedirectURL(request.getHeader("referer")));
+				return;
 			}
 		
 		}
@@ -112,9 +117,14 @@ public class ProcessLogin extends HttpServlet {
 	}
 	
 	private boolean passwordCorrect(User user, String password){
+		
 		Map<String, User> userMap = getUserMap();
 		User onServer = userMap.get(user.getUN());
 		
+		if(!userMap.containsKey(user.getUN()))
+			return false;
+		if(onServer==null)
+			return false;
 		if (onServer.passwordCorrect(password)){
 			return true;
 		}
