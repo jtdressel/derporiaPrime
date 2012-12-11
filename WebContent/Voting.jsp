@@ -52,7 +52,15 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<%
 	Object d = getServletContext().getAttribute("jdresselAssertionSet");
 	
-	if(d==null){
+	Set<Assertion> emptyCheck = null;
+	
+	try{ 
+		emptyCheck = (Set<Assertion>)d;
+	} catch (Exception e){
+		
+	}
+	//TODO redo this to ensure type safety
+	if((d==null)||(emptyCheck.isEmpty())){
 	%>
 	<p>There are currently no claims :(</p>
 	
