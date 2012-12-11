@@ -23,7 +23,8 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 }
 */-->
 </script>
-
+	<%@ page import="jdressel.DerporiaPrime.Utility" %>
+	<%Utility.load(application);%> 
 <link rel="stylesheet" type="text/css" href="derporiaStyle.css"/>
 
 <script src="derporia.js"></script>

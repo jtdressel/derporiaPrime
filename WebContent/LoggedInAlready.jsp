@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css" href="derporiaStyle.css"/>
 
 <script src="derporiaAssert.js"></script>
+	<%@ page import="jdressel.DerporiaPrime.Utility" %>
+	<%Utility.load(application);%> 
 </head>
 
 

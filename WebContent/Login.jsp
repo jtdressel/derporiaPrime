@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css" href="loginStyle.css"/>
 
 <script src="login.js"></script>
+	<%@ page import="jdressel.DerporiaPrime.Utility" %>
+	<%Utility.load(application);%> 
 </head>
 
 <%

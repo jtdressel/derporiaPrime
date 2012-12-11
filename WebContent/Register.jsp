@@ -27,6 +27,8 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 <link rel="stylesheet" type="text/css" href="loginStyle.css"/>
 
 <script src="derporia.js"></script>
+	<%@ page import="jdressel.DerporiaPrime.Utility" %>
+	<%Utility.load(application);%> 
 </head>
 
 	<body>

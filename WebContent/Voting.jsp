@@ -34,19 +34,20 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<h1><a href="Derporia.jsp">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1> 
 	<%@ page import="java.util.*, jdressel.DerporiaPrime.Assertion, java.util.Collections, java.util.ArrayList" %>
 	<%@ page import="jdressel.DerporiaPrime.Utility" %>
+	<%Utility.load(application);%> 
 	<%@ page language="java"%>
 
 
 
 	<%
+	
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
 
 	session.setAttribute("loginRequester", "Voting.jsp");
 	%>
 	<jsp:include page="UsernameHeader.jsp" />
 	
-
-
+	
 
 
 	<%
@@ -83,6 +84,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 				<p>Claim: <%= assertion.getName() %> <% if(assertion.getUN().equals(Utility.getUsername(derp))){%><a href="ProcessDeleteAssertion?id=<%= assertion.getId() %>">Delete Claim</a><% } %></p>
 				<p>Support:<%= assertion.getBody() %></p>
 				<p>By: <%=assertion.getUN() %></p>
+				
 			</td>
 		</tr>
 	</tbody>
