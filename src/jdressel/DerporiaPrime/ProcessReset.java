@@ -36,27 +36,18 @@ public class ProcessReset extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.invalidate(); //(I thought about invalidating all sessions, but did not want to mess with the other webapps in the context)
+		getServletContext().setAttribute("jdresselUserMap",null);//Remove assertions
 		
 		getServletContext().setAttribute("jdresselAssertionSet",null);//Remove assertions
 		
-		{
-			try {
-				Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-			} catch (ParserConfigurationException | TransformerException
-					| SAXException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			try {
-				Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-			} catch (ParserConfigurationException | TransformerException
-					| SAXException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			super.destroy();
+		try {
+			Utility.wipeXML();
+		} catch (ParserConfigurationException | TransformerException
+				| SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 		String destination = request.getHeader("referer")==null ? "Derporia.jsp" : request.getHeader("referer");
 		response.sendRedirect(response.encodeRedirectURL(destination));
 	}

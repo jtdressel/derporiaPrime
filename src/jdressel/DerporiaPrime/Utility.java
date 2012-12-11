@@ -297,4 +297,11 @@ public class Utility {
 		transformer.transform(source, result);
 	}
 	
+	public static void wipeXML()throws ParserConfigurationException, TransformerException, SAXException, IOException{
+		
+		File file = new File(fileLocation+"assertions.xml");
+		file.delete();
+		file = new File(fileLocation+"users.xml");
+		file.delete();
+	}
 }
