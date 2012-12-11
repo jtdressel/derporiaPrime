@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Utility {
-	private static final String fileLocation = "H:\\Dropbox\\Eclipse Workspace\\derporiaPrime";// proper practices would use the system.file seperator
+	private static final String fileLocation = "H:\\Dropbox\\Eclipse Workspace\\derporiaPrime\\";// proper practices would use the system.file seperator
 	public static String loginHeaderBanner(Object userObject){
 		String username = "";
 		//Determine user
@@ -92,9 +92,9 @@ public class Utility {
 	
 	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
 		if(!isLoaded(context)){
-			File userFile = new File(fileLocation+"\\users.xml");
+			File userFile = new File(fileLocation+"users.xml");
 
-			File assertionFile = new File(fileLocation+"\\assertions.xml");
+			File assertionFile = new File(fileLocation+"assertions.xml");
 			HashMap<String, User> userMap = new HashMap<String, User>();
 			Set<Assertion> assertionSet = new HashSet<Assertion>();
 			
