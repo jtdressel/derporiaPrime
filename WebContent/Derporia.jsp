@@ -35,7 +35,7 @@
 	<tbody>
 		<tr>
 			<td>
-				<a class="regular" href="Voting.jsp">Vote On Assertions</a>
+				<input class="regular" type="submit" value="Vote On Assertions" name="Vote On Assertions" onclick="location.href='Voting.jsp' "/>
 			</td>
 		</tr>
 	</tbody>

@@ -19,8 +19,10 @@
 			<input type="password" name="password" placeholder="password"/>
 			<input class="regular" type="submit" value="Login" name="Log In"/>
 			
-			<a href="Register.jsp">register</a>
+			<input class="regular" type="submit" value="Register" name="Register" onclick="location.href='Register.jsp' "/>
 		</form>
+		
+		
 	</div>
 </body>
 </html>

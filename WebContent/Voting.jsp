@@ -72,7 +72,7 @@ if (Utility.isLoggedIn(session)) {
 	<tbody>
 		<tr>
 			<td>
-				<a class="regular" href="Derporia.jsp">Make a Claim</a>
+				<input class="regular" type="submit" value="Make a Claim" name="Make a Claim" onclick="location.href='Derporia.jsp' "/>
 			</td>
 		</tr>
 	</tbody>
@@ -115,13 +115,13 @@ if (Utility.isLoggedIn(session)) {
 								<tbody>
 									<tr>
 										<td align="left">
-											<a class="red" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
+											<p><input class="regular" type="submit" value="Vote Disagree" name="Vote Disagree" onclick="location.href='ProcessVote?vote=disagree&id=<%= assertion.getId() %>' "/></p>
 										</td>
 										<td align="center">
-											<a class="yellow" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
+											<p><input class="regular" type="submit" value="Vote Unsure" name="Vote Unsure" onclick="location.href='ProcessVote?vote=unsure&id=<%= assertion.getId() %>' "/></p>
 										</td>
 										<td align="right">
-											<a class="green" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
+											<p><input class="regular" type="submit" value="Vote Convinced" name="Vote Convinced" onclick="location.href='ProcessVote?vote=convinced&id=<%= assertion.getId() %>' "/></p>
 										</td>
 									</tr>
 								</tbody>
