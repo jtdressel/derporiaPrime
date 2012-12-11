@@ -16,7 +16,7 @@
 	<body>
 	<h1><a href="Derporia.jsp">Derporia</a> Error: Already Logged In</h1> 
 
-	<p>You are arleady logged in. <form metod="link" action="ProcessLogout"><input type="submit" value="logout"/></form></p>
+	<p>You are arleady logged in. <form metod="link" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessLogout"><input type="submit" value="logout"/></form></p>
 			
 <h4>By James Robertson and James Dressel</h4>
 </body>

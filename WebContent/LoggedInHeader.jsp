@@ -7,5 +7,5 @@
 	String username = Utility.getUsername(session);
 %>
 <div class="username">
-	You are logged in as <%= username %> <a href=ProcessLogout> Logout</a>
+	You are logged in as <%= username %> <a href=http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessLogout> Logout</a>
 </div>

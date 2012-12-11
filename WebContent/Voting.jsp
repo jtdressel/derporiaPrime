@@ -43,7 +43,7 @@ if (Utility.isLoggedIn(session)) {
 	<%
 	
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
-	session.setAttribute("loginRequester", "Voting.jsp");
+	session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Voting.jsp");
 	%>
 	<jsp:include page="UsernameHeader.jsp" />
 	
@@ -93,7 +93,7 @@ if (Utility.isLoggedIn(session)) {
 				<tbody>
 					<tr>
 						<td>
-							<p>Post by <%=assertion.getUN() %><% if(assertion.getUN().equals(Utility.getUsername(derp))){%> <a href="ProcessDeleteAssertion?id=<%= assertion.getId() %>">Delete Claim</a><% } %></p>
+							<p>Post by <%=assertion.getUN() %><% if(assertion.getUN().equals(Utility.getUsername(derp))){%> <a href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessDeleteAssertion?id=<%= assertion.getId() %>">Delete Claim</a><% } %></p>
 						</td>
 					</tr>
 					<tr>
@@ -115,13 +115,13 @@ if (Utility.isLoggedIn(session)) {
 								<tbody>
 									<tr>
 										<td align="left">
-											<a class="regular" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
+											<a class="regular" href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
 										</td>
 										<td align="center">
-											<a class="regular" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
+											<a class="regular" href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
 										</td>
 										<td align="right">
-											<a class="regular" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
+											<a class="regular" href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
 										</td>
 									</tr>
 								</tbody>

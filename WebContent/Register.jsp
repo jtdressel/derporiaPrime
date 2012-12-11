@@ -38,7 +38,7 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		<tbody>
 			<tr>
 				<td>
-					<form name="loginForm"  onsubmit="return validateForm()" action="ProcessRegistration" method="post">
+					<form name="loginForm"  onsubmit="return validateForm()" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessRegistration" method="post">
 
 						<input type="text" class="login" name="username" autofocus="autofocus" placeholder="Username:" onkeypress="checkSubmit(event);return noEnter(event)">
 						<input type="password" class="login" name="password"  placeholder="Password" onkeypress="checkSubmit(event);return noEnter(event)">

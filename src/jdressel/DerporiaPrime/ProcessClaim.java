@@ -26,14 +26,14 @@ public class ProcessClaim extends HttpServlet {
      */
     public ProcessClaim() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Send them somewhere smart
+		response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp"));
 	}
 
 	/**
@@ -46,13 +46,12 @@ public class ProcessClaim extends HttpServlet {
 		
 		try {
 			Utility.load(this.getServletContext());
-		} catch (SAXException | ParserConfigurationException e1) {
-			// TODO Auto-generated catch block
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		
 		if(session.getAttribute("username")==null){
-			response.sendRedirect(response.encodeRedirectURL("Login.jsp"));//ERROR, send the user back
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Login.jsp"));//ERROR, send the user back
 		} else {
 			Assertion a = new Assertion(session.getAttribute("username").toString(), claim, assertions);
 			if(getServletContext().getAttribute("jdresselAssertionSet")==null){
@@ -69,7 +68,7 @@ public class ProcessClaim extends HttpServlet {
 			
 			setOfAssets.add(a);
 			getServletContext().setAttribute("jdresselAssertionSet",setOfAssets);
-			response.sendRedirect(response.encodeRedirectURL("Voting.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Voting.jsp"));
 		}
 	}
 	private void setClaimAssertion(HttpServletRequest request){
@@ -82,17 +81,13 @@ public class ProcessClaim extends HttpServlet {
 	{
 		try {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		try {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		super.destroy();

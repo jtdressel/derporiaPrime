@@ -49,12 +49,12 @@ private String id;
      	HttpSession session = request.getSession();
     	setVariables(request);
     	if(session.getAttribute("username")==null){
-    		res.sendRedirect(res.encodeRedirectURL("Login.jsp"));
+    		res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Login.jsp"));
     	} else {
     		User derp = new User("derp");
     		try {
 				Utility.load(this.getServletContext());
-			} catch (SAXException | ParserConfigurationException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -105,7 +105,7 @@ private String id;
 
     				assertions.add(underVote);
     				//getServletContext().setAttribute("jdresselAssertionSet",assertions);
-    				res.sendRedirect(res.encodeRedirectURL("Voting.jsp"));
+    				res.sendRedirect(res.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Voting.jsp"));
     			}
     		
     		}
@@ -121,7 +121,7 @@ private String id;
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
+		response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp"));
 	}
 	private void setVariables(HttpServletRequest request){
 		vote = request.getParameter("vote")==null ? "" : request.getParameter("vote");
@@ -132,16 +132,14 @@ private String id;
 	{
 		try {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

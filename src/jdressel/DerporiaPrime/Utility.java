@@ -23,12 +23,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Utility {
-	private static final String fileLocation = "//home//jtdressel//swe//derporiaPrime//";// proper practices would use the system.file seperator
+	private static final String fileLocation = "//data//apps-swe432//swe432//WEB-INF//data/";// proper practices would use the system.file seperator
 	//Silly windows path H:\\Dropbox\\Eclipse Workspace\\derporiaPrime
 	//awesome linux path: //home//jtdressel//swe//derporiaPrime//
 	//data//apps-swe432//swe432//WEB-INF//classes//jdressel//DerporiaPrime";
-	private static final String usersXML = fileLocation+"users.xml";
-	private static final String assertionsXML = fileLocation+"users.xml";
+	///data/apps-swe432/swe432/WEB-INF/data/
+	private static final String usersXML = fileLocation+"jdresselusers.xml";
+	private static final String assertionsXML = fileLocation+"jdresselassertions.xml";
 	public static String loginHeaderBanner(Object userObject){
 		String username = "";
 		//Determine user

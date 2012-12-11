@@ -42,8 +42,7 @@ public class ProcessReset extends HttpServlet {
 		
 		try {
 			Utility.wipeXML();
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -62,16 +61,14 @@ public class ProcessReset extends HttpServlet {
 	{
 		try {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

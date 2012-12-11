@@ -24,7 +24,7 @@
 	<%
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
 
-	session.setAttribute("loginRequester", "Derporia.jsp");
+	session.setAttribute("loginRequester", "http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp");
 	%>
 	<jsp:include page="UsernameHeader.jsp" />
 	
@@ -44,7 +44,7 @@
 		<tbody>
 			<tr>
 				<td>
-					<form name="assertionForm"  onsubmit="return validateForm()" action="ProcessClaim" method="post">
+					<form name="assertionForm"  onsubmit="return validateForm()" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessClaim" method="post">
 
 						<textarea cols="30" rows="1" name="claim" autofocus="autofocus" placeholder="Make a Claim" onkeypress="checkSubmit(event);return noEnter(event)"></textarea>
 					<br>
@@ -67,7 +67,7 @@
 		</tbody></table>
 		</form>
 		<p id="error"></p>
-		<a href="ProcessReset">Reset all asertions</a>
+		<a href="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessReset">Reset all asertions</a>
 <p>We made modifications 1, 2, 3, 4. Diagram hard copy will be submitted in class.</p>
 <h4>By James Robertson and James Dressel Homework 11</h4>
 </body>

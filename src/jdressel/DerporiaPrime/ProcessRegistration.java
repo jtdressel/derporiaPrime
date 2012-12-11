@@ -37,7 +37,7 @@ public class ProcessRegistration extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
+		response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp"));
 	}
 
 	/**
@@ -56,19 +56,19 @@ public class ProcessRegistration extends HttpServlet {
 		
 		try {
 			Utility.load(context);
-		} catch (SAXException | ParserConfigurationException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		if(username.equals("")){
-			response.sendRedirect(response.encodeRedirectURL("UsernameMustNotBeEmpty.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/UsernameMustNotBeEmpty.jsp"));
 		} else if (password.equals("")){
-			response.sendRedirect(response.encodeRedirectURL("PasswordMustNotBeEmpty.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/PasswordMustNotBeEmpty.jsp"));
 		} else if(session.getAttribute("username")!=null){
-			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/LoggedInAlready.jsp"));
 		} else if(getUserMap().containsKey(username)){
-			response.sendRedirect(response.encodeRedirectURL("UserAlreadyExists.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/UserAlreadyExists.jsp"));
 		} else
 		{
 			User user = new User(username, password);
@@ -78,9 +78,9 @@ public class ProcessRegistration extends HttpServlet {
 			if(session.getAttribute("loginRequester")!=null){
 				String toPage = session.getAttribute("loginRequester").toString();
 				session.removeAttribute("loginRequester");
-				response.sendRedirect(response.encodeRedirectURL(toPage));
+				response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp"));
 			} else {
-				response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
+				response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp"));
 			}	
 		}
 	}
@@ -113,16 +113,14 @@ public class ProcessRegistration extends HttpServlet {
 	{
 		try {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -50,25 +50,23 @@ public class ProcessDeleteAssertion extends HttpServlet {
     				getServletContext().setAttribute("jdresselAssertionSet", assertions);
     				try {
     					Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-    				} catch (ParserConfigurationException | TransformerException
-    						| SAXException | IOException e) {
+    				} catch (Exception e) {
     					e.printStackTrace();
     				}
     				
     				try {
     					Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-    				} catch (ParserConfigurationException | TransformerException
-    						| SAXException | IOException e) {
+    				} catch (Exception e) {
     					e.printStackTrace();
     				}
 
-    				response.sendRedirect(response.encodeRedirectURL("Voting.jsp"));
+    				response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Voting.jsp"));
     			}
     		
     		}
 		}
 		catch (Exception e){
-			response.sendRedirect(response.encodeRedirectURL("Voting.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Voting.jsp"));
 		}
 	}
 	
@@ -83,15 +81,13 @@ public class ProcessDeleteAssertion extends HttpServlet {
 	{
 		try {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		try {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		super.destroy();

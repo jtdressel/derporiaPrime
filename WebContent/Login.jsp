@@ -27,7 +27,7 @@ session.setAttribute("loginRequester", refText);
 		<tbody>
 			<tr>
 				<td>
-					<form name="loginForm"  onsubmit="return validateForm()" action="ProcessLogin" method="post">
+					<form name="loginForm"  onsubmit="return validateForm()" action="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.DerporiaPrime.ProcessLogin" method="post">
 
 						<input type="text" class="login" name="username" autofocus="autofocus" placeholder="Username:" onkeypress="checkSubmit(event);return noEnter(event)">
 						<input type="password" class="login" name="password"  placeholder="Password" onkeypress="checkSubmit(event);return noEnter(event)">
@@ -47,6 +47,7 @@ session.setAttribute("loginRequester", refText);
 		</tr>
 		</tbody></table>
 		</form>
+		<a href="Register.jsp">Register</a> if you don't have an account. 
 		<p id="error"></p>
 		
 <h4>By James Robertson and James Dressel Homework 11</h4>

@@ -38,7 +38,7 @@ public class ProcessLogin extends HttpServlet {
 		* Send the user back to where they belong
 		*/
 	 
-		String destination="Derporia.jsp";
+		String destination="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Derporia.jsp";
 		response.sendRedirect(response.encodeRedirectURL(destination));
 	}
 
@@ -52,7 +52,7 @@ public class ProcessLogin extends HttpServlet {
 		
 		try {
 			Utility.load(this.getServletContext());
-		} catch (SAXException | ParserConfigurationException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -63,10 +63,10 @@ public class ProcessLogin extends HttpServlet {
 		
 		if(session.getAttribute("username")!=null){
 		//user is already logged in
-			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/LoggedInAlready.jsp"));
 			return;
 		} else if(!userExists(new User(username))){
-			response.sendRedirect(response.encodeRedirectURL("Register.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/Register.jsp"));
 			return;
 		}  else{
 			User user = new User(username);
@@ -74,7 +74,7 @@ public class ProcessLogin extends HttpServlet {
 				user = new User(username, password);
 				//good to go
 			} else {
-				response.sendRedirect(response.encodeRedirectURL("WrongPassword.jsp"));
+				response.sendRedirect(response.encodeRedirectURL("http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/DerporiaPrime/WrongPassword.jsp"));
 				return;
 			}
 			
@@ -83,8 +83,7 @@ public class ProcessLogin extends HttpServlet {
 			
 			try {
 				Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-			} catch (ParserConfigurationException | TransformerException
-					| SAXException | IOException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -154,15 +153,13 @@ public class ProcessLogin extends HttpServlet {
 	{
 		try {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		try {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
-		} catch (ParserConfigurationException | TransformerException
-				| SAXException | IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		super.destroy();
