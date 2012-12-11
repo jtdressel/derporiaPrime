@@ -36,7 +36,6 @@ public class ProcessDeleteAssertion extends HttpServlet {
 		
 		String id = request.getParameter("id")==null ? "" : request.getParameter("id");
 		Object d = getServletContext().getAttribute("jdresselAssertionSet");
-		//TODO Checks and stuff to make sure this runs
 		try{
 			Set assertions = (Set) d;
 			Assertion underVote = null;
@@ -53,7 +52,6 @@ public class ProcessDeleteAssertion extends HttpServlet {
     					Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
     				} catch (ParserConfigurationException | TransformerException
     						| SAXException | IOException e) {
-    					// TODO Auto-generated catch block
     					e.printStackTrace();
     				}
     				
@@ -61,7 +59,6 @@ public class ProcessDeleteAssertion extends HttpServlet {
     					Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
     				} catch (ParserConfigurationException | TransformerException
     						| SAXException | IOException e) {
-    					// TODO Auto-generated catch block
     					e.printStackTrace();
     				}
 
@@ -69,13 +66,9 @@ public class ProcessDeleteAssertion extends HttpServlet {
     			}
     		
     		}
-
-    		
-    	
 		}
 		catch (Exception e){
 			response.sendRedirect(response.encodeRedirectURL("Voting.jsp"));
-			//TODO not this
 		}
 	}
 	
@@ -92,7 +85,6 @@ public class ProcessDeleteAssertion extends HttpServlet {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
 		} catch (ParserConfigurationException | TransformerException
 				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -100,7 +92,6 @@ public class ProcessDeleteAssertion extends HttpServlet {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
 		} catch (ParserConfigurationException | TransformerException
 				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		super.destroy();

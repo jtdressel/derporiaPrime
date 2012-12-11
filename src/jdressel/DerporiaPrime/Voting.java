@@ -40,10 +40,8 @@ public class Voting extends HttpServlet {
     	try {
 			printBody(request, response);
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
@@ -54,7 +52,6 @@ public class Voting extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 	public void printTop(HttpServletResponse res) throws IOException{
 		res.setContentType ("text/html");
@@ -184,7 +181,6 @@ public class Voting extends HttpServlet {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
 		} catch (ParserConfigurationException | TransformerException
 				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -192,7 +188,6 @@ public class Voting extends HttpServlet {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
 		} catch (ParserConfigurationException | TransformerException
 				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		super.destroy();

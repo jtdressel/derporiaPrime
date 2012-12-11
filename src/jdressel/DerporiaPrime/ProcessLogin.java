@@ -53,7 +53,6 @@ public class ProcessLogin extends HttpServlet {
 		try {
 			Utility.load(this.getServletContext());
 		} catch (SAXException | ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -75,7 +74,6 @@ public class ProcessLogin extends HttpServlet {
 				user = new User(username, password);
 				//good to go
 			} else {
-				//TODO throw exception
 				response.sendRedirect(response.encodeRedirectURL("WrongPassword.jsp"));
 				return;
 			}
@@ -136,7 +134,6 @@ public class ProcessLogin extends HttpServlet {
 		Map<String, User> userMap = new HashMap<String, User>();
 		Object attribute = context.getAttribute("jdresselUserMap");
 		if(attribute!=null){
-			//TODO check to see if this is correct class
 			userMap = (Map<String, User>)attribute;
 		}
 		return userMap;
@@ -148,7 +145,6 @@ public class ProcessLogin extends HttpServlet {
 		Map<String, User> userMap = new HashMap<String, User>();
 		Object attribute = context.getAttribute("jdresselUserMap");
 		if(attribute!=null){
-			//TODO check to see if this is correct class
 			userMap = (Map<String, User>)attribute;
 		}
 		userMap.put(user.getUN(), user);
@@ -160,7 +156,6 @@ public class ProcessLogin extends HttpServlet {
 			Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
 		} catch (ParserConfigurationException | TransformerException
 				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -168,7 +163,6 @@ public class ProcessLogin extends HttpServlet {
 			Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
 		} catch (ParserConfigurationException | TransformerException
 				| SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		super.destroy();

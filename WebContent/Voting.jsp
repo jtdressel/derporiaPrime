@@ -115,13 +115,13 @@ if (Utility.isLoggedIn(session)) {
 								<tbody>
 									<tr>
 										<td align="left">
-											<a class="red" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
+											<a class="regular" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
 										</td>
 										<td align="center">
-											<a class="yellow" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
+											<a class="regular" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
 										</td>
 										<td align="right">
-											<a class="green" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
+											<a class="regular" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
 										</td>
 									</tr>
 								</tbody>

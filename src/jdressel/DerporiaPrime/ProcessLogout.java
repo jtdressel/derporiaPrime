@@ -51,7 +51,7 @@ public class ProcessLogout extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.invalidate();
-		String destination = (request.getHeader("referer")!= null ? request.getHeader("referer") : null);//TODO point this to derporia home
+		String destination = (request.getHeader("referer")!= null ? request.getHeader("referer") : null);
 		response.sendRedirect(response.encodeRedirectURL(request.getHeader("referer")));
 		
 	}
@@ -60,7 +60,6 @@ public class ProcessLogout extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 	
 	public void destroy()

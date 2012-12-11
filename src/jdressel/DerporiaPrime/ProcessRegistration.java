@@ -49,8 +49,8 @@ public class ProcessRegistration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//create user
 		//login as user
-		String username = request.getParameter("username")==null ? "" : request.getParameter("username");//TODO: error page if null
-		String password = request.getParameter("password")==null ? "" : request.getParameter("password");//TODO error page if null
+		String username = request.getParameter("username")==null ? "" : request.getParameter("username");
+		String password = request.getParameter("password")==null ? "" : request.getParameter("password");
 		HttpSession session = request.getSession();//If a session does not exist, this will start one
 		ServletContext context = getServletContext();
 		
@@ -69,7 +69,6 @@ public class ProcessRegistration extends HttpServlet {
 			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));
 		} else if(getUserMap().containsKey(username)){
 			response.sendRedirect(response.encodeRedirectURL("UserAlreadyExists.jsp"));
-			//TODO check to see if the user exists
 		} else
 		{
 			User user = new User(username, password);
@@ -93,7 +92,6 @@ public class ProcessRegistration extends HttpServlet {
 		Map<String, User> userMap = new HashMap<String, User>();
 		Object attribute = context.getAttribute("jdresselUserMap");
 		if(attribute!=null){
-			//TODO check to see if this is correct class
 			userMap = (Map<String, User>)attribute;
 		}
 		return userMap;
@@ -105,7 +103,6 @@ public class ProcessRegistration extends HttpServlet {
 		Map<String, User> userMap = new HashMap<String, User>();
 		Object attribute = context.getAttribute("jdresselUserMap");
 		if(attribute!=null){
-			//TODO check to see if this is correct class
 			userMap = (Map<String, User>)attribute;
 		}
 		userMap.put(user.getUN(), user);

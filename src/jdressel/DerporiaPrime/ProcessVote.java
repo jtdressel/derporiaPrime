@@ -41,7 +41,7 @@ private String id;
     public void doGet(HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException  {
     	 
     	/*
-    	* Send the user back to where they belong
+    	* Send the user back to where they belVotingong
     	*/
      
     	//String destination="http://apps-swe432.vse.gmu.edu:8080/swe432/servlet/jdressel.Derporia64.Voting";
@@ -52,8 +52,6 @@ private String id;
     		res.sendRedirect(res.encodeRedirectURL("Login.jsp"));
     	} else {
     		User derp = new User("derp");
-    		//TODO check for empty
-
     		try {
 				Utility.load(this.getServletContext());
 			} catch (SAXException | ParserConfigurationException e) {
@@ -123,7 +121,7 @@ private String id;
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
 	}
 	private void setVariables(HttpServletRequest request){
 		vote = request.getParameter("vote")==null ? "" : request.getParameter("vote");
