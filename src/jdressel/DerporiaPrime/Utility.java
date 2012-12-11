@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Utility {
-	private static final String fileLocation = "//home//jtdressel//swe//derporiaPrime//";// proper practices would use the system.file seperator
+	private static final String fileLocation = "H:\\Dropbox\\Eclipse Workspace\\derporiaPrime";// proper practices would use the system.file seperator
 	public static String loginHeaderBanner(Object userObject){
 		String username = "";
 		//Determine user
@@ -92,9 +92,9 @@ public class Utility {
 	
 	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
 		if(!isLoaded(context)){
-			File userFile = new File(fileLocation+"//users.xml");
+			File userFile = new File(fileLocation+"\\users.xml");
 
-			File assertionFile = new File(fileLocation+"//assertions.xml");
+			File assertionFile = new File(fileLocation+"\\assertions.xml");
 			HashMap<String, User> userMap = new HashMap<String, User>();
 			Set<Assertion> assertionSet = new HashSet<Assertion>();
 			
@@ -109,9 +109,9 @@ public class Utility {
 				  Node assertion = assertionList.item(i);
 			      Element e = (Element)assertion;
 			      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"), e.getAttribute("uuid"));
-			      a.setDisagree(e.getAttributeValue("disagree"));
-			      a.setConvinced(e.getAttributeValue("convinced"));
-			      a.setUnsure(e.getAttributeValue("unsure"));
+			      a.setDisagree(Integer.parseInt(e.getAttribute("disagree")));
+			      a.setConvinced(Integer.parseInt(e.getAttribute("convinced")));
+			      a.setUnsure(Integer.parseInt(e.getAttribute("unsure")));
 			      assertionSet.add(a);
 			      
 				}
@@ -275,11 +275,11 @@ public class Utility {
 				
 				assertion.setAttribute("username", a.getUN());
 				
-				assertion.setAttribute("disagree", a.getDisagree());
+				assertion.setAttribute("disagree", String.valueOf(a.getDisagree()));
 				
-				assertion.setAttribute("convinced", a.getConvinced());
+				assertion.setAttribute("convinced", String.valueOf(a.getConvinced()));
 				
-				assertion.setAttribute("unsure", a.getUnsure());
+				assertion.setAttribute("unsure", String.valueOf(a.getUnsure()));
 			}
 		}
 		
