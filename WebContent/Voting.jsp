@@ -6,23 +6,6 @@
 <title>Derporia: the never-ending land of claims</title>
 
 <!-- A project by James Dressel and James Robertson -->
-<script language="JavaScript">
-<!--/* Doesnt Work
-var N = navigator.appName;
-var ua = navigator.userAgent; 
-var tem;
- 
-var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-
-if(ua.match(/(chrome|safari|msie)\/?\s*(\.?\d+(\.\d+)*)/i)){
-document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
-}
-
-else{
-document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle2.css"/>");
-}
-*/-->
-</script>
 
 <link rel="stylesheet" type="text/css" media="screen" href="votingStyle.css" />
 
@@ -85,9 +68,18 @@ if (Utility.isLoggedIn(session)) {
 	<% 	
 	} else {
 		%>
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<a class="regular" href="Derporia.jsp">Make a Claim</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
 <table class="mega">
-	<tr>
-		<td class="mega">
+	
+		
 		<%	
 		Set<Assertion> assertions = (Set<Assertion>)d;
 		ArrayList<Assertion> sorted = new ArrayList<Assertion>(assertions);
@@ -95,6 +87,8 @@ if (Utility.isLoggedIn(session)) {
 		
 		for(Assertion assertion: sorted){
 		%>
+	<tr>
+		<td class="mega">
 			<table class="center">
 				<tbody>
 					<tr>
@@ -113,38 +107,40 @@ if (Utility.isLoggedIn(session)) {
 					</tr>
 				</tbody>
 			</table>		
-		<table class="center">
-			<tbody>
-				<tr>
-					<td>
-						<table width="100%">
-							<tbody>
-								<tr>
-									<td align="left">
-										<a class="red" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
-									</td>
-									<td align="center">
-										<a class="yellow" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
-									</td>
-									<td align="right">
-										<a class="green" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<br />
+			<table class="center">
+				<tbody>
+					<tr>
+						<td>
+							<table width="100%">
+								<tbody>
+									<tr>
+										<td align="left">
+											<a class="red" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
+										</td>
+										<td align="center">
+											<a class="yellow" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
+										</td>
+										<td align="right">
+											<a class="green" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+		</td>
+	</tr>
 		<%	
 		}
 		%>
 		<%	
 	}
 	%> 
-		</td>
-	</tr>
+		
+	
 </table>
 
 <h4>By James Robertson and James Dressel Homework 11</h4>

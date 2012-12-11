@@ -15,7 +15,7 @@ input
 	right: 10px;
 }
 
-button, input.regular
+button, input.regular, a.regular
 {
 	font-family:"Trebuchet MS";
 	text-align: center;
@@ -27,7 +27,7 @@ button, input.regular
 	border: solid 1px #999999;
 	color:white;
 	cursor: pointer;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
+	background: #787878;
 }
 
 button.login
@@ -42,7 +42,7 @@ button.login
 	border: solid 1px #999999;
 	color:white;
 	cursor: pointer;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999999), to(#787878));
+	background: #787878;
 	position: fixed; 
 	top: 37px;
 	right: 16px;

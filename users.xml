@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+  <user password="a" username="f"/>
+  <user password="a" username="James"/>
+  <user password="asdfasdf" username="asdf"/>
+  <user password="" username="j"/>
+  <user password="off" username="Jeff"/>
+</users>

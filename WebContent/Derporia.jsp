@@ -6,25 +6,9 @@
 <title>Derporia: the never-ending land of claims</title>
 
 <!-- A project by James Dressel and James Robertson -->
-<script language="JavaScript">
-<!--/* Doesnt Work
-var N = navigator.appName;
-var ua = navigator.userAgent; 
-var tem;
- 
-var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
 
-if(ua.match(/(chrome|safari|msie)\/?\s*(\.?\d+(\.\d+)*)/i)){
-document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle.css"/>");
-}
-
-else{
-document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.vse.gmu.edu:8080/swe432/jsp/jdressel/Derporia64/derporiaStyle2.css"/>");
-}
-*/-->
-</script>
-	<%@ page import="jdressel.DerporiaPrime.Utility" %>
-	<%Utility.load(application);%> 
+<%@ page import="jdressel.DerporiaPrime.Utility" %>
+<%Utility.load(application);%> 
 <link rel="stylesheet" type="text/css" href="derporiaStyle.css"/>
 
 <script src="derporia.js"></script>
@@ -47,7 +31,15 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<hr>
 
 	<br>
-	
+	<table>
+	<tbody>
+		<tr>
+			<td>
+				<a class="regular" href="Voting.jsp">Vote On Assertions</a>
+			</td>
+		</tr>
+	</tbody>
+	</table>
 	<table class="center" border="1">
 		<tbody>
 			<tr>
