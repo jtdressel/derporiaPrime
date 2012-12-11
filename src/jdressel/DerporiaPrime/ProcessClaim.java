@@ -52,7 +52,7 @@ public class ProcessClaim extends HttpServlet {
 		}
 		
 		if(session.getAttribute("username")==null){
-			response.sendRedirect(response.encodeRedirectURL("Login.jsp"));//TODO//ERROR, send the user back
+			response.sendRedirect(response.encodeRedirectURL("Login.jsp"));//ERROR, send the user back
 		} else {
 			Assertion a = new Assertion(session.getAttribute("username").toString(), claim, assertions);
 			if(getServletContext().getAttribute("jdresselAssertionSet")==null){

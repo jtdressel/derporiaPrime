@@ -37,7 +37,7 @@ public class ProcessRegistration extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));//TODO//ERROR, send the user back
+		response.sendRedirect(response.encodeRedirectURL("Derporia.jsp"));
 	}
 
 	/**

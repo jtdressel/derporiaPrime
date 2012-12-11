@@ -20,7 +20,6 @@ import org.xml.sax.SAXException;
  * Servlet implementation class ProcessReset
  */
 public class ProcessReset extends HttpServlet {
-	private String login="";//TODO
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -58,7 +57,7 @@ public class ProcessReset extends HttpServlet {
 			}
 			super.destroy();
 		}
-		String destination = request.getHeader("referer")==null ? login : request.getHeader("referer");
+		String destination = request.getHeader("referer")==null ? "Derporia.jsp" : request.getHeader("referer");
 		response.sendRedirect(response.encodeRedirectURL(destination));
 	}
 
