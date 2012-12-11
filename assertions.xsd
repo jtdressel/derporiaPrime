@@ -10,9 +10,9 @@
                 <xs:attribute type="xs:string" name="title"/>
                 <xs:attribute type="xs:string" name="body"/>
 		<xs:attribute type="xs:string" name="username"/>
-		<xs:attribute type="xs:string" name="disagree"/>
-		<xs:attribute type="xs:string" name="convinced"/>
-		<xs:attribute type="xs:string" name="unsure"/>
+		<xs:attribute type="xs:int" name="disagree"/>
+		<xs:attribute type="xs:int" name="convinced"/>
+		<xs:attribute type="xs:int" name="unsure"/>
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
