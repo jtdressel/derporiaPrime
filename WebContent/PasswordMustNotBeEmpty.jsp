@@ -21,7 +21,7 @@
 						<input type="text" class="login" name="username" autofocus="autofocus" placeholder="Username:" onkeypress="checkSubmit(event);return noEnter(event)">
 						<input type="password" class="login" name="password"  placeholder="Password" onkeypress="checkSubmit(event);return noEnter(event)">
 
-			<input class="regular" type="submit" value="Login" name="Log In"/>
+			<input class="regular" type="submit" value="Register" name="Register"/>
 		</form>
 			
 <h4>By James Robertson and James Dressel HW 11</h4>
