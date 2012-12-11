@@ -40,7 +40,24 @@ public class ProcessReset extends HttpServlet {
 		
 		getServletContext().setAttribute("jdresselAssertionSet",null);//Remove assertions
 		
-		
+		{
+			try {
+				Utility.saveAssertions((Set<Assertion>) this.getServletContext().getAttribute("jdresselAssertionSet"));
+			} catch (ParserConfigurationException | TransformerException
+					| SAXException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				Utility.saveUsers((Map<String, User>) this.getServletContext().getAttribute("jdresselUserMap"));
+			} catch (ParserConfigurationException | TransformerException
+					| SAXException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			super.destroy();
+		}
 		String destination = request.getHeader("referer")==null ? login : request.getHeader("referer");
 		response.sendRedirect(response.encodeRedirectURL(destination));
 	}
