@@ -271,6 +271,12 @@ public class Utility {
 				assertion.setAttribute("body", a.getBody());
 				
 				assertion.setAttribute("username", a.getUN());
+				
+				assertion.setAttribute("disagree", a.getDisagree());
+				
+				assertion.setAttribute("convinced", a.getConvinced());
+				
+				assertion.setAttribute("unsure", a.getUnsure());
 			}
 		}
 		
