@@ -38,8 +38,8 @@ public class ProcessLogin extends HttpServlet {
 		* Send the user back to where they belong
 		*/
 	 
-		String destination="Derporia.jsp";//TODO
-		response.sendRedirect(response.encodeRedirectURL(destination));//TODO
+		String destination="Derporia.jsp";
+		response.sendRedirect(response.encodeRedirectURL(destination));
 	}
 
 	/**
@@ -64,10 +64,10 @@ public class ProcessLogin extends HttpServlet {
 		
 		if(session.getAttribute("username")!=null){
 		//user is already logged in
-			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));//TODO
+			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));
 			return;
 		} else if(!userExists(new User(username))){
-			response.sendRedirect(response.encodeRedirectURL("Register.jsp"));//TODO user does not exist
+			response.sendRedirect(response.encodeRedirectURL("Register.jsp"));
 			return;
 		}  else{
 			User user = new User(username);

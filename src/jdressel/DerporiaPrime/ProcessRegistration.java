@@ -66,7 +66,7 @@ public class ProcessRegistration extends HttpServlet {
 		} else if (password.equals("")){
 			response.sendRedirect(response.encodeRedirectURL("PasswordMustNotBeEmpty.jsp"));
 		} else if(session.getAttribute("username")!=null){
-			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));//TODO
+			response.sendRedirect(response.encodeRedirectURL("LoggedInAlready.jsp"));
 		} else if(getUserMap().containsKey(username)){
 			response.sendRedirect(response.encodeRedirectURL("UserAlreadyExists.jsp"));
 			//TODO check to see if the user exists
@@ -74,7 +74,7 @@ public class ProcessRegistration extends HttpServlet {
 		{
 			User user = new User(username, password);
 			addUserToMap(user);
-			//TODO add user to the map jdresselUserSet
+			
 			session.setAttribute("username",user);
 			if(session.getAttribute("loginRequester")!=null){
 				String toPage = session.getAttribute("loginRequester").toString();

@@ -69,7 +69,7 @@ public class ProcessClaim extends HttpServlet {
 			
 			setOfAssets.add(a);
 			getServletContext().setAttribute("jdresselAssertionSet",setOfAssets);
-			response.sendRedirect(response.encodeRedirectURL("Voting.jsp"));//TODO
+			response.sendRedirect(response.encodeRedirectURL("Voting.jsp"));
 		}
 	}
 	private void setClaimAssertion(HttpServletRequest request){
