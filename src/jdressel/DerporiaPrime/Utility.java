@@ -257,18 +257,21 @@ public class Utility {
 		doc.appendChild(assertions);
 		 
 		// assertion elements
-		for(Assertion a: assertionSet){
-			Element assertion = doc.createElement("assertion");
-			assertions.appendChild(assertion);
-			
-			assertion.setAttribute("uuid",	a.getId());
-			
-			assertion.setAttribute("title", a.getName());
-			
-			assertion.setAttribute("body", a.getBody());
-			
-			assertion.setAttribute("username", a.getUN());
+		if(assertionSet!=null){
+			for(Assertion a: assertionSet){
+				Element assertion = doc.createElement("assertion");
+				assertions.appendChild(assertion);
+				
+				assertion.setAttribute("uuid",	a.getId());
+				
+				assertion.setAttribute("title", a.getName());
+				
+				assertion.setAttribute("body", a.getBody());
+				
+				assertion.setAttribute("username", a.getUN());
+			}
 		}
+		
 		
 		// write the content into xml file
 		Transformer transformer = TransformerFactory.newInstance().newTransformer();
