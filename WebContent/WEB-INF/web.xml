@@ -119,4 +119,14 @@
     <servlet-name>ProcessDeleteAssertion</servlet-name>
     <url-pattern>/ProcessDeleteAssertion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShutdownTomcat</display-name>
+    <servlet-name>ShutdownTomcat</servlet-name>
+    <servlet-class>jdressel.DerporiaPrime.ShutdownTomcat</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShutdownTomcat</servlet-name>
+    <url-pattern>/ShutdownTomcat</url-pattern>
+  </servlet-mapping>
 </web-app>

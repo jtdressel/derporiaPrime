@@ -49,7 +49,7 @@ private String id;
      	HttpSession session = request.getSession();
     	setVariables(request);
     	if(session.getAttribute("username")==null){
-    		res.sendRedirect(res.encodeRedirectURL(""));//TODO ERROR, send the user back
+    		res.sendRedirect(res.encodeRedirectURL("Login.jsp"));
     	} else {
     		User derp = new User("derp");
     		//TODO check for empty
