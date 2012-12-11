@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <assertions>
+  <assertion  body="He is tall, his last name is Robertson, and stuff" convinced="9001" diasagee="0" title="I think james is super" unsure="0" username="AllHotWomen" uuid="3437fe44-1f00-44e8-8709-51a2aecef4e6" />
   <assertion body="asdfsadfasdfsd" convinced="0" disagree="0" title="asdf" unsure="0" username="asdf" uuid="540a9b00-5d71-4c71-9446-9aa9fc86f031"/>
   <assertion body="asdfasdf" convinced="0" disagree="0" title="asdf" unsure="0" username="asdf" uuid="a370e283-8be0-428d-9e7c-8efdb9ef79d3"/>
   <assertion body="aaaaaa" convinced="0" disagree="0" title="aa" unsure="0" username="Jeff" uuid="601b2d7e-5aac-4df0-9a09-6f8efcc4eb81"/>
