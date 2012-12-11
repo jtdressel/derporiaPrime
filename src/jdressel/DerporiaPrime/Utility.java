@@ -109,6 +109,9 @@ public class Utility {
 				  Node assertion = assertionList.item(i);
 			      Element e = (Element)assertion;
 			      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"), e.getAttribute("uuid"));
+			      a.setDisagree(e.getAttribute("disagree"));
+			      a.setConvinced(e.getAttribute("convinced"));
+			      a.setUnsure(e.getAttribute("unsure"));
 			      assertionSet.add(a);
 			      
 				}
@@ -271,6 +274,12 @@ public class Utility {
 				assertion.setAttribute("body", a.getBody());
 				
 				assertion.setAttribute("username", a.getUN());
+				
+				assertion.setAttribute("disagree", a.getDisagree());
+				
+				assertion.setAttribute("convinced", a.getConvinced());
+				
+				assertion.setAttribute("unsure", a.getUnsure());
 			}
 		}
 		
