@@ -26,6 +26,7 @@ public class Utility {
 	private static final String fileLocation = "//home//jtdressel//swe//derporiaPrime//";// proper practices would use the system.file seperator
 	//Silly windows path H:\\Dropbox\\Eclipse Workspace\\derporiaPrime
 	//awesome linux path: //home//jtdressel//swe//derporiaPrime//
+
 	public static String loginHeaderBanner(Object userObject){
 		String username = "";
 		//Determine user
