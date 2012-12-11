@@ -24,14 +24,32 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 */-->
 </script>
 
-<link rel="stylesheet" type="text/css" href="derporiaStyle.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="votingStyle.css" />
 
-<script src="derporia.js"></script>
+
+<script src="votingStyle.js" /> </script>
+
 
 </head>
 
 	<body>
+	<%
+if (Utility.isLoggedIn(session)) {
+%>
+<jsp:include page="LoggedInHeader.jsp" />
+<%
+} else {
+%>
+
+<jsp:include page="LoginHeader.jsp" />
+<%
+}
+%>
 	<h1><a href="Derporia.jsp">Derporia</a>: the never-ending land of <del>baseless</del> claims</h1> 
+		<hr>
+
+	<br>
+	
 	<%@ page import="java.util.*, jdressel.DerporiaPrime.Assertion, java.util.Collections, java.util.ArrayList" %>
 	<%@ page import="jdressel.DerporiaPrime.Utility" %>
 	<%Utility.load(application);%> 
@@ -42,7 +60,6 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<%
 	
 	Object derp  = session.getAttribute("username")==null ? "" : session.getAttribute("username");
-
 	session.setAttribute("loginRequester", "Voting.jsp");
 	%>
 	<jsp:include page="UsernameHeader.jsp" />
@@ -68,7 +85,9 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 	<% 	
 	} else {
 		%>
-		
+<table class="mega">
+	<tr>
+		<td class="mega">
 		<%	
 		Set<Assertion> assertions = (Set<Assertion>)d;
 		ArrayList<Assertion> sorted = new ArrayList<Assertion>(assertions);
@@ -76,81 +95,58 @@ document.write("<link rel="stylesheet" type="text/css" href="http://apps-swe432.
 		
 		for(Assertion assertion: sorted){
 		%>
-
-<table class="center">
-	<tbody>
-		<tr>
-			<td>
-				<p>Claim: <%= assertion.getName() %> <% if(assertion.getUN().equals(Utility.getUsername(derp))){%><a href="ProcessDeleteAssertion?id=<%= assertion.getId() %>">Delete Claim</a><% } %></p>
-				<p>Support:<%= assertion.getBody() %></p>
-				<p>By: <%=assertion.getUN() %></p>
-				
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<table class="center">
-	<tbody>
-   		<tr>
-   			<td>
-   				<table width = "100%">
-					<tbody>
-						<tr>
-							<td align="left">
-								<%= assertion.getDisagree() %> Disagree
-								<br>
-								<a class="red" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
-							</td>
-							<td align="center">
-								<%= assertion.getUnsure() %> Unsure
-								<br>
-								<a class="yellow" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
-							</td>
-							<td align = "right">
-							<%= assertion.getConvinced() %> Convinced
-							<br>
-							<a class="green" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	</tbody>
-</table>
-		
-		
-		
+			<table class="center">
+				<tbody>
+					<tr>
+						<td>
+							<p>Post by <%=assertion.getUN() %><% if(assertion.getUN().equals(Utility.getUsername(derp))){%> <a href="ProcessDeleteAssertion?id=<%= assertion.getId() %>">Delete Claim</a><% } %></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p class="center"><b>Claim: <br /><%= assertion.getName() %> </b></p>
+							<p class="center"><i>Assertions: <br /><%= assertion.getBody() %></i></p>
+							<p>Convinced: <%= assertion.getConvinced() %><br>
+							Unsure:    <%= assertion.getUnsure() %><br>
+							Disagree:  <%= assertion.getDisagree() %></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>		
+		<table class="center">
+			<tbody>
+				<tr>
+					<td>
+						<table width="100%">
+							<tbody>
+								<tr>
+									<td align="left">
+										<a class="red" href="ProcessVote?vote=disagree&id=<%= assertion.getId() %>">Vote Disagree</a>
+									</td>
+									<td align="center">
+										<a class="yellow" href="ProcessVote?vote=unsure&id=<%= assertion.getId() %>">Vote Unsure</a>
+									</td>
+									<td align="right">
+										<a class="green" href="ProcessVote?vote=convinced&id=<%= assertion.getId() %>">Vote Convinced</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
 		<%	
 		}
 		%>
-			
-		
-		
-		
 		<%	
 	}
-	
 	%> 
-	
+		</td>
+	</tr>
+</table>
 
-	<hr>
-
-	<br>
-	<%
-if (Utility.isLoggedIn(session)) {
-%>
-<jsp:include page="LoggedInHeader.jsp" />
-<%
-} else {
-%>
-
-<jsp:include page="LoginHeader.jsp" />
-<%
-}
-%>
-	
 <h4>By James Robertson and James Dressel Homework 11</h4>
 </body>
 </html>
