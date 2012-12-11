@@ -91,83 +91,85 @@ public class Utility {
 	}
 	
 	public static void load(ServletContext context) throws SAXException, IOException, ParserConfigurationException{
-				
-		File userFile = new File(fileLocation+"//users.xml");
+		if(!isLoaded(context)){
+			File userFile = new File(fileLocation+"//users.xml");
 
-		File assertionFile = new File(fileLocation+"//assertions.xml");
-		HashMap<String, User> userMap = new HashMap<String, User>();
-		Set<Assertion> assertionSet = new HashSet<Assertion>();
-		
-		if(assertionFile.exists()){
-			Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(assertionFile);
-			doc.getDocumentElement().normalize();
+			File assertionFile = new File(fileLocation+"//assertions.xml");
+			HashMap<String, User> userMap = new HashMap<String, User>();
+			Set<Assertion> assertionSet = new HashSet<Assertion>();
+			
+			if(assertionFile.exists()){
+				Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(assertionFile);
+				doc.getDocumentElement().normalize();
 
-			NodeList assertionList = doc.getElementsByTagName("assertion");
- 
-			for (int i=0; i<assertionList.getLength(); i++) {
+				NodeList assertionList = doc.getElementsByTagName("assertion");
 	 
-			  Node assertion = assertionList.item(i);
-		      Element e = (Element)assertion;
-		      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"), e.getAttribute("uuid"));
-		      assertionSet.add(a);
-		      
+				for (int i=0; i<assertionList.getLength(); i++) {
+		 
+				  Node assertion = assertionList.item(i);
+			      Element e = (Element)assertion;
+			      Assertion a = new Assertion(e.getAttribute("username"), e.getAttribute("title"), e.getAttribute("body"), e.getAttribute("uuid"));
+			      assertionSet.add(a);
+			      
+				}
 			}
-		}
-		else
-			assertionFile.createNewFile();
-		if(userFile.exists()){
-			Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(userFile);
-			doc.getDocumentElement().normalize();
+			else
+				assertionFile.createNewFile();
+			if(userFile.exists()){
+				Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(userFile);
+				doc.getDocumentElement().normalize();
 
-			NodeList userList = doc.getElementsByTagName("user");
- 
-			for (int i=0; i<userList.getLength(); i++) {
+				NodeList userList = doc.getElementsByTagName("user");
 	 
-			  Node user = userList.item(i);
-		      Element e = (Element)user;
-		      User u = new User(e.getAttribute("username"), e.getAttribute("password"));
-		      
-		      NodeList userTags = user.getChildNodes();
-		      if(userTags!=null){
-		    	  for (int j=0; j<userList.getLength(); j++) {
-		    		  if(userTags.item(j)!=null&&userTags.item(j).getNodeName()!=null){
-		    			  if(userTags.item(j).getNodeName().equals("disagree")){
-				    		  for(Assertion a: assertionSet){
-				    			  if(a.getId().equals(userTags.item(j)))
-				    				  u.voteDisagree(a);
-				    		  }
-				    		  
-				    	  }
-				    	  if(userTags.item(j).getNodeName().equals("convinced")){
-				    		  for(Assertion a: assertionSet){
-				    			  if(a.getId().equals(userTags.item(j)))
-				    				  u.voteConvinced(a);
-				    		  }
-				    		  
-				    	  }
-				    	  if(userTags.item(j).getNodeName().equals("unsure")){
-				    		  for(Assertion a: assertionSet){
-				    			  if(a.getId().equals(userTags.item(j)))
-				    				  u.voteUnsure(a);
-				    		  }
-		    		  }
-		    		  
+				for (int i=0; i<userList.getLength(); i++) {
+		 
+				  Node user = userList.item(i);
+			      Element e = (Element)user;
+			      User u = new User(e.getAttribute("username"), e.getAttribute("password"));
+			      
+			      NodeList userTags = user.getChildNodes();
+			      if(userTags!=null){
+			    	  for (int j=0; j<userList.getLength(); j++) {
+			    		  if(userTags.item(j)!=null&&userTags.item(j).getNodeName()!=null){
+			    			  if(userTags.item(j).getNodeName().equals("disagree")){
+					    		  for(Assertion a: assertionSet){
+					    			  if(a.getId().equals(userTags.item(j)))
+					    				  u.voteDisagree(a);
+					    		  }
+					    		  
+					    	  }
+					    	  if(userTags.item(j).getNodeName().equals("convinced")){
+					    		  for(Assertion a: assertionSet){
+					    			  if(a.getId().equals(userTags.item(j)))
+					    				  u.voteConvinced(a);
+					    		  }
+					    		  
+					    	  }
+					    	  if(userTags.item(j).getNodeName().equals("unsure")){
+					    		  for(Assertion a: assertionSet){
+					    			  if(a.getId().equals(userTags.item(j)))
+					    				  u.voteUnsure(a);
+					    		  }
+			    		  }
 			    		  
-			    	  }
+				    		  
+				    	  }
 
+				      }
 			      }
-		      }
-		      
-		      
-		      userMap.put(u.getUN(), u);
+			      
+			      
+			      userMap.put(u.getUN(), u);
+				}
 			}
+			else
+				userFile.createNewFile();
+			
+			context.setAttribute("jdresselUserMap", userMap);
+			context.setAttribute("jdresselAssertionSet", assertionSet);		
+		}		
+
 		}
-		else
-			userFile.createNewFile();
-		
-		context.setAttribute("jdresselUserMap", userMap);
-		context.setAttribute("jdresselAssertionSet", assertionSet);		
-	}		
 	
 	public static void saveUsers(Map<String, User> userMap) throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		
